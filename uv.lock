@@ -7262,7 +7262,7 @@ requires-dist = [
     { name = "tba-storage-digital-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-federation", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-gnap", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-key-material", specifier = "==0.4.0.dev2" },
+    { name = "tba-storage-key-material", specifier = "==0.4.0.dev3" },
     { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-oidc", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-operator", specifier = "==0.4.0.dev2" },
@@ -7542,7 +7542,7 @@ requires-dist = [
 
 [[package]]
 name = "tba-storage-key-material"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/01-storage/tba-storage-key-material" }
 dependencies = [
     { name = "tba-primitives-identity", extra = ["storage"] },

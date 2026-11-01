@@ -445,7 +445,7 @@ dependencies = [
     "tba-storage-federation==0.4.0.dev2",
     "tba-storage-principals==0.4.0.dev2",
     "tba-storage-gnap==0.4.0.dev2",
-    "tba-storage-key-material==0.4.0.dev2",
+    "tba-storage-key-material==0.4.0.dev3",
     "tba-storage-oauth==0.4.0.dev2",
     "tba-storage-oidc==0.4.0.dev2",
     "tba-storage-operator==0.4.0.dev2",
