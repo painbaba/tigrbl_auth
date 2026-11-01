@@ -43,12 +43,27 @@ def _read_version(path: Path) -> str:
 
 
 def _replace_version(path: Path, old: str, new: str) -> None:
-    text = path.read_text(encoding="utf-8")
-    old_line = f'version = "{old}"'
-    new_line = f'version = "{new}"'
-    if old_line not in text:
-        raise SystemExit(f"could not locate {old_line!r} in {path}")
-    path.write_text(text.replace(old_line, new_line, 1), encoding="utf-8")
+    text = path.read_bytes().decode("utf-8")
+    expected = tomllib.loads(text)
+    if expected.get("project", {}).get("version") != old:
+        raise SystemExit(f"project.version changed while updating {path}")
+    if old == new:
+        return
+    expected["project"]["version"] = new
+    assignment = re.compile(
+        r"(?m)^(?P<prefix>[ \t]*version[ \t]*=[ \t]*)(?P<quote>[\"'])"
+        + re.escape(old)
+        + r"(?P=quote)"
+    )
+    for match in assignment.finditer(text):
+        replacement = match["prefix"] + match["quote"] + new + match["quote"]
+        candidate = text[:match.start()] + replacement + text[match.end():]
+        # A same-named key in another table or multiline string is not the
+        # project version. Accept only the intended semantic TOML change.
+        if tomllib.loads(candidate) == expected:
+            path.write_bytes(candidate.encode("utf-8"))
+            return
+    raise SystemExit(f"could not locate project.version {old!r} in {path}")
 
 
 def bump_version(current: str, bump_type: str) -> str:
