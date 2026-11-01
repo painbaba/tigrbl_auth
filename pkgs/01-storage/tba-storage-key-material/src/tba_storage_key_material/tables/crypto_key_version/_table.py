@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import datetime as dt
 import uuid
-from typing import Any
 
 from tba_primitives_identity.orm import (
     ForeignKeySpec,
@@ -20,12 +19,6 @@ from tba_primitives_identity.orm import (
     Timestamped,
     acol,
 )
-from tba_contracts_security_trust import normalize_key_operations
-
-
-
-def _operation_list(values: Any) -> list[str]:
-    return [operation.value for operation in normalize_key_operations(values)]
 
 
 class CryptoKeyVersion(RestOltpTable, GUIDPk, Timestamped):
