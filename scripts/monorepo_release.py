@@ -109,6 +109,33 @@ def cmd_matrix(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_release_matrix(args: argparse.Namespace) -> int:
+    packages = discover_packages()
+    if args.package != "all" and not any(p.name == args.package for p in packages):
+        raise SystemExit(f"unknown package {args.package!r}")
+    # Cross-job outputs must not contain public metadata that can match a
+    # repository secret. Resolve these indices at the same immutable revision.
+    cells = [
+        {"index": index}
+        for index, package in enumerate(packages)
+        if (args.package == "all" or package.name == args.package)
+        and _supported_package_python_versions(package, ["3.12"])
+    ]
+    _write_github_output({"matrix": json.dumps(cells, separators=(",", ":")), "count": str(len(cells))})
+    return 0
+
+
+def cmd_resolve_release_index(args: argparse.Namespace) -> int:
+    packages = discover_packages()
+    if not 0 <= args.index < len(packages):
+        raise SystemExit(f"invalid release package index {args.index}")
+    package = packages[args.index]
+    if args.package != "all" and package.name != args.package:
+        raise SystemExit("release package index does not match selected package")
+    _write_github_output(package.as_cell())
+    return 0
+
+
 def cmd_resolve_tag(args: argparse.Namespace) -> int:
     match = TAG_RE.match(args.tag)
     if match is None:
@@ -523,6 +550,15 @@ def build_parser() -> argparse.ArgumentParser:
     matrix = subparsers.add_parser("matrix")
     matrix.add_argument("--print", action="store_true")
     matrix.set_defaults(func=cmd_matrix)
+
+    release_matrix = subparsers.add_parser("release-matrix")
+    release_matrix.add_argument("--package", default="all")
+    release_matrix.set_defaults(func=cmd_release_matrix)
+
+    release_index = subparsers.add_parser("resolve-release-index")
+    release_index.add_argument("--index", required=True, type=int)
+    release_index.add_argument("--package", default="all")
+    release_index.set_defaults(func=cmd_resolve_release_index)
 
     resolve = subparsers.add_parser("resolve-tag")
     resolve.add_argument("tag")

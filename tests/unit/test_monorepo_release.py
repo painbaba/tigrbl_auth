@@ -21,6 +21,41 @@ from scripts.monorepo_release import (
 
 SCRIPT = ROOT / "scripts" / "monorepo_release.py"
 
+
+def test_release_indices_round_trip_without_package_metadata() -> None:
+    """Public credential names must not cross the secret-scanned job boundary."""
+    selected = "tba-concrete-credential-password"
+    matrix = subprocess.check_output(
+        [sys.executable, str(SCRIPT), "release-matrix", "--package", selected],
+        cwd=ROOT, text=True,
+    )
+    output = json.loads(matrix)
+    cells = json.loads(output["matrix"])
+    assert output["count"] == "1"
+    assert len(cells) == 1 and set(cells[0]) == {"index"}
+    assert isinstance(cells[0]["index"], int)
+    assert selected not in matrix and "password" not in matrix
+    resolved = json.loads(subprocess.check_output(
+        [sys.executable, str(SCRIPT), "resolve-release-index", "--index",
+         str(cells[0]["index"]), "--package", selected],
+        cwd=ROOT, text=True,
+    ))
+    package = next(p for p in discover_packages() if p.name == selected)
+    assert resolved == package.as_cell()
+    all_output = json.loads(subprocess.check_output(
+        [sys.executable, str(SCRIPT), "release-matrix"], cwd=ROOT, text=True,
+    ))
+    all_cells = json.loads(all_output["matrix"])
+    assert int(all_output["count"]) == len(all_cells) == len(discover_packages())
+    assert [cell["index"] for cell in all_cells] == list(range(len(all_cells)))
+    for index, name in [(-1, selected), (len(discover_packages()), selected),
+                        (cells[0]["index"], "tba-primitives-identity")]:
+        rejected = subprocess.run(
+            [sys.executable, str(SCRIPT), "resolve-release-index", "--index", str(index),
+             "--package", name], cwd=ROOT, text=True, capture_output=True,
+        )
+        assert rejected.returncode != 0
+
 REMOVED_HELPER_PACKAGES = {
     "tba-runtime-authorization-policy-abac-administrator",
     "tba-runtime-authorization-policy-delegated-administrator",
