@@ -7,6 +7,8 @@ from tba_contracts_identity.protocol_processing import (
 from .bindings import CAPABILITY_REQUIREMENTS
 from .claims import (
     CWT_CLAIM_BY_LABEL,
+    CWT_EXTENSION_CLAIMS,
+    build_cwt_claims,
     CWT_LABEL_BY_CLAIM,
     CWT_REGISTERED_CLAIMS,
     CwtClaimBinding,
@@ -48,6 +50,8 @@ __all__ = [
     "CWT_CARRIER",
     "CWT_REGISTERED_CLAIMS",
     "CWT_CLAIM_BY_LABEL",
+    "CWT_EXTENSION_CLAIMS",
+    "build_cwt_claims",
     "CWT_LABEL_BY_CLAIM",
     "CwtClaimBinding",
     "FEATURES_BY_VERSION",

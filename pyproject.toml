@@ -191,6 +191,7 @@ dependencies = [
     "tba-concrete-claim-http-uri==0.4.0.dev2",
     "tba-concrete-claim-access-token-hash==0.4.0.dev2",
     "tba-concrete-claim-access-token-digest==0.4.0.dev2",
+    "tba-concrete-claim-authorization-context==0.4.0.dev2",
     "tba-concrete-claim-sd-hash==0.4.0.dev2",
     "tba-concrete-claim-eat-nonce==0.4.0.dev2",
     "tba-concrete-claim-ueid==0.4.0.dev2",
@@ -790,6 +791,7 @@ tba-concrete-claim-eat-profile = { path = "pkgs/10-concrete/tba-concrete-claim-e
 tba-concrete-claim-http-method = { path = "pkgs/10-concrete/tba-concrete-claim-http-method", editable = true }
 tba-concrete-claim-http-uri = { path = "pkgs/10-concrete/tba-concrete-claim-http-uri", editable = true }
 tba-concrete-claim-access-token-hash = { path = "pkgs/10-concrete/tba-concrete-claim-access-token-hash", editable = true }
+tba-concrete-claim-authorization-context = { path = "pkgs/10-concrete/tba-concrete-claim-authorization-context", editable = true }
 tba-concrete-claim-access-token-digest = { path = "pkgs/10-concrete/tba-concrete-claim-access-token-digest", editable = true }
 tba-concrete-claim-sd-hash = { path = "pkgs/10-concrete/tba-concrete-claim-sd-hash", editable = true }
 tba-concrete-claim-eat-nonce = { path = "pkgs/10-concrete/tba-concrete-claim-eat-nonce", editable = true }

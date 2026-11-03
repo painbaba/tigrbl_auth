@@ -7,7 +7,8 @@ from typing import Mapping
 import cbor2
 
 CWT_CLAIM_LABELS = MappingProxyType(
-    {"iss": 1, "sub": 2, "aud": 3, "exp": 4, "nbf": 5, "iat": 6, "cti": 7, "cnf": 8}
+    {"iss": 1, "sub": 2, "aud": 3, "exp": 4, "nbf": 5, "iat": 6, "cti": 7, "cnf": 8,
+     "actx": "actx", "ath": "ath"}
 )
 
 
@@ -26,6 +27,7 @@ class CwtClaimsSet:
             raise ValueError("CWT claim labels must be text strings or integers")
         object.__setattr__(self, "claims", MappingProxyType(normalized))
 
+    # Draft extension names retain text keys until numeric labels are assigned.
     def get_registered(self, name: str, default: object = None) -> object:
         label = CWT_CLAIM_LABELS[name]
         return self.claims.get(label, self.claims.get(name, default))

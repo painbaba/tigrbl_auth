@@ -60,3 +60,36 @@ def test_cwt_owns_carrier_errors_and_explicit_capability_bindings():
         "validate",
     }
     assert capability_report()["selected_revision"] == "RFC8392"
+
+
+def test_draft_extensions_are_mapped_and_encoded_without_integer_assignments():
+    import hashlib
+    from tba_concrete_claim_authorization_context import AuthorizationContextClaim
+    from tba_concrete_claim_access_token_digest import AccessTokenDigestClaim
+    from tba_concrete_claim_issued_at import IssuedAtClaim
+    from tba_concrete_cwt import CWT_CLAIM_LABELS, decode_cwt_claims
+    from tba_protocol_cwt import CWT_CLAIM_BY_LABEL, build_cwt_claims
+
+    digest = hashlib.sha256(b"token").digest()
+    context = AuthorizationContextClaim({"type": "moqt", "action": "SUBSCRIBE"})
+    ath = AccessTokenDigestClaim.from_cwt_value(digest)
+    for claim in (context, ath):
+        assert cwt_label_for(claim) == claim.name
+        assert CWT_CLAIM_BY_LABEL[claim.name] is type(claim)
+        assert CWT_CLAIM_LABELS[claim.name] == claim.name
+    encoded = build_cwt_claims(context, ath, IssuedAtClaim(123),
+                               actx_field_labels={"action": 1}).encode()
+    decoded = decode_cwt_claims(encoded)
+    assert decoded.get_registered("actx") == {0: "moqt", 1: "SUBSCRIBE"}
+    assert decoded.get_registered("ath") == digest
+    assert decoded.get_registered("iat") == 123
+    with pytest.raises(ValueError, match="duplicate"):
+        build_cwt_claims(ath, ath)
+
+
+def test_cwt_profile_accepts_extension_keys_and_reports_mixed_missing_labels():
+    from tba_protocol_cwt.profile import CwtProfile
+    profile = CwtProfile("draft-proof", frozenset({6, "actx", "ath"}), frozenset({"Sign1"}))
+    profile.validate({6: 123, "actx": {0: "moqt"}, "ath": b"x" * 32}, "Sign1")
+    with pytest.raises(ValueError, match="missing required CWT claim labels"):
+        profile.validate({}, "Sign1")

@@ -3,6 +3,9 @@
 from dataclasses import dataclass
 from typing import TypeAlias
 
+from tba_concrete_cwt import CwtClaimsSet
+from tba_concrete_claim_authorization_context import AuthorizationContextClaim
+from tba_concrete_claim_access_token_digest import AccessTokenDigestClaim
 from tba_concrete_claim_audience import AudienceClaim
 from tba_bases_claim import ClaimBase
 from tba_concrete_claim_expiration import ExpirationClaim
@@ -21,7 +24,7 @@ ClaimClass: TypeAlias = type[ClaimBase]
 
 @dataclass(frozen=True, slots=True)
 class CwtClaimBinding:
-    label: int
+    label: str | int
     claim_class: ClaimClass
 
     @property
@@ -38,11 +41,16 @@ CWT_REGISTERED_CLAIMS = (
     CwtClaimBinding(6, IssuedAtClaim),
     CwtClaimBinding(7, JwtIdClaim),
 )
+# Draft extensions have no assigned integer labels; never invent IANA values.
+CWT_EXTENSION_CLAIMS = (
+    CwtClaimBinding("actx", AuthorizationContextClaim),
+    CwtClaimBinding("ath", AccessTokenDigestClaim),
+)
 CWT_LABEL_BY_CLAIM = {
-    binding.claim_class: binding.label for binding in CWT_REGISTERED_CLAIMS
+    binding.claim_class: binding.label for binding in (*CWT_REGISTERED_CLAIMS, *CWT_EXTENSION_CLAIMS)
 }
 CWT_CLAIM_BY_LABEL = {
-    binding.label: binding.claim_class for binding in CWT_REGISTERED_CLAIMS
+    binding.label: binding.claim_class for binding in (*CWT_REGISTERED_CLAIMS, *CWT_EXTENSION_CLAIMS)
 }
 
 
@@ -53,7 +61,7 @@ def compose_cwt_claim_set(
     return ClaimSet(tuple(claims), "cwt", version.value)
 
 
-def cwt_label_for(claim: ClaimBase | ClaimClass) -> int:
+def cwt_label_for(claim: ClaimBase | ClaimClass) -> str | int:
     claim_class = claim if isinstance(claim, type) else type(claim)
     try:
         return CWT_LABEL_BY_CLAIM[claim_class]
@@ -63,8 +71,27 @@ def cwt_label_for(claim: ClaimBase | ClaimClass) -> int:
         ) from exc
 
 
+def build_cwt_claims(*claims: ClaimBase, actx_field_labels=None) -> CwtClaimsSet:
+    """Map semantic objects to CWT keys and carrier-specific values."""
+    values = {}
+    for claim in claims:
+        label = cwt_label_for(claim)
+        if label in values:
+            raise ValueError(f"duplicate CWT claim: {label}")
+        if isinstance(claim, AuthorizationContextClaim):
+            value = claim.to_cwt_value(field_labels=actx_field_labels)
+        elif isinstance(claim, AccessTokenDigestClaim):
+            value = claim.to_cwt_value()
+        else:
+            value = claim.value
+        values[label] = value
+    return CwtClaimsSet(values)
+
+
 __all__ = [
     "CWT_CLAIM_BY_LABEL",
+    "CWT_EXTENSION_CLAIMS",
+    "build_cwt_claims",
     "CWT_LABEL_BY_CLAIM",
     "CWT_REGISTERED_CLAIMS",
     "CwtClaimBinding",
