@@ -1,6 +1,6 @@
 """Authentication-session table alias and executable runtime specification."""
 
-from tba_storage_core.tables import AuthSession
+from tba_storage_oauth.tables import AuthSession
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

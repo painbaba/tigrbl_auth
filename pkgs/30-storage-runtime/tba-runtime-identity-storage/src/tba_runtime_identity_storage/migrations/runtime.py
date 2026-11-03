@@ -18,7 +18,7 @@ from tba_storage_core.migrations.helpers import (
     unmark_revision,
 )
 from tba_storage_core.migrations.helpers import AUTHN_SCHEMA
-from tba_storage_core.tables import RestOltpTable
+from tba_primitives_identity.orm import RestOltpTable
 from tba_storage_core.components import load_full_composition
 from tigrbl_migrations import MigrationLedger, MigrationOrchestrator
 from ..engine import ENGINE

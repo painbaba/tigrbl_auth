@@ -1,6 +1,6 @@
 """Token-record table alias and executable runtime specification."""
 
-from tba_storage_core.tables import TokenRecord
+from tba_storage_token.tables import TokenRecord
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

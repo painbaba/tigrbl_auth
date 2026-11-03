@@ -1,6 +1,6 @@
 """OIDC durable-state aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import BackchannelLogoutReplay, LogoutState
+from tba_storage_oidc.tables import BackchannelLogoutReplay, LogoutState
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

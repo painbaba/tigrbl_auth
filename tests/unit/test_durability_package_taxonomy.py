@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import tomllib
 from pathlib import Path
 
 import yaml
@@ -13,6 +14,20 @@ TAXONOMY = yaml.safe_load(
         encoding="utf-8"
     )
 )
+
+
+def test_durability_packages_use_declared_domain_storage_owners() -> None:
+    for package in LAYER.glob("tba-durability-*"):
+        project = tomllib.loads((package / "pyproject.toml").read_text())["project"]
+        dependencies = project.get("dependencies", [])
+        assert any(value.startswith("tba-storage-") for value in dependencies), package
+        assert not any(value.startswith("tba-storage-core") for value in dependencies), package
+        declared = {value.split("==")[0].replace("-", "_") for value in dependencies}
+        for source in (package / "src").rglob("*.py"):
+            for imported in _imports(source):
+                assert not imported.startswith("tba_storage_core"), source
+                if imported.startswith("tba_storage_"):
+                    assert imported.split(".")[0] in declared, (source, imported)
 
 
 def _imports(source: Path) -> set[str]:

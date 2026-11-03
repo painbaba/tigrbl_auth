@@ -1,22 +1,9 @@
-"""Durable DPoP key credential bindings."""
+"""Compatibility re-export of :mod:`tba_storage_authentication.tables.credential_dpop_key._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authentication.tables.credential_dpop_key._table as _owner
+from tba_storage_authentication.tables.credential_dpop_key._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class CredentialDpopKey(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "credential_dpop_keys"
-    __table_args__ = ({"schema": "authn"},)
-
-    credential_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    principal_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    jwk_thumbprint: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    public_jwk: Mapped[dict] = acol(storage=S(JSON, nullable=False))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-    key_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["CredentialDpopKey"]
+def __getattr__(name):
+    return getattr(_owner, name)

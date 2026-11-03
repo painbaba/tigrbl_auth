@@ -7,11 +7,11 @@ requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
 dependencies = [
     "tigrbl==0.4.5.dev4",
-    "tba-storage-core==0.4.0.dev2",
     "tba-primitives-identity==0.4.0.dev2",
     "tba-contracts-identity==0.4.0.dev2",
     "tba-bases-replay==0.4.0.dev2",
     "tba-contracts-security-trust==0.1.0",
+    "tba-storage-token==0.4.0.dev2",
 ]
 
 [build-system]

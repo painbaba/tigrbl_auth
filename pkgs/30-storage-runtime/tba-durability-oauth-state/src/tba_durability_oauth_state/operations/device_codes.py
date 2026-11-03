@@ -17,7 +17,7 @@ from tigrbl import (
 
 
 async def _resolve_device_code(db: Any, payload: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DeviceCode
+    from tba_storage_oauth.tables import DeviceCode
 
     if payload.get("id") is not None:
         matches = await list_table_records(DeviceCode, db, {"id": payload["id"]})
@@ -33,7 +33,7 @@ async def _resolve_device_code(db: Any, payload: Mapping[str, Any]) -> Any:
 
 
 async def approve_device_code(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DeviceCode
+    from tba_storage_oauth.tables import DeviceCode
 
     payload = payload_from_context(ctx)
     db = database_from_context(ctx)
@@ -56,7 +56,7 @@ async def approve_device_code(ctx: Mapping[str, Any]) -> Any:
 
 
 async def deny_device_code(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DeviceCode
+    from tba_storage_oauth.tables import DeviceCode
 
     payload = payload_from_context(ctx)
     db = database_from_context(ctx)

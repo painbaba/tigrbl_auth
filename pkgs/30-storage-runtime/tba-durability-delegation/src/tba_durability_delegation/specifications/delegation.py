@@ -1,11 +1,6 @@
 """Delegation table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    DelegationGrant,
-    DelegationGrantEdge,
-    DelegationGrantProof,
-    DelegationGrantTokenLink,
-)
+from tba_storage_delegation.tables import DelegationGrant, DelegationGrantEdge, DelegationGrantProof, DelegationGrantTokenLink
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

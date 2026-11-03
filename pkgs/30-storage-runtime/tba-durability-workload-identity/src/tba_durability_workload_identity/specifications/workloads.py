@@ -1,6 +1,6 @@
 """Workload table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import SpiffeTrustBundle, SvidRecord
+from tba_storage_workload_identity.tables import SpiffeTrustBundle, SvidRecord
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

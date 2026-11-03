@@ -5,13 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from tba_storage_core.tables import (
-    AttributePolicy,
-    DelegatedAdminScope,
-    PolicyCondition,
-    Role,
-    TenantMembership,
-)
+from tba_storage_authorization_policy.tables import AttributePolicy, DelegatedAdminScope, PolicyCondition, Role, TenantMembership
 
 from tigrbl import (
     create_table_record,

@@ -23,7 +23,7 @@ TERMINAL_GRANT_STATUSES = frozenset({"revoked", "expired", "replaced"})
 
 
 async def _create_grant(db: Any, payload: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DelegationGrant
+    from tba_storage_delegation.tables import DelegationGrant
 
     values = dict(payload)
     values.setdefault("status", "active")
@@ -36,7 +36,7 @@ async def create_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def inspect_grant(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DelegationGrant
+    from tba_storage_delegation.tables import DelegationGrant
 
     payload = payload_from_context(ctx)
     return await read_table_record(
@@ -47,7 +47,7 @@ async def inspect_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def list_grants(ctx: Mapping[str, Any]) -> list[Any]:
-    from tba_storage_core.tables import DelegationGrant
+    from tba_storage_delegation.tables import DelegationGrant
 
     filters = {
         key: value
@@ -65,7 +65,7 @@ async def _transition_grant(
     status: str,
     timestamp_field: str,
 ) -> Any:
-    from tba_storage_core.tables import DelegationGrant
+    from tba_storage_delegation.tables import DelegationGrant
 
     payload = payload_from_context(ctx)
     db = database_from_context(ctx)
@@ -100,7 +100,7 @@ async def expire_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def replace_grant(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DelegationGrant
+    from tba_storage_delegation.tables import DelegationGrant
 
     values = dict(payload_from_context(ctx))
     db = database_from_context(ctx)
@@ -140,7 +140,7 @@ async def replace_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def link_grant_edge(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DelegationGrantEdge
+    from tba_storage_delegation.tables import DelegationGrantEdge
 
     return await create_table_record(
         DelegationGrantEdge,
@@ -150,7 +150,7 @@ async def link_grant_edge(ctx: Mapping[str, Any]) -> Any:
 
 
 async def _deactivate_children(db: Any, parent_grant_id: Any) -> list[Any]:
-    from tba_storage_core.tables import DelegationGrantEdge
+    from tba_storage_delegation.tables import DelegationGrantEdge
 
     children = await list_table_records(
         DelegationGrantEdge,
@@ -183,7 +183,7 @@ async def _revoke_one(
     reason: str | None,
     collapse_descendants: bool,
 ) -> Any:
-    from tba_storage_core.tables import DelegationGrant
+    from tba_storage_delegation.tables import DelegationGrant
 
     row = await read_table_record(DelegationGrant, db, grant_id)
     if row is None:
@@ -231,7 +231,7 @@ async def revoke_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def persist_delegation_provenance(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DelegationGrantProof
+    from tba_storage_delegation.tables import DelegationGrantProof
 
     return await create_table_record(
         DelegationGrantProof,
@@ -241,7 +241,7 @@ async def persist_delegation_provenance(ctx: Mapping[str, Any]) -> Any:
 
 
 async def link_delegation_token(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import DelegationGrantTokenLink
+    from tba_storage_delegation.tables import DelegationGrantTokenLink
 
     return await create_table_record(
         DelegationGrantTokenLink,
@@ -251,7 +251,7 @@ async def link_delegation_token(ctx: Mapping[str, Any]) -> Any:
 
 
 async def list_tokens_for_grant(ctx: Mapping[str, Any]) -> list[Any]:
-    from tba_storage_core.tables import DelegationGrantTokenLink
+    from tba_storage_delegation.tables import DelegationGrantTokenLink
 
     return await list_table_records(
         DelegationGrantTokenLink,

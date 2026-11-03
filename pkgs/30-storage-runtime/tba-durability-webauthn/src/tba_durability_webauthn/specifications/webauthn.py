@@ -1,11 +1,6 @@
 """WebAuthn table aliases and executable durable specifications."""
 
-from tba_storage_core.tables import (
-    CredentialWebAuthnPasskey,
-    WebAuthnAttestationRecord,
-    WebAuthnCeremony,
-    WebAuthnRelyingParty,
-)
+from tba_storage_webauthn.tables import CredentialWebAuthnPasskey, WebAuthnAttestationRecord, WebAuthnCeremony, WebAuthnRelyingParty
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

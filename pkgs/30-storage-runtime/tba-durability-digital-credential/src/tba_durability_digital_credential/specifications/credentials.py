@@ -1,10 +1,6 @@
 """Credential table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    CredentialIssuanceTransaction,
-    CredentialOffer,
-    CredentialStatusEntry,
-)
+from tba_storage_digital_credential.tables import CredentialIssuanceTransaction, CredentialOffer, CredentialStatusEntry
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

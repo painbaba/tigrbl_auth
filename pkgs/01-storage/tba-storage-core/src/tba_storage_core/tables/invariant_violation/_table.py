@@ -1,27 +1,9 @@
-"""Durable authorization invariant violation records."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.invariant_violation._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authorization_policy.tables.invariant_violation._table as _owner
+from tba_storage_authorization_policy.tables.invariant_violation._table import *  # noqa: F401,F403
 
-from tba_storage_core.framework import (
-    GUIDPk,
-    JSON,
-    Mapped,
-    RestOltpTable,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class InvariantViolation(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "invariant_violations"
-    __table_args__ = ({"schema": "authn"},)
-
-    invariant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    severity: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    message: Mapped[str] = acol(storage=S(String(2000), nullable=False))
-    evidence: Mapped[dict] = acol(storage=S(JSON, nullable=False, default=dict))
-
-
-__all__ = ["InvariantViolation"]
+def __getattr__(name):
+    return getattr(_owner, name)

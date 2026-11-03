@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from tba_storage_core.tables import CryptoKey
+from tba_storage_key_material.tables import CryptoKey
 from tigrbl_concrete.records import create_record, first_record, update_record
 from tba_contracts_security_trust import (
     AttestKeyRequest,

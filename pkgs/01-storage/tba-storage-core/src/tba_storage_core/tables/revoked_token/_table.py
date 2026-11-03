@@ -1,39 +1,9 @@
-"""Durable revoked token registry."""
+"""Compatibility re-export of :mod:`tba_storage_oauth.tables.revoked_token._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_oauth.tables.revoked_token._table as _owner
+from tba_storage_oauth.tables.revoked_token._table import *  # noqa: F401,F403
 
-import datetime as dt
-import uuid
-from tba_storage_core.framework import (
-    RestOltpTable,
-    Timestamped,
-    S,
-    acol,
-    Mapped,
-    String,
-    GUIDPk,
-    TZDateTime,
-    PgUUID,
-    ForeignKeySpec,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class RevokedToken(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "revoked_tokens"
-    __table_args__ = ({"schema": "authn"},)
-
-    token_hash: Mapped[str] = acol(storage=S(String(128), nullable=False, unique=True, index=True, default=lambda: uuid.uuid4().hex))
-    token_type_hint: Mapped[str | None] = acol(storage=S(String(64), nullable=True))
-    refresh_family_id: Mapped[str | None] = acol(storage=S(String(64), nullable=True, index=True))
-    subject: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    tenant_id: Mapped[uuid.UUID | None] = acol(
-        storage=S(PgUUID(as_uuid=True), fk=ForeignKeySpec(target="authn.tenants.id"), nullable=True, index=True)
-    )
-    client_id: Mapped[uuid.UUID | None] = acol(
-        storage=S(PgUUID(as_uuid=True), fk=ForeignKeySpec(target="authn.clients.id"), nullable=True, index=True)
-    )
-    revoked_reason: Mapped[str | None] = acol(storage=S(String(128), nullable=True))
-    expires_at: Mapped[dt.datetime | None] = acol(storage=S(TZDateTime, nullable=True, index=True))
-
-
-__all__ = ["RevokedToken"]
+def __getattr__(name):
+    return getattr(_owner, name)

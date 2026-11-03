@@ -1,6 +1,9 @@
-"""Authorization-server table exports."""
+"""Compatibility re-export of :mod:`tba_storage_oauth.tables.authorization_server`; tables are owned there."""
 
-from ._table import *
-from ._table import __all__ as _table_exports
+import tba_storage_oauth.tables.authorization_server as _owner
+from tba_storage_oauth.tables.authorization_server import *  # noqa: F401,F403
 
-__all__ = list(_table_exports)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

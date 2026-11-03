@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from tba_storage_core.tables import DpopNonce, DpopReplay
+from tba_storage_replay_protection.tables import DpopNonce, DpopReplay
 from tba_contracts_security_trust import DPoPProofClaims
 
 from tigrbl import deriveTableSpec

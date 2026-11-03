@@ -1,8 +1,30 @@
 from __future__ import annotations
 
 import importlib
+import ast
+from pathlib import Path
 
 from sqlalchemy import UniqueConstraint
+
+
+def test_storage_core_deep_imports_preserve_domain_table_identity() -> None:
+    tables = importlib.import_module("tba_storage_core.tables")
+    metadata = tables.TABLE_MODELS[0].__table__.metadata
+    before = set(metadata.tables)
+    root = Path(tables.__file__).parent
+    for source in root.rglob("*.py"):
+        tree = ast.parse(source.read_text(encoding="utf-8-sig"))
+        assert not any(isinstance(node, ast.ClassDef) for node in ast.walk(tree)), source
+        relative = source.relative_to(root).with_suffix("").parts
+        if relative[-1] == "__init__":
+            relative = relative[:-1]
+        module = importlib.import_module(".".join(("tba_storage_core", "tables", *relative)))
+        for name in getattr(module, "__all__", ()):
+            canonical = tables.TABLE_MODEL_BY_NAME.get(name)
+            if canonical is not None:
+                assert getattr(module, name) is canonical, (module.__name__, name)
+                assert getattr(module, name).__table__ is canonical.__table__
+    assert set(metadata.tables) == before
 
 
 def _unique_columns(model: type) -> set[tuple[str, ...]]:

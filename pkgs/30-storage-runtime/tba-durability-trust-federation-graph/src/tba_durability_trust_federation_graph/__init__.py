@@ -1,10 +1,6 @@
 """Durable trust-federation graph table operations and specifications."""
 
-from tba_storage_core.tables import (
-    TrustFederationGraph as TrustFederationGraphTable,
-    TrustFederationGraphEdge as TrustFederationGraphEdgeTable,
-    TrustFederationGraphNode as TrustFederationGraphNodeTable,
-)
+from tba_storage_trust_federation_graph.tables import TrustFederationGraph as TrustFederationGraphTable, TrustFederationGraphEdge as TrustFederationGraphEdgeTable, TrustFederationGraphNode as TrustFederationGraphNodeTable
 from tigrbl import (
     provideTableHandler,
     deriveTableSpec,

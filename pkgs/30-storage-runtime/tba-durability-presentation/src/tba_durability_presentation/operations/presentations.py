@@ -1,11 +1,7 @@
 """Durable presentation lifecycle operations."""
 
 from tba_primitives_identity.persistence import reject_sensitive_raw_fields
-from tba_storage_core.tables import (
-    PresentationConsent,
-    PresentationReplay,
-    PresentationTransaction,
-)
+from tba_storage_presentation.tables import PresentationConsent, PresentationReplay, PresentationTransaction
 
 from tigrbl import provideTableHandler
 

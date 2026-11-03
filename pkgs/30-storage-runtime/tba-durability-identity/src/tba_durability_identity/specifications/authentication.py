@@ -1,14 +1,7 @@
 """Authentication and federation table aliases for capability composition."""
 
-from tba_storage_core.tables import (
-    AuthenticationChallenge,
-    Credential,
-    CredentialMfaFactor,
-    CredentialRecoveryCode,
-    FederatedSession,
-    Federation,
-    IdentityProvider,
-)
+from tba_storage_authentication.tables import AuthenticationChallenge, Credential, CredentialMfaFactor, CredentialRecoveryCode
+from tba_storage_federation.tables import FederatedSession, Federation, IdentityProvider
 
 AuthenticationChallengeTable = AuthenticationChallenge
 CredentialTable = Credential

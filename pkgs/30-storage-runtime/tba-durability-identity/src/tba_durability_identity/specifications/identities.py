@@ -1,6 +1,6 @@
 """User identity table alias and executable runtime specification."""
 
-from tba_storage_core.tables import User
+from tba_storage_principals.tables import User
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

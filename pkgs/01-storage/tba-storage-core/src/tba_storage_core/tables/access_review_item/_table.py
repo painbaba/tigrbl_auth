@@ -1,26 +1,9 @@
-"""Durable access review campaign items."""
+"""Compatibility re-export of :mod:`tba_storage_access_governance.tables.access_review_item._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_access_governance.tables.access_review_item._table as _owner
+from tba_storage_access_governance.tables.access_review_item._table import *  # noqa: F401,F403
 
-import datetime as dt
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, Integer, Mapped, S, String, TZDateTime, Timestamped, acol
-
-
-
-class AccessReviewItem(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "access_review_items"
-    __table_args__ = ({"schema": "authn"},)
-
-    item_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    campaign_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    assignment_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    subject_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    entitlement_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    reviewer_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="pending", index=True))
-    due_at: Mapped[dt.datetime] = acol(storage=S(TZDateTime, nullable=False, index=True))
-    escalation_count: Mapped[int] = acol(storage=S(Integer, nullable=False, default=0))
-
-
-__all__ = ["AccessReviewItem"]
+def __getattr__(name):
+    return getattr(_owner, name)

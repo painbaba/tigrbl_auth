@@ -13,7 +13,7 @@ from tba_contracts_identity.replay import (
     ReplayReservationResult,
     ReplayStoreDescriptor,
 )
-from tba_storage_core.tables import ReplayReservation
+from tba_storage_replay_protection.tables import ReplayReservation
 from tba_bases_replay import ReplayReservationBase
 
 from tigrbl import database_from_context, maybe_await

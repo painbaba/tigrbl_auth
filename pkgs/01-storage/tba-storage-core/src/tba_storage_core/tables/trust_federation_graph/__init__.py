@@ -1,15 +1,9 @@
-"""Trust federation graph table exports."""
+"""Compatibility re-export of :mod:`tba_storage_trust_federation_graph.tables.trust_federation_graph`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_trust_federation_graph.tables.trust_federation_graph as _owner
+from tba_storage_trust_federation_graph.tables.trust_federation_graph import *  # noqa: F401,F403
 
-from ._table import (
-    TrustFederationGraph,
-    TrustFederationGraphEdge,
-    TrustFederationGraphNode,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-__all__ = [
-    "TrustFederationGraph",
-    "TrustFederationGraphNode",
-    "TrustFederationGraphEdge",
-]
+def __getattr__(name):
+    return getattr(_owner, name)

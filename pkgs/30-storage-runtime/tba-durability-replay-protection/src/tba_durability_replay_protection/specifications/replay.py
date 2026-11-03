@@ -1,6 +1,6 @@
 """Replay table alias and executable runtime specification."""
 
-from tba_storage_core.tables import ReplayReservation
+from tba_storage_replay_protection.tables import ReplayReservation
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

@@ -1,37 +1,9 @@
-"""Durable OpenID Connect Back-Channel Logout replay ledger schema."""
+"""Compatibility re-export of :mod:`tba_storage_oidc.tables.backchannel_logout_replay._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_oidc.tables.backchannel_logout_replay._table as _owner
+from tba_storage_oidc.tables.backchannel_logout_replay._table import *  # noqa: F401,F403
 
-import datetime as dt
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import (
-    GUIDPk,
-    Mapped,
-    RestOltpTable,
-    S,
-    String,
-    TZDateTime,
-    Timestamped,
-    acol,
-)
-
-
-class BackchannelLogoutReplay(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "backchannel_logout_replays"
-    __table_args__ = ({"schema": "authn"},)
-
-    replay_key: Mapped[str] = acol(
-        storage=S(String(64), nullable=False, unique=True, index=True)
-    )
-    jti: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    issuer: Mapped[str] = acol(storage=S(String(1000), nullable=False, index=True))
-    client_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    seen_at: Mapped[dt.datetime] = acol(
-        storage=S(TZDateTime, nullable=False, index=True)
-    )
-    expires_at: Mapped[dt.datetime] = acol(
-        storage=S(TZDateTime, nullable=False, index=True)
-    )
-
-
-__all__ = ["BackchannelLogoutReplay"]
+def __getattr__(name):
+    return getattr(_owner, name)

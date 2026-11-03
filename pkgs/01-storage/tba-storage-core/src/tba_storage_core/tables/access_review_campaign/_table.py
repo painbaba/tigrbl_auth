@@ -1,25 +1,9 @@
-"""Durable access review campaigns."""
+"""Compatibility re-export of :mod:`tba_storage_access_governance.tables.access_review_campaign._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_access_governance.tables.access_review_campaign._table as _owner
+from tba_storage_access_governance.tables.access_review_campaign._table import *  # noqa: F401,F403
 
-import datetime as dt
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, TZDateTime, Timestamped, acol
-
-
-
-class AccessReviewCampaign(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "access_review_campaigns"
-    __table_args__ = ({"schema": "authn"},)
-
-    campaign_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    tenant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    name: Mapped[str] = acol(storage=S(String(255), nullable=False))
-    reviewer_ids: Mapped[list] = acol(storage=S(JSON, nullable=False, default=list))
-    item_ids: Mapped[list | None] = acol(storage=S(JSON, nullable=True))
-    due_at: Mapped[dt.datetime] = acol(storage=S(TZDateTime, nullable=False, index=True))
-    closed_at: Mapped[dt.datetime | None] = acol(storage=S(TZDateTime, nullable=True, index=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="open", index=True))
-
-
-__all__ = ["AccessReviewCampaign"]
+def __getattr__(name):
+    return getattr(_owner, name)

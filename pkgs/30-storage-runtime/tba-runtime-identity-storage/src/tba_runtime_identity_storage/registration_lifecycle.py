@@ -11,7 +11,7 @@ from .session import storage_session
 
 
 async def get_client_registration_async(client_id: Any):
-    from tba_storage_core.tables import ClientRegistration
+    from tba_storage_oauth.tables import ClientRegistration
 
     async with storage_session() as db:
         return await first_table_record(

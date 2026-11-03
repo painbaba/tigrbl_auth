@@ -1,12 +1,7 @@
 """Durable security-event lifecycle operations."""
 
 from tba_primitives_identity.persistence import reject_sensitive_raw_fields
-from tba_storage_core.tables import (
-    SecurityEvent,
-    SecurityEventDelivery,
-    SecurityEventReplay,
-    SecurityEventSubscription,
-)
+from tba_storage_security_event.tables import SecurityEvent, SecurityEventDelivery, SecurityEventReplay, SecurityEventSubscription
 
 from tigrbl import provideTableHandler
 

@@ -1,20 +1,9 @@
-"""Durable residency zones."""
+"""Compatibility re-export of :mod:`tba_storage_residency.tables.residency_zone._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_residency.tables.residency_zone._table as _owner
+from tba_storage_residency.tables.residency_zone._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class ResidencyZone(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "residency_zones"
-    __table_args__ = ({"schema": "authn"},)
-
-    zone_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    jurisdictions: Mapped[list] = acol(storage=S(JSON, nullable=False, default=list))
-    sovereign_controls: Mapped[list | None] = acol(storage=S(JSON, nullable=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-
-
-__all__ = ["ResidencyZone"]
+def __getattr__(name):
+    return getattr(_owner, name)

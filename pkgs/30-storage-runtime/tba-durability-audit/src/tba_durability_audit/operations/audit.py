@@ -15,7 +15,8 @@ from tigrbl import (
 
 
 async def append_audit_event_record(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import AuditEvent, Tenant
+    from tba_storage_audit.tables import AuditEvent
+    from tba_storage_tenancy.tables import Tenant
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -27,7 +28,7 @@ async def append_audit_event_record(ctx: Mapping[str, Any]) -> Any:
 
 
 async def list_audit_event_records(ctx: Mapping[str, Any]) -> list[Any]:
-    from tba_storage_core.tables import AuditEvent
+    from tba_storage_audit.tables import AuditEvent
 
     filters = {
         key: value

@@ -1,22 +1,9 @@
-"""Durable entitlement definitions."""
+"""Compatibility re-export of :mod:`tba_storage_access_governance.tables.entitlement._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_access_governance.tables.entitlement._table as _owner
+from tba_storage_access_governance.tables.entitlement._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, Mapped, S, String, Timestamped, acol
-
-
-
-class Entitlement(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "entitlements"
-    __table_args__ = ({"schema": "authn"},)
-
-    entitlement_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    tenant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    name: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    owner: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    description: Mapped[str] = acol(storage=S(String(1000), nullable=False))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-
-
-__all__ = ["Entitlement"]
+def __getattr__(name):
+    return getattr(_owner, name)

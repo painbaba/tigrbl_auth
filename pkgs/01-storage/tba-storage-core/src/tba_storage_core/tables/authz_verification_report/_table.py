@@ -1,29 +1,9 @@
-"""Durable authorization verification report artifacts."""
+"""Compatibility re-export of :mod:`tba_storage_release_governance.tables.authz_verification_report._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_release_governance.tables.authz_verification_report._table as _owner
+from tba_storage_release_governance.tables.authz_verification_report._table import *  # noqa: F401,F403
 
-from tba_storage_core.framework import (
-    RestOltpTable,
-    Boolean,
-    GUIDPk,
-    JSON,
-    Mapped,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class AuthzVerificationReport(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "authz_verification_reports"
-    __table_args__ = ({"schema": "authn"},)
-
-    report_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    report_kind: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    tenant_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    passed: Mapped[bool | None] = acol(storage=S(Boolean, nullable=True, index=True))
-    report_payload: Mapped[dict] = acol(storage=S(JSON, nullable=False, default=dict))
-
-
-__all__ = ["AuthzVerificationReport"]
+def __getattr__(name):
+    return getattr(_owner, name)

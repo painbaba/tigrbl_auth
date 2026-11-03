@@ -1,5 +1,9 @@
-"""Durable DPoP replay table."""
+"""Compatibility re-export of :mod:`tba_storage_replay_protection.tables.dpop_replay`; tables are owned there."""
 
-from ._table import DpopReplay, replay_key, replay_payload
+import tba_storage_replay_protection.tables.dpop_replay as _owner
+from tba_storage_replay_protection.tables.dpop_replay import *  # noqa: F401,F403
 
-__all__ = ["DpopReplay", "replay_key", "replay_payload"]
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

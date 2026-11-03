@@ -1,12 +1,6 @@
 """OAuth durable-state aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    AuthCode,
-    ClientRegistration,
-    DeviceCode,
-    PushedAuthorizationRequest,
-    RevokedToken,
-)
+from tba_storage_oauth.tables import AuthCode, ClientRegistration, DeviceCode, PushedAuthorizationRequest, RevokedToken
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

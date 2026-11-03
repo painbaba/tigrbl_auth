@@ -23,7 +23,7 @@ async def record_consent_async(
 ):
     """Persist an active consent through the canonical table operation."""
 
-    from tba_storage_core.tables import Consent
+    from tba_storage_consent.tables import Consent
 
     async with storage_session() as db:
         return await create_table_record(

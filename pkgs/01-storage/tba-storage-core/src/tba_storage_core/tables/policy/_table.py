@@ -1,30 +1,9 @@
-"""Durable policy definition records for PAP and PRP surfaces."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.policy._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authorization_policy.tables.policy._table as _owner
+from tba_storage_authorization_policy.tables.policy._table import *  # noqa: F401,F403
 
-from tba_storage_core.framework import (
-    GUIDPk,
-    JSON,
-    Mapped,
-    RestOltpTable,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class Policy(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "policies"
-    __table_args__ = ({"schema": "authn"},)
-
-    tenant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    name: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    language: Mapped[str] = acol(storage=S(String(128), nullable=False, default="tba-conditions/v1", index=True))
-    description: Mapped[str | None] = acol(storage=S(String(1000), nullable=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="draft", index=True))
-    active_version_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    policy_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["Policy"]
+def __getattr__(name):
+    return getattr(_owner, name)

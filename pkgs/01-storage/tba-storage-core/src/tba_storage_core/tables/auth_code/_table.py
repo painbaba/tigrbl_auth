@@ -1,41 +1,9 @@
-"""Authorization code durable table."""
+"""Compatibility re-export of :mod:`tba_storage_oauth.tables.auth_code._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_oauth.tables.auth_code._table as _owner
+from tba_storage_oauth.tables.auth_code._table import *  # noqa: F401,F403
 
-import datetime as dt
-from tba_storage_core.framework import (
-    ForeignKeySpec,
-    GUIDPk,
-    JSON,
-    Mapped,
-    PgUUID,
-    RestOltpTable,
-    S,
-    String,
-    TZDateTime,
-    TenantColumn,
-    Timestamped,
-    UUID,
-    UserColumn,
-    acol,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class AuthCode(RestOltpTable, GUIDPk, Timestamped, UserColumn, TenantColumn):
-    __tablename__ = "auth_codes"
-    __table_args__ = ({"schema": "authn"},)
-
-    client_id: Mapped[UUID] = acol(
-        storage=S(PgUUID(as_uuid=True), fk=ForeignKeySpec(target="authn.clients.id"), nullable=False)
-    )
-    session_id: Mapped[UUID | None] = acol(
-        storage=S(PgUUID(as_uuid=True), fk=ForeignKeySpec(target="authn.sessions.id"), nullable=True, index=True)
-    )
-    redirect_uri: Mapped[str] = acol(storage=S(String(1000), nullable=False))
-    code_challenge: Mapped[str | None] = acol(storage=S(String, nullable=True))
-    nonce: Mapped[str | None] = acol(storage=S(String, nullable=True))
-    scope: Mapped[str | None] = acol(storage=S(String, nullable=True))
-    expires_at: Mapped[dt.datetime] = acol(storage=S(TZDateTime, nullable=False))
-    claims: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-__all__ = ["AuthCode"]
+def __getattr__(name):
+    return getattr(_owner, name)

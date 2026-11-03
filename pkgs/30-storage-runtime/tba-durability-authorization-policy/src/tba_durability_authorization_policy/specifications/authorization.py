@@ -1,16 +1,6 @@
 """Authorization table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    AttributePolicy,
-    AuthorizationInvariant,
-    DelegatedAdminScope,
-    InvariantEvaluation,
-    InvariantViolation,
-    Policy,
-    PolicyVersion,
-    Role,
-    TenantMembership,
-)
+from tba_storage_authorization_policy.tables import AttributePolicy, AuthorizationInvariant, DelegatedAdminScope, InvariantEvaluation, InvariantViolation, Policy, PolicyVersion, Role, TenantMembership
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

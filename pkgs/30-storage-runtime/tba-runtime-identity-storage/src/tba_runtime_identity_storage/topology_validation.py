@@ -265,14 +265,9 @@ def validate_identity_topology_snapshot(
 
 
 async def collect_identity_topology_snapshot(db: Any) -> IdentityTopologySnapshot:
-    from tba_storage_core.tables import (
-        Principal,
-        Realm,
-        SubjectAlias,
-        Tenant,
-        TenantMembership,
-        User,
-    )
+    from tba_storage_principals.tables import Principal, SubjectAlias, User
+    from tba_storage_tenancy.tables import Realm, Tenant
+    from tba_storage_authorization_policy.tables import TenantMembership
     from tigrbl_concrete.records import list_records
 
     return IdentityTopologySnapshot(

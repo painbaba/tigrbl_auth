@@ -57,7 +57,7 @@ def _to_epoch(value: dt.datetime | None) -> int | None:
 async def persist_issued_token(ctx: Mapping[str, Any]) -> Any:
     """Idempotently persist one explicitly profiled issued token."""
 
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     payload = dict(payload_from_context(ctx))
     claims = dict(payload.get("claims") or {})
@@ -145,7 +145,7 @@ async def persist_issued_token(ctx: Mapping[str, Any]) -> Any:
 async def read_token_record(ctx: Mapping[str, Any]) -> Any:
     """Read one token record by a supplied digest without mutating lifecycle state."""
 
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     payload = payload_from_context(ctx)
     digest = payload.get("token_hash")
@@ -159,7 +159,7 @@ async def read_token_record(ctx: Mapping[str, Any]) -> Any:
 
 
 async def mark_refresh_token_rotated(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     payload = dict(payload_from_context(ctx))
     db = database_from_context(ctx)
@@ -187,7 +187,7 @@ async def mark_refresh_token_rotated(ctx: Mapping[str, Any]) -> Any:
 
 
 async def revoke_refresh_token_family(ctx: Mapping[str, Any]) -> list[Any]:
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     payload = dict(payload_from_context(ctx))
     db = database_from_context(ctx)
@@ -224,7 +224,7 @@ async def revoke_refresh_token_family(ctx: Mapping[str, Any]) -> list[Any]:
 
 
 async def introspect_token_record(ctx: Mapping[str, Any]) -> dict[str, Any]:
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     payload = dict(payload_from_context(ctx))
     digest = payload.get("token_hash") or token_hash(payload["token"])

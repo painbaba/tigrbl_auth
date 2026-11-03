@@ -1,49 +1,9 @@
-"""Durable principal registry records."""
+"""Compatibility re-export of :mod:`tba_storage_principals.tables.principal._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_principals.tables.principal._table as _owner
+from tba_storage_principals.tables.principal._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import (
-    ColumnSpec,
-    F,
-    GUIDPk,
-    IO,
-    JSON,
-    Mapped,
-    RestOltpTable,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
-
-
-
-class Principal(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "principals"
-    __table_args__ = {"extend_existing": True, "schema": "authn"}
-
-    principal_kind: Mapped[str] = acol(
-        spec=ColumnSpec(
-            storage=S(String(64), nullable=False, index=True),
-            field=F(constraints={"max_length": 64}, required_in=("create",)),
-            io=IO(in_verbs=("create", "update", "replace"), out_verbs=("read", "list"), filter_ops=("eq",)),
-        )
-    )
-    subject: Mapped[str] = acol(
-        spec=ColumnSpec(
-            storage=S(String(1000), nullable=False, unique=True, index=True),
-            field=F(constraints={"max_length": 1000}, required_in=("create",)),
-            io=IO(in_verbs=("create", "update", "replace"), out_verbs=("read", "list"), filter_ops=("eq", "ilike")),
-        )
-    )
-    tenant_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    realm_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    display_name: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-    external_provider: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    external_ref: Mapped[str | None] = acol(storage=S(String(1000), nullable=True, index=True))
-    principal_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["Principal"]
+def __getattr__(name):
+    return getattr(_owner, name)

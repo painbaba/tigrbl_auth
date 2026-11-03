@@ -1,21 +1,9 @@
-"""Durable runtime qualification evidence."""
+"""Compatibility re-export of :mod:`tba_storage_release_governance.tables.runtime_qualification._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_release_governance.tables.runtime_qualification._table as _owner
+from tba_storage_release_governance.tables.runtime_qualification._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class RuntimeQualificationRecord(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "runtime_qualifications"
-    __table_args__ = ({"schema": "authn"},)
-
-    qualification_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    release_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    runtime_name: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    status: Mapped[str] = acol(storage=S(String(64), nullable=False, default="qualified", index=True))
-    qualification_payload: Mapped[dict] = acol(storage=S(JSON, nullable=False, default=dict))
-
-
-__all__ = ["RuntimeQualificationRecord"]
+def __getattr__(name):
+    return getattr(_owner, name)

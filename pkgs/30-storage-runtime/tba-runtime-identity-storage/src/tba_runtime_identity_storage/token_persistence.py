@@ -7,7 +7,7 @@ from uuid import uuid4
 
 from tba_primitives_identity.errors import InvalidRefreshTokenError, RefreshTokenReuseError
 from tba_primitives_identity.digests import token_hash
-from tba_storage_core.tables import TokenRecord
+from tba_storage_token.tables import TokenRecord
 from tigrbl_concrete.records import (
     delete_table_record,
     field_value,

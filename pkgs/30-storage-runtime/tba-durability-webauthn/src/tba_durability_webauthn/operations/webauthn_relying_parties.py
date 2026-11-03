@@ -3,7 +3,7 @@
 from collections.abc import Mapping
 from typing import Any
 
-from tba_storage_core.tables import WebAuthnRelyingParty
+from tba_storage_webauthn.tables import WebAuthnRelyingParty
 
 from tigrbl import (
     database_from_context,

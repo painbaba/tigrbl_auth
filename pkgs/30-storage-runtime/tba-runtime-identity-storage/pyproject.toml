@@ -35,7 +35,7 @@ dependencies = [
     "tigrbl-concrete @ git+https://github.com/tigrbl/tigrbl.git@1368ad888277926e3a5e322081d0306cbbc7ebf3#subdirectory=pkgs/70_concrete/tigrbl_concrete",
     "tigrbl-core==0.4.5.dev4",
     "tba-primitives-identity==0.4.0.dev2",
-    "tba-storage-core==0.4.0.dev2",
+    "tba-storage-core==0.4.0.dev3",
     "tigrbl-migrations>=0.4.5.dev4",
     "tba-contracts-identity==0.4.0.dev2",
     "tba-contracts-security-trust==0.1.0",
@@ -57,6 +57,14 @@ dependencies = [
     "tba-durability-gnap-state==0.4.0.dev2",
     "tba-durability-audit==0.4.0.dev2",
     "tba-durability-key-material==0.4.0.dev2",
+    "tba-storage-authorization-policy==0.4.0.dev2",
+    "tba-storage-consent==0.4.0.dev2",
+    "tba-storage-key-material==0.4.0.dev3",
+    "tba-storage-oauth==0.4.0.dev2",
+    "tba-storage-operator==0.4.0.dev2",
+    "tba-storage-principals==0.4.0.dev2",
+    "tba-storage-tenancy==0.4.0.dev2",
+    "tba-storage-token==0.4.0.dev2",
 ]
 
 [project.urls]

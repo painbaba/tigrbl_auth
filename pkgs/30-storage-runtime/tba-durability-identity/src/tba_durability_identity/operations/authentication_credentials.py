@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from tba_storage_core.tables import CredentialApiKey, CredentialServiceKey, User
+from tba_storage_authentication.tables import CredentialApiKey, CredentialServiceKey
+from tba_storage_principals.tables import User
 
 from tigrbl import list_table_records, maybe_await, read_table_record
 from tba_durability_identity.operations.identities import (

@@ -1,33 +1,9 @@
-"""Table-owned operator transaction log."""
+"""Compatibility re-export of :mod:`tba_storage_operator.tables.operator_transaction._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_operator.tables.operator_transaction._table as _owner
+from tba_storage_operator.tables.operator_transaction._table import *  # noqa: F401,F403
 
-from tba_storage_core.framework import RestOltpTable, Mapped, S, String, acol
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class OperatorTransaction(RestOltpTable):
-    __tablename__ = "operator_transactions"
-
-    transaction_id: Mapped[str] = acol(
-        storage=S(String(255), primary_key=True, nullable=False)
-    )
-    ts: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    command: Mapped[str] = acol(storage=S(String(255), nullable=False))
-    resource: Mapped[str] = acol(storage=S(String(128), nullable=False, index=True))
-    status: Mapped[str] = acol(storage=S(String(64), nullable=False))
-    record_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    changed_ids_json: Mapped[str] = acol(
-        storage=S(String(8000), nullable=False, default="[]")
-    )
-    summary_json: Mapped[str] = acol(
-        storage=S(String(20000), nullable=False, default="{}")
-    )
-    actor: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    profile: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    tenant: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    issuer: Mapped[str | None] = acol(storage=S(String(512), nullable=True))
-    before_checksum: Mapped[str | None] = acol(storage=S(String(128), nullable=True))
-    after_checksum: Mapped[str | None] = acol(storage=S(String(128), nullable=True))
-
-
-__all__ = ["OperatorTransaction"]
+def __getattr__(name):
+    return getattr(_owner, name)

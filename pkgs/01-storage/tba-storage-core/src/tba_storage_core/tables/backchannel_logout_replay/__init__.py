@@ -1,5 +1,9 @@
-"""Back-channel logout replay table export."""
+"""Compatibility re-export of :mod:`tba_storage_oidc.tables.backchannel_logout_replay`; tables are owned there."""
 
-from ._table import BackchannelLogoutReplay
+import tba_storage_oidc.tables.backchannel_logout_replay as _owner
+from tba_storage_oidc.tables.backchannel_logout_replay import *  # noqa: F401,F403
 
-__all__ = ["BackchannelLogoutReplay"]
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

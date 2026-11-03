@@ -1,11 +1,6 @@
 """Security-event table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    SecurityEvent,
-    SecurityEventDelivery,
-    SecurityEventReplay,
-    SecurityEventSubscription,
-)
+from tba_storage_security_event.tables import SecurityEvent, SecurityEventDelivery, SecurityEventReplay, SecurityEventSubscription
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

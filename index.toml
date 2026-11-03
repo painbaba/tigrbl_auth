@@ -255,7 +255,7 @@ name = "tba-storage-core"
 path = "pkgs/01-storage/tba-storage-core"
 layer = "01-storage"
 order = "04"
-local_dependencies = ["tba-primitives-identity", "tba-storage-access-governance", "tba-storage-attestation", "tba-storage-audit", "tba-storage-authentication", "tba-storage-authority-graph", "tba-storage-authorization-policy", "tba-storage-certificate", "tba-storage-claims", "tba-storage-consent", "tba-storage-delegation", "tba-storage-did", "tba-storage-digital-credential", "tba-storage-federation", "tba-storage-gnap", "tba-storage-key-material", "tba-storage-oauth", "tba-storage-oidc", "tba-storage-operator", "tba-storage-presentation", "tba-storage-principals", "tba-storage-release-governance", "tba-storage-replay-protection", "tba-storage-residency", "tba-storage-scim", "tba-storage-security-event", "tba-storage-tenancy", "tba-storage-token", "tba-storage-trust-federation-graph", "tba-storage-webauthn", "tba-storage-workload-identity", "tba-contracts-security-trust"]
+local_dependencies = ["tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-access-governance", "tba-storage-attestation", "tba-storage-audit", "tba-storage-authentication", "tba-storage-authority-graph", "tba-storage-authorization-policy", "tba-storage-certificate", "tba-storage-claims", "tba-storage-consent", "tba-storage-delegation", "tba-storage-did", "tba-storage-digital-credential", "tba-storage-federation", "tba-storage-gnap", "tba-storage-key-material", "tba-storage-oauth", "tba-storage-oidc", "tba-storage-operator", "tba-storage-presentation", "tba-storage-principals", "tba-storage-release-governance", "tba-storage-replay-protection", "tba-storage-residency", "tba-storage-scim", "tba-storage-security-event", "tba-storage-tenancy", "tba-storage-token", "tba-storage-trust-federation-graph", "tba-storage-webauthn", "tba-storage-workload-identity"]
 same_layer_dependencies = ["tba-storage-access-governance", "tba-storage-attestation", "tba-storage-audit", "tba-storage-authentication", "tba-storage-authority-graph", "tba-storage-authorization-policy", "tba-storage-certificate", "tba-storage-claims", "tba-storage-consent", "tba-storage-delegation", "tba-storage-did", "tba-storage-digital-credential", "tba-storage-federation", "tba-storage-gnap", "tba-storage-key-material", "tba-storage-oauth", "tba-storage-oidc", "tba-storage-operator", "tba-storage-presentation", "tba-storage-principals", "tba-storage-release-governance", "tba-storage-replay-protection", "tba-storage-residency", "tba-storage-scim", "tba-storage-security-event", "tba-storage-tenancy", "tba-storage-token", "tba-storage-trust-federation-graph", "tba-storage-webauthn", "tba-storage-workload-identity"]
 
 [[packages]]
@@ -2399,7 +2399,7 @@ name = "tba-durability-attestation"
 path = "pkgs/30-storage-runtime/tba-durability-attestation"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-attestation"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2407,7 +2407,7 @@ name = "tba-durability-audit"
 path = "pkgs/30-storage-runtime/tba-durability-audit"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-audit", "tba-storage-tenancy"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2415,7 +2415,7 @@ name = "tba-durability-authority-graph"
 path = "pkgs/30-storage-runtime/tba-durability-authority-graph"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-storage-core"]
+local_dependencies = ["tba-storage-authority-graph"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2423,7 +2423,7 @@ name = "tba-durability-authorization-policy"
 path = "pkgs/30-storage-runtime/tba-durability-authorization-policy"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-authorization", "tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-authorization", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-authorization-policy"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2431,7 +2431,7 @@ name = "tba-durability-consent"
 path = "pkgs/30-storage-runtime/tba-durability-consent"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-consent"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2439,7 +2439,7 @@ name = "tba-durability-delegation"
 path = "pkgs/30-storage-runtime/tba-durability-delegation"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-delegation"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2447,7 +2447,7 @@ name = "tba-durability-digital-credential"
 path = "pkgs/30-storage-runtime/tba-durability-digital-credential"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-digital-credential"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2455,7 +2455,7 @@ name = "tba-durability-gnap-state"
 path = "pkgs/30-storage-runtime/tba-durability-gnap-state"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-gnap"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2463,7 +2463,7 @@ name = "tba-durability-identity"
 path = "pkgs/30-storage-runtime/tba-durability-identity"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-authentication", "tba-storage-federation", "tba-storage-oauth", "tba-storage-principals"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2471,7 +2471,7 @@ name = "tba-durability-key-material"
 path = "pkgs/30-storage-runtime/tba-durability-key-material"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-storage-core", "tba-contracts-security-trust"]
+local_dependencies = ["tba-contracts-security-trust", "tba-storage-key-material"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2479,7 +2479,7 @@ name = "tba-durability-oauth-state"
 path = "pkgs/30-storage-runtime/tba-durability-oauth-state"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-oauth"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2487,7 +2487,7 @@ name = "tba-durability-oidc-state"
 path = "pkgs/30-storage-runtime/tba-durability-oidc-state"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-oidc"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2503,7 +2503,7 @@ name = "tba-durability-presentation"
 path = "pkgs/30-storage-runtime/tba-durability-presentation"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-presentation"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2511,7 +2511,7 @@ name = "tba-durability-replay-protection"
 path = "pkgs/30-storage-runtime/tba-durability-replay-protection"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-replay-protection"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2527,7 +2527,7 @@ name = "tba-durability-security-event"
 path = "pkgs/30-storage-runtime/tba-durability-security-event"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-security-event"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2535,7 +2535,7 @@ name = "tba-durability-session"
 path = "pkgs/30-storage-runtime/tba-durability-session"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-oauth"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2543,7 +2543,7 @@ name = "tba-durability-token"
 path = "pkgs/30-storage-runtime/tba-durability-token"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-token"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2551,7 +2551,7 @@ name = "tba-durability-trust-federation-graph"
 path = "pkgs/30-storage-runtime/tba-durability-trust-federation-graph"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-storage-core"]
+local_dependencies = ["tba-storage-trust-federation-graph"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2559,7 +2559,7 @@ name = "tba-durability-webauthn"
 path = "pkgs/30-storage-runtime/tba-durability-webauthn"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-webauthn"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2567,7 +2567,7 @@ name = "tba-durability-workload-identity"
 path = "pkgs/30-storage-runtime/tba-durability-workload-identity"
 layer = "30-storage-runtime"
 order = "00"
-local_dependencies = ["tba-contracts-identity", "tba-primitives-identity", "tba-storage-core", "tba-bases-replay", "tba-contracts-security-trust"]
+local_dependencies = ["tba-bases-replay", "tba-contracts-identity", "tba-contracts-security-trust", "tba-primitives-identity", "tba-storage-workload-identity"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -2575,7 +2575,7 @@ name = "tba-durability-authorization-policy-authority-derivation-graph"
 path = "pkgs/30-storage-runtime/tba-durability-authorization-policy-authority-derivation-graph"
 layer = "30-storage-runtime"
 order = "01"
-local_dependencies = ["tba-concrete-authority-graph", "tba-durability-authority-graph"]
+local_dependencies = ["tba-concrete-authority-graph", "tba-durability-authority-graph", "tba-storage-authority-graph"]
 same_layer_dependencies = ["tba-durability-authority-graph"]
 
 [[packages]]
@@ -2583,7 +2583,7 @@ name = "tba-durability-identity-administration-trust-federation-graph"
 path = "pkgs/30-storage-runtime/tba-durability-identity-administration-trust-federation-graph"
 layer = "30-storage-runtime"
 order = "01"
-local_dependencies = ["tba-concrete-trust-federation-graph", "tba-durability-trust-federation-graph"]
+local_dependencies = ["tba-concrete-trust-federation-graph", "tba-durability-trust-federation-graph", "tba-storage-trust-federation-graph"]
 same_layer_dependencies = ["tba-durability-trust-federation-graph"]
 
 [[packages]]
@@ -2591,7 +2591,7 @@ name = "tba-runtime-identity-storage"
 path = "pkgs/30-storage-runtime/tba-runtime-identity-storage"
 layer = "30-storage-runtime"
 order = "01"
-local_dependencies = ["tba-durability-attestation", "tba-durability-audit", "tba-durability-authorization-policy", "tba-durability-consent", "tba-durability-delegation", "tba-durability-digital-credential", "tba-durability-gnap-state", "tba-contracts-identity", "tba-primitives-identity", "tba-durability-identity", "tba-storage-core", "tba-durability-key-material", "tba-durability-oauth-state", "tba-durability-oidc-state", "tba-durability-presentation", "tba-durability-replay-protection", "tba-provider-security-authorization-provenance-builder", "tba-durability-security-event", "tba-contracts-security-trust", "tba-durability-session", "tba-durability-token", "tba-durability-webauthn", "tba-durability-workload-identity"]
+local_dependencies = ["tba-contracts-identity", "tba-contracts-security-trust", "tba-durability-attestation", "tba-durability-audit", "tba-durability-authorization-policy", "tba-durability-consent", "tba-durability-delegation", "tba-durability-digital-credential", "tba-durability-gnap-state", "tba-durability-identity", "tba-durability-key-material", "tba-durability-oauth-state", "tba-durability-oidc-state", "tba-durability-presentation", "tba-durability-replay-protection", "tba-durability-security-event", "tba-durability-session", "tba-durability-token", "tba-durability-webauthn", "tba-durability-workload-identity", "tba-primitives-identity", "tba-provider-security-authorization-provenance-builder", "tba-storage-authorization-policy", "tba-storage-consent", "tba-storage-core", "tba-storage-key-material", "tba-storage-oauth", "tba-storage-operator", "tba-storage-principals", "tba-storage-tenancy", "tba-storage-token"]
 same_layer_dependencies = ["tba-durability-attestation", "tba-durability-audit", "tba-durability-authorization-policy", "tba-durability-consent", "tba-durability-delegation", "tba-durability-digital-credential", "tba-durability-gnap-state", "tba-durability-identity", "tba-durability-key-material", "tba-durability-oauth-state", "tba-durability-oidc-state", "tba-durability-presentation", "tba-durability-replay-protection", "tba-durability-security-event", "tba-durability-session", "tba-durability-token", "tba-durability-webauthn", "tba-durability-workload-identity"]
 
 [[packages]]
@@ -3199,7 +3199,7 @@ name = "tba-runtime-identity"
 path = "pkgs/60-runtime/tba-runtime-identity"
 layer = "60-runtime"
 order = "00"
-local_dependencies = ["tba-protocol-cwt", "tba-protocol-webauthn", "tba-profile-credential-vc-jose-cose", "tba-contracts-identity", "tba-provider-identity-jose", "tba-protocol-identity-did-core", "tba-storage-core", "tba-runtime-identity-storage", "tba-capability-protected-envelope", "tba-capability-public-key-authentication", "tba-capability-public-key-credential-management", "tba-capability-public-key-registration", "tba-provider-secret-hashing-bcrypt", "tba-protocol-security-cose", "tba-protocol-security-jws", "tba-profile-workload-credential-cwt-svid-extension"]
+local_dependencies = ["tba-capability-protected-envelope", "tba-capability-public-key-authentication", "tba-capability-public-key-credential-management", "tba-capability-public-key-registration", "tba-contracts-identity", "tba-profile-credential-vc-jose-cose", "tba-profile-workload-credential-cwt-svid-extension", "tba-protocol-cwt", "tba-protocol-identity-did-core", "tba-protocol-security-cose", "tba-protocol-security-jws", "tba-protocol-webauthn", "tba-provider-identity-jose", "tba-provider-secret-hashing-bcrypt", "tba-runtime-identity-storage", "tba-storage-core"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -3279,7 +3279,7 @@ name = "tba-auth"
 path = "pkgs/70-facade/tba-auth"
 layer = "70-facade"
 order = "01"
-local_dependencies = ["tba-plugin-tigrbl", "tba-protocol-oauth", "tba-protocol-oidc", "tba-protocol-oidc-relying-party", "tba-protocol-webauthn", "tba-certification-release", "tba-concrete-authority-graph", "tba-runtime-authorization-policy", "tba-concrete-authorization-policy-attributes-mapping", "tba-concrete-authorization-policy-combiner-default", "tba-concrete-authorization-policy-evaluators-default", "tba-concrete-authorization-policy-obligations", "tba-concrete-authorization-policy-rules", "tba-protocol-oauth-protected-resource", "tba-credentials", "tba-runtime-identity-administration", "tba-runtime-identity-authoring", "tba-cli-identity", "tba-contracts-identity", "tba-primitives-identity", "tba-provider-identity-jose", "tba-operator-identity", "tba-concrete-identity-principals", "tba-runtime-identity", "tba-server-identity", "tba-storage-core", "tba-runtime-identity-storage", "tba-provider-security-authorization-provenance-builder", "tba-provider-security-signing-pqc"]
+local_dependencies = ["tba-certification-release", "tba-cli-identity", "tba-concrete-authority-graph", "tba-concrete-authorization-policy-attributes-mapping", "tba-concrete-authorization-policy-combiner-default", "tba-concrete-authorization-policy-evaluators-default", "tba-concrete-authorization-policy-obligations", "tba-concrete-authorization-policy-rules", "tba-concrete-identity-principals", "tba-contracts-identity", "tba-credentials", "tba-operator-identity", "tba-plugin-tigrbl", "tba-primitives-identity", "tba-protocol-oauth", "tba-protocol-oauth-protected-resource", "tba-protocol-oidc", "tba-protocol-oidc-relying-party", "tba-protocol-webauthn", "tba-provider-identity-jose", "tba-provider-security-authorization-provenance-builder", "tba-provider-security-signing-pqc", "tba-runtime-authorization-policy", "tba-runtime-identity", "tba-runtime-identity-administration", "tba-runtime-identity-authoring", "tba-runtime-identity-storage", "tba-server-identity", "tba-storage-core"]
 same_layer_dependencies = ["tba-credentials"]
 
 [[packages]]
@@ -3479,7 +3479,7 @@ name = "tba-app-backend-core"
 path = "pkgs/90-backend-apps/tba-app-backend-core"
 layer = "90-backend-apps"
 order = "00"
-local_dependencies = ["tba-plugin-tigrbl", "tba-protocol-gnap", "tba-protocol-oauth", "tba-router-administration-gate", "tba-router-oauth-authorization", "tba-router-oauth-authorization-server-metadata", "tba-router-oauth-device-authorization", "tba-router-oauth-introspection", "tba-router-oauth-pushed-authorization-request", "tba-router-oauth-protected-resource-metadata", "tba-router-oauth-registration", "tba-router-oauth-revocation", "tba-router-oauth-token", "tba-router-oauth-token-exchange", "tba-router-oidc-discovery", "tba-router-oidc-logout", "tba-router-oidc-userinfo", "tba-router-resource-validation-metadata", "tba-router-session-login", "tba-capability-client-secret-authentication", "tba-contracts-identity", "tba-primitives-identity", "tba-operator-identity", "tba-runtime-identity", "tba-server-identity", "tba-storage-core", "tba-storage-oauth", "tba-runtime-identity-storage", "tba-storage-tenancy", "tba-provider-secret-hashing-bcrypt"]
+local_dependencies = ["tba-capability-client-secret-authentication", "tba-contracts-identity", "tba-operator-identity", "tba-plugin-tigrbl", "tba-primitives-identity", "tba-protocol-gnap", "tba-protocol-oauth", "tba-provider-secret-hashing-bcrypt", "tba-router-administration-gate", "tba-router-oauth-authorization", "tba-router-oauth-authorization-server-metadata", "tba-router-oauth-device-authorization", "tba-router-oauth-introspection", "tba-router-oauth-protected-resource-metadata", "tba-router-oauth-pushed-authorization-request", "tba-router-oauth-registration", "tba-router-oauth-revocation", "tba-router-oauth-token", "tba-router-oauth-token-exchange", "tba-router-oidc-discovery", "tba-router-oidc-logout", "tba-router-oidc-userinfo", "tba-router-resource-validation-metadata", "tba-router-session-login", "tba-runtime-identity", "tba-runtime-identity-storage", "tba-server-identity", "tba-storage-core", "tba-storage-oauth", "tba-storage-tenancy"]
 same_layer_dependencies = []
 
 [[packages]]

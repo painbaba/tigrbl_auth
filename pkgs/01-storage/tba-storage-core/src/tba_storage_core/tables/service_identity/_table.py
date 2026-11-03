@@ -1,47 +1,9 @@
-"""Durable service identity records."""
+"""Compatibility re-export of :mod:`tba_storage_principals.tables.service_identity._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_principals.tables.service_identity._table as _owner
+from tba_storage_principals.tables.service_identity._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import (
-    RestOltpTable,
-    GUIDPk,
-    Timestamped,
-    TenantBound,
-    Principal as PrincipalMixin,
-    ActiveToggle,
-    Mapped,
-    String,
-    relationship,
-    F,
-    IO,
-    S,
-    acol,
-    ColumnSpec,
-)
-
-
-class ServiceIdentity(RestOltpTable, GUIDPk, Timestamped, TenantBound, PrincipalMixin, ActiveToggle):
-    __tablename__ = "service_identities"
-    __table_args__ = {"extend_existing": True, "schema": "authn"}
-
-    name: Mapped[str] = acol(
-        spec=ColumnSpec(
-            storage=S(String(120), unique=True, nullable=False),
-            field=F(constraints={"max_length": 120}, required_in=("create",)),
-            io=IO(
-                in_verbs=("create", "update", "replace"),
-                out_verbs=("read", "list"),
-                filter_ops=("eq", "ilike"),
-                sortable=True,
-            ),
-        )
-    )
-    _credential_service_keys = relationship(
-        "CredentialServiceKey",
-        back_populates="_service_identity",
-        cascade="all, delete-orphan",
-    )
-
-
-__all__ = ["ServiceIdentity"]
+def __getattr__(name):
+    return getattr(_owner, name)

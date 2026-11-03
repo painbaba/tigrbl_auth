@@ -1,5 +1,9 @@
-"""Policy target table export."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.policy_target`; tables are owned there."""
 
-from ._table import PolicyTarget
+import tba_storage_authorization_policy.tables.policy_target as _owner
+from tba_storage_authorization_policy.tables.policy_target import *  # noqa: F401,F403
 
-__all__ = ["PolicyTarget"]
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

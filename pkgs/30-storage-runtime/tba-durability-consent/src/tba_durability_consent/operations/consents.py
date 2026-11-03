@@ -41,7 +41,7 @@ def _principal_filters(ctx: Mapping[str, Any]) -> dict[str, Any]:
 
 
 async def list_consents_for_user(ctx: Mapping[str, Any]) -> list[Any]:
-    from tba_storage_core.tables import Consent
+    from tba_storage_consent.tables import Consent
 
     return await list_table_records(
         Consent,
@@ -51,7 +51,7 @@ async def list_consents_for_user(ctx: Mapping[str, Any]) -> list[Any]:
 
 
 async def revoke_consent_for_user(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import Consent
+    from tba_storage_consent.tables import Consent
 
     filters = _principal_filters(ctx)
     path = ctx.get("path_params") or {}
@@ -80,7 +80,7 @@ async def revoke_consent_for_user(ctx: Mapping[str, Any]) -> Any:
 
 
 async def revoke_consents_for_client(ctx: Mapping[str, Any]) -> list[Any]:
-    from tba_storage_core.tables import Consent
+    from tba_storage_consent.tables import Consent
 
     filters = _principal_filters(ctx)
     path = ctx.get("path_params") or {}

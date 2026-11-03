@@ -48,7 +48,7 @@ async def normalize_key_usage_policy(ctx: Mapping[str, Any]) -> None:
 
 
 async def seed_primary_key_version(ctx: Mapping[str, Any]) -> None:
-    from tba_storage_core.tables import CryptoKeyVersion
+    from tba_storage_key_material.tables import CryptoKeyVersion
 
     db = database_from_context(ctx)
     row = ctx.get("result") or ctx.get("object") or ctx.get("item")
@@ -81,7 +81,7 @@ async def seed_primary_key_version(ctx: Mapping[str, Any]) -> None:
 
 
 async def ensure_key_enabled(ctx: Mapping[str, Any]) -> None:
-    from tba_storage_core.tables import CryptoKey
+    from tba_storage_key_material.tables import CryptoKey
 
     payload = ctx.get("payload") or {}
     kid = payload.get("kid") if isinstance(payload, Mapping) else None

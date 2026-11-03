@@ -41,7 +41,7 @@ async def revoke_token_async(
     token_type_hint: str | None = None,
     reason: str | None = None,
 ) -> str:
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     digest = token_hash(token)
     now = utc_now()
@@ -76,7 +76,7 @@ async def revoke_token_async(
 
 
 async def is_token_revoked_async(token: str) -> bool:
-    from tba_storage_core.tables import TokenRecord
+    from tba_storage_token.tables import TokenRecord
 
     digest = token_hash(token)
     async with storage_session() as db:
@@ -100,7 +100,8 @@ async def is_token_revoked_async(token: str) -> bool:
 
 
 async def reset_token_state_async() -> None:
-    from tba_storage_core.tables import RevokedToken, TokenRecord
+    from tba_storage_oauth.tables import RevokedToken
+    from tba_storage_token.tables import TokenRecord
 
     try:
         async with storage_session() as db:

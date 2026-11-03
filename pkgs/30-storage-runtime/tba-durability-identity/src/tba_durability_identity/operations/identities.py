@@ -17,7 +17,7 @@ from tigrbl import (
 
 
 async def lookup_identity_by_identifier(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import User
+    from tba_storage_principals.tables import User
 
     identifier = str(payload_from_context(ctx).get("identifier") or "").strip()
     if not identifier:
@@ -43,7 +43,7 @@ def _identity_id(ctx: Mapping[str, Any]) -> Any:
 
 
 async def replace_password_hash(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import User
+    from tba_storage_principals.tables import User
 
     payload = payload_from_context(ctx)
     encoded_hash = payload.get("password_hash")
@@ -65,7 +65,7 @@ async def replace_password_hash(ctx: Mapping[str, Any]) -> Any:
 
 
 async def set_identity_enabled(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import User
+    from tba_storage_principals.tables import User
 
     payload = payload_from_context(ctx)
     db = database_from_context(ctx)

@@ -5,13 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from tba_storage_core.tables import (
-    AttestationEndorsement,
-    AttestationEvidence,
-    AttestationReferenceManifest,
-    AttestationReferenceValue,
-    AttestationResult,
-)
+from tba_storage_attestation.tables import AttestationEndorsement, AttestationEvidence, AttestationReferenceManifest, AttestationReferenceValue, AttestationResult
 from tba_primitives_identity.persistence import reject_sensitive_raw_fields
 
 from tigrbl import (

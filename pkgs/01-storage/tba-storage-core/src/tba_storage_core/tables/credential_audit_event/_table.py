@@ -1,25 +1,9 @@
-"""Durable credential audit events."""
+"""Compatibility re-export of :mod:`tba_storage_authentication.tables.credential_audit_event._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authentication.tables.credential_audit_event._table as _owner
+from tba_storage_authentication.tables.credential_audit_event._table import *  # noqa: F401,F403
 
-import datetime as dt
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, TZDateTime, Timestamped, acol
-from tba_primitives_identity.clock import utc_now
-
-
-class CredentialAuditEvent(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "credential_audit_events"
-    __table_args__ = ({"schema": "authn"},)
-
-    credential_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    action: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    principal_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    actor: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    outcome: Mapped[str] = acol(storage=S(String(32), nullable=False, default="ok", index=True))
-    reason: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    occurred_at: Mapped[dt.datetime] = acol(storage=S(TZDateTime, nullable=False, default=utc_now))
-    details: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["CredentialAuditEvent"]
+def __getattr__(name):
+    return getattr(_owner, name)

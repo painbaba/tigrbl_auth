@@ -1,10 +1,6 @@
 """Attestation table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    AttestationEvidence,
-    AttestationReferenceManifest,
-    AttestationResult,
-)
+from tba_storage_attestation.tables import AttestationEvidence, AttestationReferenceManifest, AttestationResult
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

@@ -1,11 +1,7 @@
 """Durable credential lifecycle operations."""
 
 from tba_primitives_identity.persistence import reject_sensitive_raw_fields
-from tba_storage_core.tables import (
-    CredentialIssuanceTransaction,
-    CredentialOffer,
-    CredentialStatusEntry,
-)
+from tba_storage_digital_credential.tables import CredentialIssuanceTransaction, CredentialOffer, CredentialStatusEntry
 
 from tigrbl import provideTableHandler
 

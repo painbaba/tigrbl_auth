@@ -1,9 +1,6 @@
 """Protected artifact and possession-proof replay runtime specifications."""
 
-from tba_storage_core.tables import (
-    PossessionProofReplay,
-    ProtectedArtifactReference,
-)
+from tba_storage_token.tables import PossessionProofReplay, ProtectedArtifactReference
 from tigrbl import deriveTableSpec, makeOp
 from tba_durability_token.operations.artifacts import (
     register_protected_artifact_reference,

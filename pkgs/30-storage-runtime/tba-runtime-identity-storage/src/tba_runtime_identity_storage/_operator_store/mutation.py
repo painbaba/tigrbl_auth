@@ -17,11 +17,11 @@ from tigrbl_concrete.records import (
     list_table_records as _list_table_records,
 )
 from ..sync import run_async
-from tba_storage_core.tables.operator_activity import OperatorActivity
-from tba_storage_core.tables.operator_audit_event import OperatorAuditEvent
-from tba_storage_core.tables.operator_metadata import OperatorMetadata
-from tba_storage_core.tables.operator_record import OperatorRecord
-from tba_storage_core.tables.operator_transaction import OperatorTransaction
+from tba_storage_operator.tables import OperatorActivity
+from tba_storage_operator.tables import OperatorAuditEvent
+from tba_storage_operator.tables import OperatorMetadata
+from tba_storage_operator.tables import OperatorRecord
+from tba_storage_operator.tables import OperatorTransaction
 
 
 from .records import *  # noqa: F401,F403

@@ -1,6 +1,6 @@
 """Crypto-key aliases and executable persistence specifications."""
 
-from tba_storage_core.tables import CryptoKey, CryptoKeyVersion
+from tba_storage_key_material.tables import CryptoKey, CryptoKeyVersion
 
 from tigrbl import deriveTableSpec
 from tba_durability_key_material.hooks import CRYPTO_KEY_RUNTIME_HOOKS

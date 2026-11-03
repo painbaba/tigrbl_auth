@@ -1,10 +1,6 @@
 """Durable authority-graph table operations and specifications."""
 
-from tba_storage_core.tables import (
-    AuthorityDerivationGraph as AuthorityGraphTable,
-    AuthorityDerivationGraphEdge as AuthorityGraphEdgeTable,
-    AuthorityDerivationGraphNode as AuthorityGraphNodeTable,
-)
+from tba_storage_authority_graph.tables import AuthorityDerivationGraph as AuthorityGraphTable, AuthorityDerivationGraphEdge as AuthorityGraphEdgeTable, AuthorityDerivationGraphNode as AuthorityGraphNodeTable
 from tigrbl import (
     provideTableHandler,
     deriveTableSpec,

@@ -1,10 +1,7 @@
 """Durable workload-reference and credential-entitlement operations."""
 
 from tba_primitives_identity.persistence import reject_sensitive_raw_fields
-from tba_storage_core.tables import (
-    WorkloadCredentialEntitlement,
-    WorkloadReferenceBinding,
-)
+from tba_storage_workload_identity.tables import WorkloadCredentialEntitlement, WorkloadReferenceBinding
 from tigrbl import provideTableHandler
 
 bind_workload_reference = provideTableHandler(

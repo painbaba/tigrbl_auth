@@ -39,7 +39,7 @@ def backchannel_logout_replay_key(*, issuer: str, client_id: str, jti: str) -> s
 async def register_backchannel_logout_replay(ctx: Mapping[str, Any]) -> Any:
     """Reject an active duplicate and persist a new logout-token observation."""
 
-    from tba_storage_core.tables import BackchannelLogoutReplay
+    from tba_storage_oidc.tables import BackchannelLogoutReplay
 
     payload = dict(ctx.get("payload") or {})
     db = database_from_context(ctx)

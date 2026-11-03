@@ -1,21 +1,9 @@
-"""Durable release capability truth records."""
+"""Compatibility re-export of :mod:`tba_storage_release_governance.tables.release_capability_record._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_release_governance.tables.release_capability_record._table as _owner
+from tba_storage_release_governance.tables.release_capability_record._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class ReleaseCapabilityRecord(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "release_capability_records"
-    __table_args__ = ({"schema": "authn"},)
-
-    capability_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    release_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    name: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    status: Mapped[str] = acol(storage=S(String(64), nullable=False, default="recorded", index=True))
-    capability_payload: Mapped[dict] = acol(storage=S(JSON, nullable=False, default=dict))
-
-
-__all__ = ["ReleaseCapabilityRecord"]
+def __getattr__(name):
+    return getattr(_owner, name)

@@ -18,7 +18,7 @@ from tigrbl import (
 
 
 async def _registration_aggregate(db: Any, client_id: Any) -> dict[str, Any] | None:
-    from tba_storage_core.tables import Client, ClientRegistration
+    from tba_storage_oauth.tables import Client, ClientRegistration
 
     client = await first_table_record(Client, db, {"id": client_id})
     registration = await first_table_record(
@@ -34,7 +34,7 @@ async def _registration_aggregate(db: Any, client_id: Any) -> dict[str, Any] | N
 async def create_client_registration(ctx: Mapping[str, Any]) -> dict[str, Any]:
     """Create the canonical client and registration rows as one aggregate."""
 
-    from tba_storage_core.tables import Client, ClientRegistration
+    from tba_storage_oauth.tables import Client, ClientRegistration
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -87,7 +87,7 @@ async def read_client_registration(ctx: Mapping[str, Any]) -> dict[str, Any] | N
 async def update_client_registration(ctx: Mapping[str, Any]) -> dict[str, Any]:
     """Replace mutable client and registration metadata without rotating secrets."""
 
-    from tba_storage_core.tables import Client, ClientRegistration
+    from tba_storage_oauth.tables import Client, ClientRegistration
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -123,7 +123,7 @@ async def update_client_registration(ctx: Mapping[str, Any]) -> dict[str, Any]:
 async def disable_client_registration(ctx: Mapping[str, Any]) -> dict[str, Any]:
     """Disable both sides of a client-registration aggregate without deleting history."""
 
-    from tba_storage_core.tables import Client, ClientRegistration
+    from tba_storage_oauth.tables import Client, ClientRegistration
 
     db = database_from_context(ctx)
     payload = payload_from_context(ctx)
@@ -149,7 +149,7 @@ async def disable_client_registration(ctx: Mapping[str, Any]) -> dict[str, Any]:
 async def persist_authorization_code(ctx: Mapping[str, Any]) -> Any:
     """Persist an authorization code using the canonical create operation."""
 
-    from tba_storage_core.tables import AuthCode
+    from tba_storage_oauth.tables import AuthCode
 
     return await create_table_record(
         AuthCode,
@@ -161,7 +161,7 @@ async def persist_authorization_code(ctx: Mapping[str, Any]) -> Any:
 async def persist_pushed_authorization_request(ctx: Mapping[str, Any]) -> Any:
     """Persist one already-normalized pushed authorization request."""
 
-    from tba_storage_core.tables import PushedAuthorizationRequest
+    from tba_storage_oauth.tables import PushedAuthorizationRequest
 
     payload = dict(payload_from_context(ctx))
     if not payload.get("client_id"):
@@ -180,7 +180,7 @@ async def persist_pushed_authorization_request(ctx: Mapping[str, Any]) -> Any:
 async def upsert_client_registration(ctx: Mapping[str, Any]) -> Any:
     """Create or merge durable dynamic-client registration metadata."""
 
-    from tba_storage_core.tables import ClientRegistration
+    from tba_storage_oauth.tables import ClientRegistration
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -221,7 +221,7 @@ async def upsert_client_registration(ctx: Mapping[str, Any]) -> Any:
 async def record_revoked_token_hash(ctx: Mapping[str, Any]) -> Any:
     """Idempotently record a revoked token digest and its durable metadata."""
 
-    from tba_storage_core.tables import RevokedToken
+    from tba_storage_oauth.tables import RevokedToken
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -255,7 +255,7 @@ async def record_revoked_token_hash(ctx: Mapping[str, Any]) -> Any:
 async def is_token_hash_revoked(ctx: Mapping[str, Any]) -> bool:
     """Return whether a token digest exists in the revocation ledger."""
 
-    from tba_storage_core.tables import RevokedToken
+    from tba_storage_oauth.tables import RevokedToken
 
     payload = payload_from_context(ctx)
     return (

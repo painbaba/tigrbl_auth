@@ -1,35 +1,9 @@
-"""Durable policy version records for PAP and PRP surfaces."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.policy_version._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authorization_policy.tables.policy_version._table as _owner
+from tba_storage_authorization_policy.tables.policy_version._table import *  # noqa: F401,F403
 
-from tba_storage_core.framework import (
-    Boolean,
-    GUIDPk,
-    Integer,
-    JSON,
-    Mapped,
-    RestOltpTable,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class PolicyVersion(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "policy_versions"
-    __table_args__ = ({"schema": "authn"},)
-
-    tenant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    policy_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    version_number: Mapped[int] = acol(storage=S(Integer, nullable=False, default=1, index=True))
-    source: Mapped[str] = acol(storage=S(String(4000), nullable=False))
-    source_hash: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    relation: Mapped[str | None] = acol(storage=S(String(255), nullable=True))
-    context_equals: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-    promoted: Mapped[bool] = acol(storage=S(Boolean, nullable=False, default=False, index=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="draft", index=True))
-    version_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["PolicyVersion"]
+def __getattr__(name):
+    return getattr(_owner, name)

@@ -24,7 +24,7 @@ def _session_id(ctx: Mapping[str, Any]) -> Any:
 
 
 async def terminate_session(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -48,7 +48,7 @@ async def terminate_session(ctx: Mapping[str, Any]) -> Any:
 
 
 async def touch_session(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     db = database_from_context(ctx)
     session_id = _session_id(ctx)
@@ -63,7 +63,7 @@ async def touch_session(ctx: Mapping[str, Any]) -> Any:
 
 
 async def get_active_session(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     db = database_from_context(ctx)
     session_id = _session_id(ctx)
@@ -96,7 +96,7 @@ async def get_active_session(ctx: Mapping[str, Any]) -> Any:
 
 
 async def rotate_session_cookie_secret(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -119,7 +119,7 @@ async def rotate_session_cookie_secret(ctx: Mapping[str, Any]) -> Any:
 
 
 async def bind_session_client(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))

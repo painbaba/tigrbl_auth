@@ -1,11 +1,6 @@
 """GNAP durable-state aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    GnapClientInstance,
-    GnapContinuation,
-    GnapGrant,
-    GnapInteraction,
-)
+from tba_storage_gnap.tables import GnapClientInstance, GnapContinuation, GnapGrant, GnapInteraction
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

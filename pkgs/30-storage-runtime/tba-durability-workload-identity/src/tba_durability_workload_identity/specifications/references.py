@@ -1,9 +1,6 @@
 """Workload reference and entitlement table runtime specifications."""
 
-from tba_storage_core.tables import (
-    WorkloadCredentialEntitlement,
-    WorkloadReferenceBinding,
-)
+from tba_storage_workload_identity.tables import WorkloadCredentialEntitlement, WorkloadReferenceBinding
 from tigrbl import deriveTableSpec, makeOp
 from tba_durability_workload_identity.operations.references import (
     bind_workload_reference,

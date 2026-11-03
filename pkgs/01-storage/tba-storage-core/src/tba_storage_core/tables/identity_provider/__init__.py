@@ -1,5 +1,9 @@
-"""Identity provider table export."""
+"""Compatibility re-export of :mod:`tba_storage_federation.tables.identity_provider`; tables are owned there."""
 
-from ._table import IdentityProvider
+import tba_storage_federation.tables.identity_provider as _owner
+from tba_storage_federation.tables.identity_provider import *  # noqa: F401,F403
 
-__all__ = ["IdentityProvider"]
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

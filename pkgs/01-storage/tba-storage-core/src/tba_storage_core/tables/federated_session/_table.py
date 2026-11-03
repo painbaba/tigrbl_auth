@@ -1,32 +1,9 @@
-"""Durable federated login session records."""
+"""Compatibility re-export of :mod:`tba_storage_federation.tables.federated_session._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_federation.tables.federated_session._table as _owner
+from tba_storage_federation.tables.federated_session._table import *  # noqa: F401,F403
 
-from tba_storage_core.framework import (
-    Boolean,
-    GUIDPk,
-    JSON,
-    Mapped,
-    RestOltpTable,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-
-class FederatedSession(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "federated_sessions"
-    __table_args__ = ({"schema": "authn"},)
-
-    session_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    provider_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    tenant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    issuer: Mapped[str] = acol(storage=S(String(1000), nullable=False, index=True))
-    audience: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    logout_supported: Mapped[bool] = acol(storage=S(Boolean, nullable=False, default=False, index=True))
-    normalized_claims: Mapped[dict] = acol(storage=S(JSON, nullable=False, default=dict))
-    bound_at: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-
-
-__all__ = ["FederatedSession"]
+def __getattr__(name):
+    return getattr(_owner, name)

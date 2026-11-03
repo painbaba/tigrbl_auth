@@ -25,7 +25,7 @@ async def create_session_async(
     cookie_secret_hash: str | None = None,
     session_state_salt: str | None = None,
 ):
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     async with storage_session() as db:
         return await create_table_record(
@@ -44,7 +44,7 @@ async def create_session_async(
 
 
 async def get_session_async(session_id: UUID):
-    from tba_storage_core.tables import AuthSession
+    from tba_storage_oauth.tables import AuthSession
 
     async with storage_session() as db:
         return await read_table_record(AuthSession, db, session_id)

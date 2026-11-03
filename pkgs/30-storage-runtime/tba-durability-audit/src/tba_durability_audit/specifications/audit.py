@@ -1,6 +1,6 @@
 """Audit-event alias and executable runtime specification."""
 
-from tba_storage_core.tables import AuditEvent
+from tba_storage_audit.tables import AuditEvent
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

@@ -8,11 +8,11 @@ from pathlib import Path
 from typing import Any, AsyncIterator
 
 from tigrbl_concrete._concrete import TigrblRouter
-from tba_storage_core.tables.operator_activity import OperatorActivity
-from tba_storage_core.tables.operator_audit_event import OperatorAuditEvent
-from tba_storage_core.tables.operator_metadata import OperatorMetadata
-from tba_storage_core.tables.operator_record import OperatorRecord
-from tba_storage_core.tables.operator_transaction import OperatorTransaction
+from tba_storage_operator.tables import OperatorActivity
+from tba_storage_operator.tables import OperatorAuditEvent
+from tba_storage_operator.tables import OperatorMetadata
+from tba_storage_operator.tables import OperatorRecord
+from tba_storage_operator.tables import OperatorTransaction
 
 from .paths import _OPERATOR_DB_FILENAME
 

@@ -1,3 +1,9 @@
-from ._table import WebAuthnCeremony
+"""Compatibility re-export of :mod:`tba_storage_webauthn.tables.webauthn_ceremony`; tables are owned there."""
 
-__all__ = ["WebAuthnCeremony"]
+import tba_storage_webauthn.tables.webauthn_ceremony as _owner
+from tba_storage_webauthn.tables.webauthn_ceremony import *  # noqa: F401,F403
+
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

@@ -1,22 +1,9 @@
-"""Append-only SCIM patch operation events."""
+"""Compatibility re-export of :mod:`tba_storage_scim.tables.scim_patch_event._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_scim.tables.scim_patch_event._table as _owner
+from tba_storage_scim.tables.scim_patch_event._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class ScimPatchEvent(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "scim_patch_events"
-    __table_args__ = ({"schema": "authn"},)
-
-    tenant_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    resource_kind: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    resource_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    op: Mapped[str] = acol(storage=S(String(64), nullable=False))
-    path: Mapped[str | None] = acol(storage=S(String(512), nullable=True))
-    value_payload: Mapped[dict | list | str | int | float | bool | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["ScimPatchEvent"]
+def __getattr__(name):
+    return getattr(_owner, name)

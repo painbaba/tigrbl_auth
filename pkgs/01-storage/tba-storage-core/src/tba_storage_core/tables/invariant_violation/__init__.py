@@ -1,5 +1,9 @@
-"""Invariant violation table export."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.invariant_violation`; tables are owned there."""
 
-from ._table import InvariantViolation
+import tba_storage_authorization_policy.tables.invariant_violation as _owner
+from tba_storage_authorization_policy.tables.invariant_violation import *  # noqa: F401,F403
 
-__all__ = ["InvariantViolation"]
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

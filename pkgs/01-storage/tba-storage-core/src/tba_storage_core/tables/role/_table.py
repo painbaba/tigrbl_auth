@@ -1,22 +1,9 @@
-"""Durable RBAC role definitions."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.role._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authorization_policy.tables.role._table as _owner
+from tba_storage_authorization_policy.tables.role._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class Role(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "roles"
-    __table_args__ = ({"schema": "authn"},)
-
-    name: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    tenant_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    permissions: Mapped[list] = acol(storage=S(JSON, nullable=False, default=list))
-    denied_permissions: Mapped[list | None] = acol(storage=S(JSON, nullable=True))
-    inherited_roles: Mapped[list | None] = acol(storage=S(JSON, nullable=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-
-
-__all__ = ["Role"]
+def __getattr__(name):
+    return getattr(_owner, name)

@@ -37,7 +37,7 @@ def _logout_id(ctx: Mapping[str, Any]) -> Any:
 
 
 async def latest_logout_for_session(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import LogoutState
+    from tba_storage_oidc.tables import LogoutState
 
     payload = payload_from_context(ctx)
     path = ctx.get("path_params") or {}
@@ -52,7 +52,7 @@ async def latest_logout_for_session(ctx: Mapping[str, Any]) -> Any:
 
 
 async def update_logout_metadata(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import LogoutState
+    from tba_storage_oidc.tables import LogoutState
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -70,7 +70,7 @@ async def update_logout_metadata(ctx: Mapping[str, Any]) -> Any:
 
 
 async def mark_logout_channel(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import LogoutState
+    from tba_storage_oidc.tables import LogoutState
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -132,7 +132,7 @@ async def mark_logout_channel(ctx: Mapping[str, Any]) -> Any:
 
 
 async def ensure_logout_for_session(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import LogoutState
+    from tba_storage_oidc.tables import LogoutState
 
     payload = dict(payload_from_context(ctx))
     session_id = payload["session_id"]

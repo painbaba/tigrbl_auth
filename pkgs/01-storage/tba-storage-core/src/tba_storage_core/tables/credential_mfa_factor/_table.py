@@ -1,24 +1,9 @@
-"""Durable MFA factor credential records."""
+"""Compatibility re-export of :mod:`tba_storage_authentication.tables.credential_mfa_factor._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authentication.tables.credential_mfa_factor._table as _owner
+from tba_storage_authentication.tables.credential_mfa_factor._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import GUIDPk, JSON, Mapped, RestOltpTable, S, String, Timestamped, acol
-
-
-
-class CredentialMfaFactor(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "credential_mfa_factors"
-    __table_args__ = {"extend_existing": True, "schema": "authn"}
-
-    credential_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    principal_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    factor_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    method: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    secret_digest: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    public_id: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-    factor_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["CredentialMfaFactor"]
+def __getattr__(name):
+    return getattr(_owner, name)

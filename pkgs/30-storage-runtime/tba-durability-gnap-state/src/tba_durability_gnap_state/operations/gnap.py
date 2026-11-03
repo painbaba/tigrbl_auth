@@ -16,7 +16,7 @@ from tigrbl import (
 
 
 async def record_gnap_client_instance(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapClientInstance
+    from tba_storage_gnap.tables import GnapClientInstance
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -32,7 +32,7 @@ async def record_gnap_client_instance(ctx: Mapping[str, Any]) -> Any:
 
 
 async def create_gnap_grant(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapGrant
+    from tba_storage_gnap.tables import GnapGrant
 
     payload = dict(payload_from_context(ctx))
     for name in ("grant_id", "client_instance_id", "access_request"):
@@ -42,7 +42,7 @@ async def create_gnap_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def read_gnap_grant(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapGrant
+    from tba_storage_gnap.tables import GnapGrant
 
     payload = payload_from_context(ctx)
     return await first_table_record(
@@ -51,7 +51,7 @@ async def read_gnap_grant(ctx: Mapping[str, Any]) -> Any:
 
 
 async def update_gnap_grant(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapGrant
+    from tba_storage_gnap.tables import GnapGrant
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -73,7 +73,7 @@ def _reject_raw_continuation(payload: Mapping[str, Any]) -> None:
 
 
 async def record_gnap_continuation(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapContinuation
+    from tba_storage_gnap.tables import GnapContinuation
 
     payload = dict(payload_from_context(ctx))
     _reject_raw_continuation(payload)
@@ -85,7 +85,7 @@ async def record_gnap_continuation(ctx: Mapping[str, Any]) -> Any:
 
 
 async def read_gnap_continuation(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapContinuation
+    from tba_storage_gnap.tables import GnapContinuation
 
     payload = payload_from_context(ctx)
     _reject_raw_continuation(payload)
@@ -97,7 +97,7 @@ async def read_gnap_continuation(ctx: Mapping[str, Any]) -> Any:
 
 
 async def rotate_gnap_continuation(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapContinuation
+    from tba_storage_gnap.tables import GnapContinuation
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))
@@ -120,7 +120,7 @@ async def rotate_gnap_continuation(ctx: Mapping[str, Any]) -> Any:
 
 
 async def record_gnap_interaction(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapInteraction
+    from tba_storage_gnap.tables import GnapInteraction
 
     return await create_table_record(
         GnapInteraction, database_from_context(ctx), payload_from_context(ctx)
@@ -128,7 +128,7 @@ async def record_gnap_interaction(ctx: Mapping[str, Any]) -> Any:
 
 
 async def complete_gnap_interaction(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import GnapInteraction
+    from tba_storage_gnap.tables import GnapInteraction
 
     db = database_from_context(ctx)
     payload = dict(payload_from_context(ctx))

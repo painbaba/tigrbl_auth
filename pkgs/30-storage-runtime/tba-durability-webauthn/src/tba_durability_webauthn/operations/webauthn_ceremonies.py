@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from tba_primitives_identity.digests import sha256_digest
-from tba_storage_core.tables import WebAuthnCeremony
+from tba_storage_webauthn.tables import WebAuthnCeremony
 
 from tigrbl import (
     create_table_record,

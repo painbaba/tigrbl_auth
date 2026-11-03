@@ -1,9 +1,9 @@
-﻿from __future__ import annotations
+"""Compatibility re-export of :mod:`tba_storage_release_governance.tables.release_capability_record`; tables are owned there."""
 
-from . import _table as _table
-from ._table import *
+import tba_storage_release_governance.tables.release_capability_record as _owner
+from tba_storage_release_governance.tables.release_capability_record import *  # noqa: F401,F403
 
-try:
-    __all__ = list(_table.__all__)
-except AttributeError:
-    __all__ = [name for name in globals() if not name.startswith("_")]
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
+
+def __getattr__(name):
+    return getattr(_owner, name)

@@ -3,7 +3,7 @@
 [![SSOT governed](https://img.shields.io/badge/SSOT-governed-2f6f4e.svg)](https://github.com/tigrbl/tigrbl_auth/blob/master/.ssot/registry.json)
 
 tba-storage-core owns mapped persistence state for the TBA identity
-suite. It contains Tigrbl/SQLAlchemy tables and migrations while executable
+suite. It re-exports Tigrbl/SQLAlchemy tables owned by the standalone layer-01 domain packages and retains migration compatibility while executable
 durable operations live in layer 30 and protocol wire behavior lives in layer
 50.
 
@@ -35,7 +35,9 @@ role_table = Role
 
 ## Package Boundary
 
-- Tigrbl and SQLAlchemy table mappings
+- Re-exports of domain-owned Tigrbl and SQLAlchemy table mappings
+- Legacy table-module paths resolve to the same canonical class objects
+- No duplicate mapped table definitions
 - ORM and migration modules
 - Passive mapped relationships, constraints, indexes, and storage defaults
 - No routers, HTTP schemas, runtime binding activation, hashing providers, or

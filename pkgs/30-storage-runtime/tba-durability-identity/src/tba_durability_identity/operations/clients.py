@@ -26,7 +26,7 @@ def _client_id(ctx: Mapping[str, Any]) -> Any:
 
 
 async def lookup_client(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import Client
+    from tba_storage_oauth.tables import Client
 
     client_id = _client_id(ctx)
     if client_id in {None, ""}:
@@ -35,7 +35,7 @@ async def lookup_client(ctx: Mapping[str, Any]) -> Any:
 
 
 async def set_client_enabled(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import Client
+    from tba_storage_oauth.tables import Client
 
     payload = payload_from_context(ctx)
     client_id = _client_id(ctx)
@@ -64,7 +64,7 @@ async def disable_client(ctx: Mapping[str, Any]) -> Any:
 
 
 async def replace_client_secret_hash(ctx: Mapping[str, Any]) -> Any:
-    from tba_storage_core.tables import Client
+    from tba_storage_oauth.tables import Client
 
     payload = payload_from_context(ctx)
     encoded_hash = payload.get("client_secret_hash")

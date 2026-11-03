@@ -1,10 +1,6 @@
 """Presentation table aliases and executable runtime specifications."""
 
-from tba_storage_core.tables import (
-    PresentationConsent,
-    PresentationReplay,
-    PresentationTransaction,
-)
+from tba_storage_presentation.tables import PresentationConsent, PresentationReplay, PresentationTransaction
 
 from tigrbl import deriveTableSpec
 from tigrbl import makeOp

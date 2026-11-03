@@ -1,7 +1,7 @@
 """Durable workload-identity lifecycle operations."""
 
 from tba_primitives_identity.persistence import reject_sensitive_raw_fields
-from tba_storage_core.tables import SpiffeTrustBundle, SvidRecord
+from tba_storage_workload_identity.tables import SpiffeTrustBundle, SvidRecord
 
 from tigrbl import provideTableHandler
 

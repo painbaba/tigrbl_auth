@@ -1,23 +1,9 @@
-"""Durable SDK package catalog."""
+"""Compatibility re-export of :mod:`tba_storage_release_governance.tables.sdk_package._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_release_governance.tables.sdk_package._table as _owner
+from tba_storage_release_governance.tables.sdk_package._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class SDKPackageRecord(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "sdk_packages"
-    __table_args__ = ({"schema": "authn"},)
-
-    sdk_id: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    package_name: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    language: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    version: Mapped[str] = acol(storage=S(String(128), nullable=False, index=True))
-    release_channel: Mapped[str] = acol(storage=S(String(64), nullable=False, default="stable", index=True))
-    contract_payload: Mapped[dict] = acol(storage=S(JSON, nullable=False, default=dict))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-
-
-__all__ = ["SDKPackageRecord"]
+def __getattr__(name):
+    return getattr(_owner, name)

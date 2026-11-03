@@ -6,7 +6,7 @@ from collections.abc import Mapping
 from datetime import datetime, timezone
 from typing import Any
 
-from tba_storage_core.tables import CredentialWebAuthnPasskey
+from tba_storage_webauthn.tables import CredentialWebAuthnPasskey
 
 from tigrbl import (
     create_table_record,

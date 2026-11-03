@@ -1,19 +1,9 @@
-"""Table-owned operator store metadata."""
+"""Compatibility re-export of :mod:`tba_storage_operator.tables.operator_metadata._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_operator.tables.operator_metadata._table as _owner
+from tba_storage_operator.tables.operator_metadata._table import *  # noqa: F401,F403
 
-from typing import Any
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, Mapped, S, String, TZDateTime, acol
-from tba_primitives_identity.clock import utc_now
-
-
-class OperatorMetadata(RestOltpTable):
-    __tablename__ = "operator_metadata"
-
-    key: Mapped[str] = acol(storage=S(String(255), primary_key=True, nullable=False))
-    value_json: Mapped[str] = acol(storage=S(String(8000), nullable=False, default="null"))
-    updated_at: Mapped[Any] = acol(storage=S(TZDateTime, nullable=False, default=utc_now))
-
-
-__all__ = ["OperatorMetadata"]
+def __getattr__(name):
+    return getattr(_owner, name)

@@ -1,23 +1,9 @@
-"""Durable recovery-code credential records."""
+"""Compatibility re-export of :mod:`tba_storage_authentication.tables.credential_recovery_code._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authentication.tables.credential_recovery_code._table as _owner
+from tba_storage_authentication.tables.credential_recovery_code._table import *  # noqa: F401,F403
 
-import datetime as dt
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import GUIDPk, JSON, Mapped, RestOltpTable, S, String, TZDateTime, Timestamped, acol
-
-
-
-class CredentialRecoveryCode(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "credential_recovery_codes"
-    __table_args__ = {"extend_existing": True, "schema": "authn"}
-
-    credential_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    principal_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    code_digest: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-    consumed_at: Mapped[dt.datetime | None] = acol(storage=S(TZDateTime, nullable=True, index=True))
-    recovery_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["CredentialRecoveryCode"]
+def __getattr__(name):
+    return getattr(_owner, name)

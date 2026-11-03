@@ -7,7 +7,7 @@ import secrets
 from datetime import timezone
 from typing import Any
 
-from tba_storage_core.tables import DpopNonce, DpopReplay
+from tba_storage_replay_protection.tables import DpopNonce, DpopReplay
 from tba_storage_replay_protection.tables.dpop_nonce import nonce_hash, nonce_payload
 from tba_storage_replay_protection.tables.dpop_replay import replay_payload
 from tba_contracts_security_trust import DPoPNonceRecord, DPoPProofClaims

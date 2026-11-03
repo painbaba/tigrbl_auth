@@ -1,52 +1,9 @@
-"""Durable provider-neutral crypto key metadata."""
+"""Compatibility re-export of :mod:`tba_storage_key_material.tables.crypto_key._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_key_material.tables.crypto_key._table as _owner
+from tba_storage_key_material.tables.crypto_key._table import *  # noqa: F401,F403
 
-import uuid
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import (
-    Boolean,
-    ForeignKeySpec,
-    GUIDPk,
-    Integer,
-    JSON,
-    Mapped,
-    PgUUID,
-    RestOltpTable,
-    S,
-    String,
-    Timestamped,
-    acol,
-)
-
-
-
-class CryptoKey(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "crypto_keys"
-    __table_args__ = ({"schema": "authn"},)
-
-    kid: Mapped[str] = acol(storage=S(String(255), nullable=False, unique=True, index=True))
-    algorithm: Mapped[str] = acol(storage=S(String(64), nullable=False, index=True))
-    key_kind: Mapped[str] = acol(storage=S(String(64), nullable=False, default="asymmetric", index=True))
-    key_usages: Mapped[list[str] | None] = acol(storage=S(JSON, nullable=True))
-    allowed_ops: Mapped[list[str] | None] = acol(storage=S(JSON, nullable=True))
-    status: Mapped[str] = acol(storage=S(String(32), nullable=False, default="active", index=True))
-    primary_version: Mapped[int | None] = acol(storage=S(Integer, nullable=True, default=1))
-    provider: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    provider_key_ref: Mapped[str | None] = acol(storage=S(String(1000), nullable=True))
-    export_policy: Mapped[str] = acol(storage=S(String(64), nullable=False, default="public_only", index=True))
-    origin: Mapped[str] = acol(storage=S(String(64), nullable=False, default="generated", index=True))
-    extractable: Mapped[bool] = acol(storage=S(Boolean, nullable=False, default=False))
-    public_material_format: Mapped[str | None] = acol(storage=S(String(64), nullable=True))
-    public_material: Mapped[dict | str | None] = acol(storage=S(JSON, nullable=True))
-    fingerprint: Mapped[str | None] = acol(storage=S(String(255), nullable=True, index=True))
-    key_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-    tenant_id: Mapped[uuid.UUID | None] = acol(
-        storage=S(PgUUID(as_uuid=True), fk=ForeignKeySpec(target="authn.tenants.id"), nullable=True, index=True)
-    )
-    realm_id: Mapped[uuid.UUID | None] = acol(
-        storage=S(PgUUID(as_uuid=True), fk=ForeignKeySpec(target="authn.realms.id"), nullable=True, index=True)
-    )
-
-
-__all__ = ["CryptoKey"]
+def __getattr__(name):
+    return getattr(_owner, name)

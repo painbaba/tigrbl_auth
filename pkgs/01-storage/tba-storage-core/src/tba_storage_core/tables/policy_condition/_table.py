@@ -1,21 +1,9 @@
-"""Durable dynamic policy conditions."""
+"""Compatibility re-export of :mod:`tba_storage_authorization_policy.tables.policy_condition._table`; tables are owned there."""
 
-from __future__ import annotations
+import tba_storage_authorization_policy.tables.policy_condition._table as _owner
+from tba_storage_authorization_policy.tables.policy_condition._table import *  # noqa: F401,F403
 
+__all__ = getattr(_owner, "__all__", [name for name in dir(_owner) if not name.startswith("_")])
 
-from tba_storage_core.framework import RestOltpTable, GUIDPk, JSON, Mapped, S, String, Timestamped, acol
-
-
-
-class PolicyCondition(RestOltpTable, GUIDPk, Timestamped):
-    __tablename__ = "policy_conditions"
-    __table_args__ = ({"schema": "authn"},)
-
-    policy_id: Mapped[str] = acol(storage=S(String(255), nullable=False, index=True))
-    field_name: Mapped[str] = acol(storage=S(String(255), nullable=False))
-    operator: Mapped[str] = acol(storage=S(String(64), nullable=False))
-    expected: Mapped[dict | list | str | int | float | bool | None] = acol(storage=S(JSON, nullable=True))
-    condition_metadata: Mapped[dict | None] = acol(storage=S(JSON, nullable=True))
-
-
-__all__ = ["PolicyCondition"]
+def __getattr__(name):
+    return getattr(_owner, name)
