@@ -1946,14 +1946,15 @@ requires-dist = [
 
 [[package]]
 name = "tba-provider-attestation-reference"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/20-providers/tba-provider-attestation-reference" }
 dependencies = [
     { name = "tba-bases-attestation" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tba-bases-attestation", specifier = "==0.4.0.dev2" }]
+requires-dist = [{ name = "tba-bases-attestation", specifier = "==0.4.0.dev2" }, { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }]
 
 [[package]]
 name = "tba-provider-attestation-tpm"

@@ -359,7 +359,7 @@ dependencies = [
     "tba-provider-digital-credential-status==0.4.0.dev2",
     "tba-provider-digital-credential-trust==0.4.0.dev2",
     "tba-provider-eat-verifier==0.4.0.dev2",
-    "tba-provider-attestation-reference==0.4.0.dev2",
+    "tba-provider-attestation-reference==0.4.0.dev3",
     "tba-provider-attestation-appraiser==0.4.0.dev2",
     "tba-provider-corim-reference-memory==0.4.0.dev2",
     "tba-provider-spiffe-workload-api==0.4.0.dev2",
