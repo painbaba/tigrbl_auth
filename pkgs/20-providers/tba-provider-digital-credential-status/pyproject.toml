@@ -1,10 +1,10 @@
 [project]
 name = "tba-provider-digital-credential-status"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 description = "Digital credential status resolution provider."
 requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
-dependencies = ["tba-bases-digital-credential==0.4.0.dev2"]
+dependencies = ["tba-bases-digital-credential==0.4.0.dev2", "tba-contracts-identity==0.4.0.dev2"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -6489,14 +6489,15 @@ requires-dist = [
 
 [[package]]
 name = "tba-provider-digital-credential-status"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/20-providers/tba-provider-digital-credential-status" }
 dependencies = [
     { name = "tba-bases-digital-credential" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" }]
+requires-dist = [{ name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" }, { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }]
 
 [[package]]
 name = "tba-provider-digital-credential-trust"
