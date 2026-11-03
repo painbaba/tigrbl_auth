@@ -612,19 +612,19 @@ same_layer_dependencies = ["tba-bases-protected-artifact"]
 
 [[packages]]
 name = "tba-bases-identity-authenticator"
-path = "pkgs/05-bases/tba-bases-identity-authenticator"
-layer = "05-bases"
-order = "01"
+path = "pkgs/deprecated/tba-bases-identity-authenticator"
+layer = "deprecated"
+order = "00"
 local_dependencies = ["tba-bases-authenticator"]
-same_layer_dependencies = ["tba-bases-authenticator"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-bases-identity-claims"
-path = "pkgs/05-bases/tba-bases-identity-claims"
-layer = "05-bases"
-order = "01"
+path = "pkgs/deprecated/tba-bases-identity-claims"
+layer = "deprecated"
+order = "00"
 local_dependencies = ["tba-bases-claim"]
-same_layer_dependencies = ["tba-bases-claim"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-bases-identity-model"
@@ -652,19 +652,19 @@ same_layer_dependencies = ["tba-bases-protected-artifact"]
 
 [[packages]]
 name = "tba-bases-public-key-authenticator"
-path = "pkgs/05-bases/tba-bases-public-key-authenticator"
-layer = "05-bases"
-order = "01"
+path = "pkgs/deprecated/tba-bases-public-key-authenticator"
+layer = "deprecated"
+order = "00"
 local_dependencies = ["tba-bases-public-key-authentication"]
-same_layer_dependencies = ["tba-bases-public-key-authentication"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-bases-security-artifact"
-path = "pkgs/05-bases/tba-bases-security-artifact"
-layer = "05-bases"
-order = "01"
+path = "pkgs/deprecated/tba-bases-security-artifact"
+layer = "deprecated"
+order = "00"
 local_dependencies = ["tba-bases-protected-artifact"]
-same_layer_dependencies = ["tba-bases-protected-artifact"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-bases-security-provenance"
@@ -2380,19 +2380,19 @@ same_layer_dependencies = ["tba-provider-security-proof-pkce"]
 
 [[packages]]
 name = "tba-provider-security-cose"
-path = "pkgs/20-providers/tba-provider-security-cose"
-layer = "20-providers"
-order = "01"
+path = "pkgs/deprecated/tba-provider-security-cose"
+layer = "deprecated"
+order = "00"
 local_dependencies = ["tba-concrete-cose", "tba-provider-cose-cryptography"]
-same_layer_dependencies = ["tba-provider-cose-cryptography"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-provider-jose-swarmauri"
-path = "pkgs/20-providers/tba-provider-jose-swarmauri"
-layer = "20-providers"
-order = "02"
+path = "pkgs/deprecated/tba-provider-jose-swarmauri"
+layer = "deprecated"
+order = "00"
 local_dependencies = ["tba-provider-identity-jose"]
-same_layer_dependencies = ["tba-provider-identity-jose"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-durability-attestation"

@@ -58,10 +58,10 @@ def _package_import_root(package_path: Path, name: str) -> str:
     return name.replace("-", "_")
 
 
-def discover_packages() -> list[Package]:
+def discover_packages(*, include_deprecated: bool = False) -> list[Package]:
     packages: list[Package] = []
     for pyproject in sorted((ROOT / "pkgs").rglob("pyproject.toml")):
-        if pyproject.relative_to(ROOT / "pkgs").parts[0] == "deprecated":
+        if not include_deprecated and pyproject.relative_to(ROOT / "pkgs").parts[0] == "deprecated":
             continue
         data = _load_pyproject(pyproject)
         project = data.get("project", {})
@@ -82,7 +82,7 @@ def discover_packages() -> list[Package]:
 
 
 def _find_package(name: str) -> Package:
-    matches = [item for item in discover_packages() if item.name == name]
+    matches = [item for item in discover_packages(include_deprecated=True) if item.name == name]
     if not matches:
         known = ", ".join(item.name for item in discover_packages())
         raise SystemExit(f"unknown package {name!r}; known packages: {known}")
@@ -110,7 +110,7 @@ def cmd_matrix(args: argparse.Namespace) -> int:
 
 
 def cmd_release_matrix(args: argparse.Namespace) -> int:
-    packages = discover_packages()
+    packages = discover_packages(include_deprecated=args.package != "all")
     if args.package != "all" and not any(p.name == args.package for p in packages):
         raise SystemExit(f"unknown package {args.package!r}")
     # Cross-job outputs must not contain public metadata that can match a
@@ -126,7 +126,7 @@ def cmd_release_matrix(args: argparse.Namespace) -> int:
 
 
 def cmd_resolve_release_index(args: argparse.Namespace) -> int:
-    packages = discover_packages()
+    packages = discover_packages(include_deprecated=args.package != "all")
     if not 0 <= args.index < len(packages):
         raise SystemExit(f"invalid release package index {args.index}")
     package = packages[args.index]

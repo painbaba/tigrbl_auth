@@ -3888,10 +3888,10 @@ requires-dist = [
     { name = "tba-bases-identity-assurance", editable = "pkgs/05-bases/tba-bases-identity-assurance" },
     { name = "tba-concrete-identity-assurance", editable = "pkgs/10-concrete/tba-concrete-identity-assurance" },
     { name = "tba-contracts-identity-assurance", editable = "pkgs/02-contracts/tba-contracts-identity-assurance" },
-    { name = "tba-bases-identity-authenticator", editable = "pkgs/05-bases/tba-bases-identity-authenticator" },
+    { name = "tba-bases-identity-authenticator", editable = "pkgs/deprecated/tba-bases-identity-authenticator" },
     { name = "tba-runtime-identity-authoring", editable = "pkgs/60-runtime/tba-runtime-identity-authoring" },
     { name = "tba-bases-identity", editable = "pkgs/05-bases/tba-bases-identity" },
-    { name = "tba-bases-identity-claims", editable = "pkgs/05-bases/tba-bases-identity-claims" },
+    { name = "tba-bases-identity-claims", editable = "pkgs/deprecated/tba-bases-identity-claims" },
     { name = "tba-cli-identity", editable = "pkgs/60-runtime/tba-cli-identity" },
     { name = "tba-contracts-identity", editable = "pkgs/02-contracts/tba-contracts-identity" },
     { name = "tba-primitives-identity", editable = "pkgs/00-primitives/tba-primitives-identity" },
@@ -3991,7 +3991,7 @@ requires-dist = [
     { name = "tba-bases-public-key-authentication", editable = "pkgs/05-bases/tba-bases-public-key-authentication" },
     { name = "tba-capability-public-key-authentication", editable = "pkgs/40-capabilities/tba-capability-public-key-authentication" },
     { name = "tba-contracts-public-key-authentication", editable = "pkgs/02-contracts/tba-contracts-public-key-authentication" },
-    { name = "tba-bases-public-key-authenticator", editable = "pkgs/05-bases/tba-bases-public-key-authenticator" },
+    { name = "tba-bases-public-key-authenticator", editable = "pkgs/deprecated/tba-bases-public-key-authenticator" },
     { name = "tba-capability-public-key-credential-management", editable = "pkgs/40-capabilities/tba-capability-public-key-credential-management" },
     { name = "tba-capability-public-key-registration", editable = "pkgs/40-capabilities/tba-capability-public-key-registration" },
     { name = "tba-concrete-public-subject-identifier", editable = "pkgs/10-concrete/tba-concrete-public-subject-identifier" },
@@ -4008,13 +4008,13 @@ requires-dist = [
     { name = "tba-concrete-sd-jwt", editable = "pkgs/10-concrete/tba-concrete-sd-jwt" },
     { name = "tba-concrete-sd-jwt-vc-credential", editable = "pkgs/10-concrete/tba-concrete-sd-jwt-vc-credential" },
     { name = "tba-provider-secret-hashing-bcrypt", editable = "pkgs/20-providers/tba-provider-secret-hashing-bcrypt" },
-    { name = "tba-bases-security-artifact", editable = "pkgs/05-bases/tba-bases-security-artifact" },
+    { name = "tba-bases-security-artifact", editable = "pkgs/deprecated/tba-bases-security-artifact" },
     { name = "tba-provider-authentication-context-acr-basic", editable = "pkgs/20-providers/tba-provider-authentication-context-acr-basic" },
     { name = "tba-provider-authentication-context-amr-basic", editable = "pkgs/20-providers/tba-provider-authentication-context-amr-basic" },
     { name = "tba-provider-security-authorization-provenance-builder", editable = "pkgs/20-providers/tba-provider-security-authorization-provenance-builder" },
     { name = "tba-provider-security-certificate-mtls", editable = "pkgs/20-providers/tba-provider-security-certificate-mtls" },
     { name = "tba-provider-claims-local", editable = "pkgs/20-providers/tba-provider-claims-local" },
-    { name = "tba-provider-security-cose", editable = "pkgs/20-providers/tba-provider-security-cose" },
+    { name = "tba-provider-security-cose", editable = "pkgs/deprecated/tba-provider-security-cose" },
     { name = "tba-provider-security-dpop-cnf-binding-validator", editable = "pkgs/20-providers/tba-provider-security-dpop-cnf-binding-validator" },
     { name = "tba-bases-security-event", editable = "pkgs/05-bases/tba-bases-security-event" },
     { name = "tba-contracts-security-event", editable = "pkgs/02-contracts/tba-contracts-security-event" },
@@ -6777,8 +6777,8 @@ source = { editable = "pkgs/02-contracts/tba-contracts-identity-assurance" }
 
 [[package]]
 name = "tba-bases-identity-authenticator"
-version = "0.1.0"
-source = { editable = "pkgs/05-bases/tba-bases-identity-authenticator" }
+version = "0.1.1.dev1"
+source = { editable = "pkgs/deprecated/tba-bases-identity-authenticator" }
 dependencies = [
     { name = "tba-bases-authenticator" },
 ]
@@ -6810,8 +6810,8 @@ requires-dist = [{ name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }
 
 [[package]]
 name = "tba-bases-identity-claims"
-version = "0.4.0.dev2"
-source = { editable = "pkgs/05-bases/tba-bases-identity-claims" }
+version = "0.4.0.dev3"
+source = { editable = "pkgs/deprecated/tba-bases-identity-claims" }
 dependencies = [
     { name = "tba-bases-claim" },
 ]
@@ -8622,8 +8622,8 @@ source = { editable = "pkgs/02-contracts/tba-contracts-public-key-authentication
 
 [[package]]
 name = "tba-bases-public-key-authenticator"
-version = "0.4.0.dev2"
-source = { editable = "pkgs/05-bases/tba-bases-public-key-authenticator" }
+version = "0.4.0.dev3"
+source = { editable = "pkgs/deprecated/tba-bases-public-key-authenticator" }
 dependencies = [
     { name = "tba-bases-public-key-authentication" },
 ]
@@ -8829,8 +8829,8 @@ requires-dist = [
 
 [[package]]
 name = "tba-bases-security-artifact"
-version = "0.4.0.dev2"
-source = { editable = "pkgs/05-bases/tba-bases-security-artifact" }
+version = "0.4.0.dev3"
+source = { editable = "pkgs/deprecated/tba-bases-security-artifact" }
 dependencies = [
     { name = "tba-bases-protected-artifact" },
 ]
@@ -8902,7 +8902,7 @@ requires-dist = [
 [[package]]
 name = "tba-provider-security-cose"
 version = "0.4.0.dev2"
-source = { editable = "pkgs/20-providers/tba-provider-security-cose" }
+source = { editable = "pkgs/deprecated/tba-provider-security-cose" }
 dependencies = [
     { name = "tba-concrete-cose" },
     { name = "tba-provider-cose-cryptography" },

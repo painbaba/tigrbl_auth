@@ -122,7 +122,7 @@ dependencies = [
     "tba-durability-identity-administration-trust-federation-graph==0.4.0.dev2",
     "tba-concrete-trust-federation-graph==0.4.0.dev2",
     "tba-concrete-set==0.4.0.dev2",
-    "tba-bases-identity-claims==0.4.0.dev2",
+    "tba-bases-identity-claims==0.4.0.dev3",
     "tba-bases-claim==0.4.0.dev2",
     "tba-bases-identity==0.4.0.dev2",
     "tba-bases-authentication-credential==0.4.0.dev2",
@@ -150,7 +150,7 @@ dependencies = [
     "tba-bases-authentication-assurance==0.4.0.dev2",
     "tba-bases-authentication-context==0.4.0.dev2",
     "tba-bases-identity-assurance==0.4.0.dev2",
-    "tba-bases-security-artifact==0.4.0.dev2",
+    "tba-bases-security-artifact==0.4.0.dev3",
     "tba-concrete-claim-issuer==0.4.0.dev2",
     "tba-concrete-claim-subject==0.4.0.dev2",
     "tba-concrete-claim-audience==0.4.0.dev2",
@@ -305,8 +305,8 @@ dependencies = [
     "tba-provider-cose-cryptography==0.4.0.dev2",
     "tba-provider-token-introspection==0.1.0",
     "tba-provider-security-token-jwks-cache==0.1.0",
-    "tba-bases-identity-authenticator==0.1.0",
-    "tba-bases-public-key-authenticator==0.4.0.dev2",
+    "tba-bases-identity-authenticator==0.1.1.dev1",
+    "tba-bases-public-key-authenticator==0.4.0.dev3",
     "tba-provider-authenticator-password-local==0.1.0",
     "tba-provider-authenticator-api-key-local==0.1.0",
     "tba-provider-authenticator-service-key-local==0.1.0",
@@ -636,11 +636,11 @@ tba-provider-security-webfinger = { path = "pkgs/20-providers/tba-provider-secur
 tba-provider-security-oidc-federation = { path = "pkgs/20-providers/tba-provider-security-oidc-federation", editable = true }
 tba-provider-security-signing-pqc = { path = "pkgs/20-providers/tba-provider-security-signing-pqc", editable = true }
 tba-provider-cose-cryptography = { path = "pkgs/20-providers/tba-provider-cose-cryptography", editable = true }
-tba-provider-jose-swarmauri = { path = "pkgs/20-providers/tba-provider-jose-swarmauri", editable = true }
+tba-provider-jose-swarmauri = { path = "pkgs/deprecated/tba-provider-jose-swarmauri", editable = true }
 tba-provider-token-introspection = { path = "pkgs/20-providers/tba-provider-token-introspection", editable = true }
 tba-provider-security-token-jwks-cache = { path = "pkgs/20-providers/tba-provider-security-token-jwks-cache", editable = true }
-tba-bases-identity-authenticator = { path = "pkgs/05-bases/tba-bases-identity-authenticator", editable = true }
-tba-bases-public-key-authenticator = { path = "pkgs/05-bases/tba-bases-public-key-authenticator", editable = true }
+tba-bases-identity-authenticator = { path = "pkgs/deprecated/tba-bases-identity-authenticator", editable = true }
+tba-bases-public-key-authenticator = { path = "pkgs/deprecated/tba-bases-public-key-authenticator", editable = true }
 tba-provider-authenticator-password-local = { path = "pkgs/20-providers/tba-provider-authenticator-password-local", editable = true }
 tba-provider-authenticator-api-key-local = { path = "pkgs/20-providers/tba-provider-authenticator-api-key-local", editable = true }
 tba-provider-authenticator-service-key-local = { path = "pkgs/20-providers/tba-provider-authenticator-service-key-local", editable = true }
@@ -736,7 +736,7 @@ tba-concrete-x509-svid-credential = { path = "pkgs/10-concrete/tba-concrete-x509
 tba-concrete-jwt-svid-credential = { path = "pkgs/10-concrete/tba-concrete-jwt-svid-credential", editable = true }
 tba-concrete-cwt-svid-extension-credential = { path = "pkgs/10-concrete/tba-concrete-cwt-svid-extension-credential", editable = true }
 tba-provider-security-authorization-provenance-builder = { path = "pkgs/20-providers/tba-provider-security-authorization-provenance-builder", editable = true }
-tba-bases-identity-claims = { path = "pkgs/05-bases/tba-bases-identity-claims", editable = true }
+tba-bases-identity-claims = { path = "pkgs/deprecated/tba-bases-identity-claims", editable = true }
 tba-concrete-jose = { path = "pkgs/10-concrete/tba-concrete-jose", editable = true }
 tba-concrete-sd-jwt = { path = "pkgs/10-concrete/tba-concrete-sd-jwt", editable = true }
 tba-concrete-svid = { path = "pkgs/10-concrete/tba-concrete-svid", editable = true }
@@ -750,7 +750,7 @@ tba-bases-replay = { path = "pkgs/05-bases/tba-bases-replay", editable = true }
 tba-bases-authentication-assurance = { path = "pkgs/05-bases/tba-bases-authentication-assurance", editable = true }
 tba-bases-authentication-context = { path = "pkgs/05-bases/tba-bases-authentication-context", editable = true }
 tba-bases-identity-assurance = { path = "pkgs/05-bases/tba-bases-identity-assurance", editable = true }
-tba-bases-security-artifact = { path = "pkgs/05-bases/tba-bases-security-artifact", editable = true }
+tba-bases-security-artifact = { path = "pkgs/deprecated/tba-bases-security-artifact", editable = true }
 tba-concrete-claim-issuer = { path = "pkgs/10-concrete/tba-concrete-claim-issuer", editable = true }
 tba-concrete-claim-subject = { path = "pkgs/10-concrete/tba-concrete-claim-subject", editable = true }
 tba-concrete-claim-audience = { path = "pkgs/10-concrete/tba-concrete-claim-audience", editable = true }
@@ -905,7 +905,7 @@ tba-provider-did-controller = { path = "pkgs/20-providers/tba-provider-did-contr
 tba-provider-trust-anchor = { path = "pkgs/20-providers/tba-provider-trust-anchor", editable = true }
 tba-provider-certificate-status = { path = "pkgs/20-providers/tba-provider-certificate-status", editable = true }
 tba-provider-certificate-path-validator = { path = "pkgs/20-providers/tba-provider-certificate-path-validator", editable = true }
-tba-provider-security-cose = { path = "pkgs/20-providers/tba-provider-security-cose", editable = true }
+tba-provider-security-cose = { path = "pkgs/deprecated/tba-provider-security-cose", editable = true }
 tba-provider-attestation-packed = { path = "pkgs/20-providers/tba-provider-attestation-packed", editable = true }
 tba-provider-attestation-u2f = { path = "pkgs/20-providers/tba-provider-attestation-u2f", editable = true }
 tba-provider-attestation-tpm = { path = "pkgs/20-providers/tba-provider-attestation-tpm", editable = true }

@@ -382,7 +382,7 @@ Produce:
 
 ## 15. Source Evidence
 
-- `pkgs/05-bases/tba-bases-identity-authenticator/`
+- `pkgs/deprecated/tba-bases-identity-authenticator/`
 - `pkgs/deprecated/tigrbl-identity-credentials-concrete/`
 - `pkgs/20-providers/tba-authenticator-*/`
 - `pkgs/20-providers/tba-provider-authentication-context-acr-basic/`

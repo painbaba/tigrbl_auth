@@ -22,6 +22,27 @@ from scripts.monorepo_release import (
 SCRIPT = ROOT / "scripts" / "monorepo_release.py"
 
 
+def test_deprecated_release_requires_explicit_package_selection(monkeypatch, capsys) -> None:
+    from argparse import Namespace
+    from scripts import monorepo_release as release
+
+    name = "tba-provider-jose-swarmauri"
+    assert name not in {p.name for p in release.discover_packages()}
+    assert release._find_package(name).path.parts[1] == "deprecated"
+    monkeypatch.delenv("GITHUB_OUTPUT", raising=False)
+    release.cmd_release_matrix(Namespace(package=name))
+    output = json.loads(capsys.readouterr().out)
+    cells = json.loads(output["matrix"])
+    assert output["count"] == "1"
+    release.cmd_resolve_release_index(Namespace(package=name, index=cells[0]["index"]))
+    resolved = json.loads(capsys.readouterr().out)
+    assert resolved["name"] == name
+    assert resolved["path"] == "pkgs/deprecated/" + name
+    release.cmd_release_matrix(Namespace(package="all"))
+    all_cells = json.loads(json.loads(capsys.readouterr().out)["matrix"])
+    assert len(all_cells) == len(release.discover_packages())
+
+
 def test_release_indices_round_trip_without_package_metadata() -> None:
     """Public credential names must not cross the secret-scanned job boundary."""
     selected = "tba-concrete-credential-password"
