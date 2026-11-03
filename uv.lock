@@ -9411,7 +9411,7 @@ requires-dist = [
 
 [[package]]
 name = "tba-provider-spiffe-bundle"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/20-providers/tba-provider-spiffe-bundle" }
 dependencies = [
     { name = "tba-bases-workload-identity" },

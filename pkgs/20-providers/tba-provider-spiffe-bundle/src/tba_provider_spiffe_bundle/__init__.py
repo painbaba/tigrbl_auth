@@ -1,4 +1,4 @@
-from tba_contracts_identity.workloads import SpiffeTrustBundle, TrustDomain
+from tba_contracts_workload_identity import SpiffeTrustBundle, TrustDomain
 from tba_bases_workload_identity import TrustBundleProviderBase
 
 

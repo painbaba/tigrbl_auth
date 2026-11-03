@@ -1,6 +1,6 @@
 from collections.abc import Callable, Iterable
 
-from tba_contracts_identity.workloads import Svid, SvidFormat, WorkloadSelector
+from tba_contracts_workload_identity import Svid, SvidFormat, WorkloadSelector
 from tba_bases_workload_identity import SvidProviderBase
 from tba_concrete_svid import normalize_selectors
 
