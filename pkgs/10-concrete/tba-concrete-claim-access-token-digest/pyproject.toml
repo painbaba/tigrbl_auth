@@ -1,6 +1,6 @@
 [project]
 name = "tba-concrete-claim-access-token-digest"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 description = "Standalone RFC 9449 ath claim implementation."
 requires-python = ">=3.10,<3.15"
 dependencies = [

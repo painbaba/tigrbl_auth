@@ -1,6 +1,6 @@
 [project]
 name = "tba-concrete-cwt"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 description = "Deterministic provider-free CWT claims-set objects."
 readme = "README.md"
 requires-python = ">=3.10,<3.15"

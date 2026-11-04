@@ -41,7 +41,7 @@ dependencies = [
     "tba-storage-core==0.4.0.dev4",
     "tba-runtime-identity-storage==0.4.0.dev2",
     "tba-protocol-webauthn==0.4.0.dev2",
-    "tba-protocol-cwt==0.4.0.dev2",
+    "tba-protocol-cwt==0.4.0.dev3",
     "tba-profile-credential-vc-jose-cose==0.4.0.dev2",
     "tba-protocol-identity-did-core==0.4.0.dev2",
     "tba-capability-protected-envelope==0.4.0.dev2",

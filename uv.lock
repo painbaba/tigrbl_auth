@@ -2441,7 +2441,7 @@ requires-dist = [
 
 [[package]]
 name = "tba-protocol-cwt"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/50-protocols/tba-protocol-cwt" }
 dependencies = [
     { name = "tba-bases-claim" },
@@ -2461,7 +2461,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-claim", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-claim-access-token-digest", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-claim-access-token-digest", specifier = "==0.4.0.dev3" },
     { name = "tba-concrete-claim-audience", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-authorization-context", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-expiration", specifier = "==0.4.0.dev2" },
@@ -2470,7 +2470,7 @@ requires-dist = [
     { name = "tba-concrete-claim-jwt-id", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-not-before", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-subject", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-cwt", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cwt", specifier = "==0.4.0.dev3" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
@@ -2566,7 +2566,7 @@ requires-dist = [
     { name = "tba-capability-token-issuance", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-token-revocation", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-authorization-scope-set-matcher", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-claim-access-token-digest", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-claim-access-token-digest", specifier = "==0.4.0.dev3" },
     { name = "tba-concrete-claim-actor", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-client-id", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-confirmation", specifier = "==0.4.0.dev2" },
@@ -4761,7 +4761,7 @@ requires-dist = [{ name = "tba-contracts-security-trust", specifier = "==0.1.0" 
 
 [[package]]
 name = "tba-concrete-claim-access-token-digest"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/10-concrete/tba-concrete-claim-access-token-digest" }
 dependencies = [
     { name = "tba-bases-claim" },
@@ -6269,7 +6269,7 @@ requires-dist = [
 
 [[package]]
 name = "tba-concrete-cwt"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/10-concrete/tba-concrete-cwt" }
 dependencies = [
     { name = "cbor2" },
@@ -6280,7 +6280,7 @@ requires-dist = [{ name = "cbor2", specifier = "==6.1.3" }]
 
 [[package]]
 name = "tba-concrete-cwt-svid-extension-credential"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/10-concrete/tba-concrete-cwt-svid-extension-credential" }
 dependencies = [
     { name = "tba-bases-digital-credential" },
@@ -6290,7 +6290,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-cwt", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cwt", specifier = "==0.4.0.dev3" },
 ]
 
 [[package]]
@@ -7133,7 +7133,7 @@ requires-dist = [
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-profile-credential-vc-jose-cose", specifier = "==0.4.0.dev2" },
     { name = "tba-profile-workload-credential-cwt-svid-extension", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-cwt", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-cwt", specifier = "==0.4.0.dev3" },
     { name = "tba-protocol-identity-did-core", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-security-cose", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-security-jws", specifier = "==0.4.0.dev2" },
@@ -9857,7 +9857,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-contracts-proof-of-possession", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-cwt", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-cwt", specifier = "==0.4.0.dev3" },
     { name = "tba-protocol-security-cose", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-workload-spiffe-svid", specifier = "==0.4.0.dev2" },
 ]

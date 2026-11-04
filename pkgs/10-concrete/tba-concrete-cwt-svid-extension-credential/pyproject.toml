@@ -1,12 +1,12 @@
 [project]
 name = "tba-concrete-cwt-svid-extension-credential"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 description = "Experimental Tigrbl CWT-SVID extension credential object."
 readme = "README.md"
 requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
 dependencies = [
-    "tba-concrete-cwt==0.4.0.dev2",
+    "tba-concrete-cwt==0.4.0.dev3",
     "tba-bases-digital-credential==0.4.0.dev2",
 ]
 
