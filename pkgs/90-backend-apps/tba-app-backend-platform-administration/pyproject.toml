@@ -7,7 +7,7 @@ requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
 dependencies = [
     "pydantic==2.12.5",
-    "tigrbl==0.4.5.dev4",
+    "tigrbl==0.4.5.dev8",
     "tba-auth==0.4.0.dev2",
     "tba-app-backend-core==0.4.0.dev2",
     "tba-router-administration-gate==0.4.0.dev2",

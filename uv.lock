@@ -1638,18 +1638,18 @@ name = "tba-capability-access-governance"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-access-governance" }
 dependencies = [
-    { name = "tba-provider-access-governance-memory" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
     { name = "tba-primitives-identity" },
+    { name = "tba-provider-access-governance-memory" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-provider-access-governance-memory", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-access-governance-memory", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -1657,18 +1657,18 @@ name = "tba-provider-access-governance-memory"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-access-governance-memory" }
 dependencies = [
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
     { name = "tba-concrete-service-credential" },
     { name = "tba-concrete-service-identity" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-service-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-service-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -1766,16 +1766,16 @@ name = "tba-capability-api-key-authentication"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-api-key-authentication" }
 dependencies = [
-    { name = "tba-provider-authenticator-api-key-local" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
+    { name = "tba-provider-authenticator-api-key-local" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-provider-authenticator-api-key-local", specifier = "==0.1.0" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-authenticator-api-key-local", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -1876,7 +1876,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-attestation", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -1886,20 +1886,20 @@ source = { editable = "pkgs/20-providers/tba-provider-attestation-packed" }
 dependencies = [
     { name = "cbor2" },
     { name = "cryptography" },
-    { name = "tba-concrete-cose" },
-    { name = "tba-provider-cose-cryptography" },
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-public-key-authentication" },
+    { name = "tba-concrete-cose" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-provider-cose-cryptography" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cbor2", specifier = "==6.1.3" },
     { name = "cryptography", specifier = ">=45" },
-    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-public-key-authentication", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -1954,7 +1954,10 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tba-bases-attestation", specifier = "==0.4.0.dev2" }, { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }]
+requires-dist = [
+    { name = "tba-bases-attestation", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-provider-attestation-tpm"
@@ -1963,20 +1966,20 @@ source = { editable = "pkgs/20-providers/tba-provider-attestation-tpm" }
 dependencies = [
     { name = "cbor2" },
     { name = "cryptography" },
-    { name = "tba-concrete-cose" },
-    { name = "tba-provider-cose-cryptography" },
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-public-key-authentication" },
+    { name = "tba-concrete-cose" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-provider-cose-cryptography" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cbor2", specifier = "==6.1.3" },
     { name = "cryptography", specifier = ">=45" },
-    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-public-key-authentication", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -1986,20 +1989,20 @@ source = { editable = "pkgs/20-providers/tba-provider-attestation-u2f" }
 dependencies = [
     { name = "cbor2" },
     { name = "cryptography" },
-    { name = "tba-concrete-cose" },
-    { name = "tba-provider-cose-cryptography" },
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-public-key-authentication" },
+    { name = "tba-concrete-cose" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-provider-cose-cryptography" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cbor2", specifier = "==6.1.3" },
     { name = "cryptography", specifier = ">=45" },
-    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-public-key-authentication", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2024,7 +2027,7 @@ requires-dist = [
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-audit", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-tenancy", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2093,7 +2096,7 @@ requires-dist = [
     { name = "tba-runtime-identity-authoring", specifier = "==0.4.0.dev2" },
     { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
     { name = "tba-server-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-core", specifier = "==0.4.0.dev3" },
+    { name = "tba-storage-core", specifier = "==0.4.0.dev4" },
 ]
 
 [[package]]
@@ -2163,10 +2166,10 @@ requires-dist = [
     { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
     { name = "tba-server-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-core", specifier = "==0.4.0.dev3" },
+    { name = "tba-storage-core", specifier = "==0.4.0.dev4" },
     { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-tenancy", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2174,8 +2177,8 @@ name = "tba-app-backend-developer"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-developer" }
 dependencies = [
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
+    { name = "tba-auth" },
     { name = "tba-router-administration-gate" },
     { name = "tba-router-oauth-authorization-server-metadata" },
     { name = "tba-router-oauth-registration" },
@@ -2184,8 +2187,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-router-administration-gate", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-authorization-server-metadata", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-registration", specifier = "==0.4.0.dev2" },
@@ -2198,11 +2201,11 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-my-account" }
 dependencies = [
     { name = "pydantic" },
-    { name = "tba-capability-account-self-service" },
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
-    { name = "tba-router-oidc-discovery" },
+    { name = "tba-auth" },
+    { name = "tba-capability-account-self-service" },
     { name = "tba-contracts-identity" },
+    { name = "tba-router-oidc-discovery" },
     { name = "tba-server-identity" },
     { name = "tigrbl" },
 ]
@@ -2210,13 +2213,13 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "pydantic", specifier = "==2.12.5" },
-    { name = "tba-capability-account-self-service", specifier = "==0.4.0.dev2" },
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
-    { name = "tba-router-oidc-discovery", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
+    { name = "tba-capability-account-self-service", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-router-oidc-discovery", specifier = "==0.4.0.dev2" },
     { name = "tba-server-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2225,10 +2228,10 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-platform-administration" }
 dependencies = [
     { name = "pydantic" },
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
-    { name = "tba-router-administration-gate" },
+    { name = "tba-auth" },
     { name = "tba-contracts-identity" },
+    { name = "tba-router-administration-gate" },
     { name = "tba-server-identity" },
     { name = "tigrbl" },
 ]
@@ -2236,12 +2239,12 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "pydantic", specifier = "==2.12.5" },
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
-    { name = "tba-router-administration-gate", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-router-administration-gate", specifier = "==0.4.0.dev2" },
     { name = "tba-server-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2260,14 +2263,14 @@ name = "tba-app-backend-public"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-public" }
 dependencies = [
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
+    { name = "tba-auth" },
     { name = "tba-router-oauth-authorization" },
     { name = "tba-router-oauth-authorization-server-metadata" },
     { name = "tba-router-oauth-device-authorization" },
     { name = "tba-router-oauth-introspection" },
-    { name = "tba-router-oauth-pushed-authorization-request" },
     { name = "tba-router-oauth-protected-resource-metadata" },
+    { name = "tba-router-oauth-pushed-authorization-request" },
     { name = "tba-router-oauth-registration" },
     { name = "tba-router-oauth-revocation" },
     { name = "tba-router-oauth-token" },
@@ -2281,14 +2284,14 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-authorization", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-authorization-server-metadata", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-device-authorization", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-introspection", specifier = "==0.4.0.dev2" },
-    { name = "tba-router-oauth-pushed-authorization-request", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-protected-resource-metadata", specifier = "==0.4.0.dev2" },
+    { name = "tba-router-oauth-pushed-authorization-request", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-registration", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-revocation", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-token", specifier = "==0.4.0.dev2" },
@@ -2305,8 +2308,8 @@ name = "tba-app-backend-resource-validation"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-resource-validation" }
 dependencies = [
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
+    { name = "tba-auth" },
     { name = "tba-router-oauth-introspection" },
     { name = "tba-router-oauth-protected-resource-metadata" },
     { name = "tba-router-oidc-discovery" },
@@ -2315,8 +2318,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-introspection", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-protected-resource-metadata", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oidc-discovery", specifier = "==0.4.0.dev2" },
@@ -2339,8 +2342,8 @@ name = "tba-app-backend-service-administration"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-service-administration" }
 dependencies = [
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
+    { name = "tba-auth" },
     { name = "tba-router-administration-gate" },
     { name = "tba-router-oauth-introspection" },
     { name = "tba-router-oauth-protected-resource-metadata" },
@@ -2349,8 +2352,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-router-administration-gate", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-introspection", specifier = "==0.4.0.dev2" },
     { name = "tba-router-oauth-protected-resource-metadata", specifier = "==0.4.0.dev2" },
@@ -2362,15 +2365,15 @@ name = "tba-app-backend-tenant-administration"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/90-backend-apps/tba-app-backend-tenant-administration" }
 dependencies = [
-    { name = "tba-auth" },
     { name = "tba-app-backend-core" },
+    { name = "tba-auth" },
     { name = "tba-router-administration-gate" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-app-backend-core", specifier = "==0.4.0.dev2" },
+    { name = "tba-auth", specifier = "==0.4.0.dev2" },
     { name = "tba-router-administration-gate", specifier = "==0.4.0.dev2" },
 ]
 
@@ -2394,14 +2397,14 @@ name = "tba-profile-fido2-server"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/55-profiles/tba-profile-fido2-server" }
 dependencies = [
-    { name = "tba-protocol-webauthn" },
     { name = "tba-contracts-identity" },
+    { name = "tba-protocol-webauthn" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-protocol-webauthn", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-webauthn", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2409,16 +2412,16 @@ name = "tba-profile-haip"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/55-profiles/tba-profile-haip" }
 dependencies = [
+    { name = "tba-contracts-identity" },
     { name = "tba-protocol-oid4vci" },
     { name = "tba-protocol-oid4vp" },
-    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-oid4vci", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-oid4vp", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2426,14 +2429,14 @@ name = "tba-protocol-authzen"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-authzen" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-capability-policy-evaluation" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-policy-evaluation", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2441,10 +2444,10 @@ name = "tba-protocol-cwt"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-cwt" }
 dependencies = [
-    { name = "tba-concrete-claim-authorization-context" },
+    { name = "tba-bases-claim" },
     { name = "tba-concrete-claim-access-token-digest" },
     { name = "tba-concrete-claim-audience" },
-    { name = "tba-bases-claim" },
+    { name = "tba-concrete-claim-authorization-context" },
     { name = "tba-concrete-claim-expiration" },
     { name = "tba-concrete-claim-issued-at" },
     { name = "tba-concrete-claim-issuer" },
@@ -2457,10 +2460,10 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-concrete-claim-authorization-context", specifier = "==0.4.0.dev2" },
+    { name = "tba-bases-claim", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-access-token-digest", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-audience", specifier = "==0.4.0.dev2" },
-    { name = "tba-bases-claim", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-claim-authorization-context", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-expiration", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-issued-at", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-issuer", specifier = "==0.4.0.dev2" },
@@ -2476,19 +2479,19 @@ name = "tba-protocol-gnap"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-gnap" }
 dependencies = [
+    { name = "tba-capability-delegated-access-negotiation" },
     { name = "tba-concrete-claim-assertions" },
     { name = "tba-concrete-claim-subject-identifiers" },
     { name = "tba-concrete-claim-updated-at-rfc3339" },
-    { name = "tba-capability-delegated-access-negotiation" },
     { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-capability-delegated-access-negotiation", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-assertions", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-subject-identifiers", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-updated-at-rfc3339", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-delegated-access-negotiation", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
@@ -2504,8 +2507,8 @@ dependencies = [
     { name = "tba-concrete-claim-jwt-id" },
     { name = "tba-concrete-claim-not-before" },
     { name = "tba-concrete-claim-subject" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-jwt" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-protected-envelope" },
 ]
 
@@ -2518,8 +2521,8 @@ requires-dist = [
     { name = "tba-concrete-claim-jwt-id", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-not-before", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-subject", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-jwt", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
 ]
 
@@ -2529,8 +2532,11 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-oauth" }
 dependencies = [
     { name = "pydantic", extra = ["email"] },
-    { name = "tba-protocol-gnap" },
     { name = "tba-capability-authorization-request-staging" },
+    { name = "tba-capability-client-registration" },
+    { name = "tba-capability-token-introspection" },
+    { name = "tba-capability-token-issuance" },
+    { name = "tba-capability-token-revocation" },
     { name = "tba-concrete-authorization-scope-set-matcher" },
     { name = "tba-concrete-claim-access-token-digest" },
     { name = "tba-concrete-claim-actor" },
@@ -2543,22 +2549,22 @@ dependencies = [
     { name = "tba-concrete-claim-may-act" },
     { name = "tba-concrete-claim-nonce" },
     { name = "tba-concrete-claim-scope" },
-    { name = "tba-capability-client-registration" },
     { name = "tba-contracts-identity" },
+    { name = "tba-contracts-security-trust" },
     { name = "tba-primitives-identity" },
+    { name = "tba-protocol-gnap" },
     { name = "tba-provider-identity-jose" },
     { name = "tba-provider-security-proof-pkce" },
-    { name = "tba-contracts-security-trust" },
-    { name = "tba-capability-token-introspection" },
-    { name = "tba-capability-token-issuance" },
-    { name = "tba-capability-token-revocation" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "pydantic", extras = ["email"], specifier = "==2.12.5" },
-    { name = "tba-protocol-gnap", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-authorization-request-staging", specifier = "==0.4.0.dev2" },
+    { name = "tba-capability-client-registration", specifier = "==0.4.0.dev2" },
+    { name = "tba-capability-token-introspection", specifier = "==0.4.0.dev2" },
+    { name = "tba-capability-token-issuance", specifier = "==0.4.0.dev2" },
+    { name = "tba-capability-token-revocation", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-authorization-scope-set-matcher", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-access-token-digest", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-actor", specifier = "==0.4.0.dev2" },
@@ -2571,15 +2577,12 @@ requires-dist = [
     { name = "tba-concrete-claim-may-act", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-nonce", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-scope", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-client-registration", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-gnap", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-security-proof-pkce", specifier = "==0.1.0" },
-    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
-    { name = "tba-capability-token-introspection", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-token-issuance", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-token-revocation", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2587,19 +2590,19 @@ name = "tba-protocol-oid4vci"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-oid4vci" }
 dependencies = [
+    { name = "tba-capability-digital-credential-issuance" },
     { name = "tba-concrete-claim-audience" },
     { name = "tba-concrete-claim-issued-at" },
     { name = "tba-concrete-claim-nonce" },
-    { name = "tba-capability-digital-credential-issuance" },
     { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-capability-digital-credential-issuance", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-audience", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-issued-at", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-nonce", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-digital-credential-issuance", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
@@ -2608,19 +2611,19 @@ name = "tba-protocol-oid4vp"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-oid4vp" }
 dependencies = [
+    { name = "tba-capability-digital-credential-presentation" },
     { name = "tba-concrete-claim-client-id" },
     { name = "tba-concrete-claim-nonce" },
     { name = "tba-concrete-claim-transaction-id" },
-    { name = "tba-capability-digital-credential-presentation" },
     { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-capability-digital-credential-presentation", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-client-id", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-nonce", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-transaction-id", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-digital-credential-presentation", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
@@ -2630,7 +2633,6 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-oidc" }
 dependencies = [
     { name = "pydantic" },
-    { name = "tba-protocol-oauth" },
     { name = "tba-concrete-claim-access-token-hash" },
     { name = "tba-concrete-claim-address" },
     { name = "tba-concrete-claim-address-country-code" },
@@ -2672,18 +2674,18 @@ dependencies = [
     { name = "tba-concrete-claim-website-uri" },
     { name = "tba-concrete-claim-zoneinfo" },
     { name = "tba-concrete-identity-assurance" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
-    { name = "tba-provider-identity-jose" },
     { name = "tba-concrete-pairwise-subject-identifier" },
     { name = "tba-concrete-public-subject-identifier" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
+    { name = "tba-protocol-oauth" },
     { name = "tba-provider-claims-local" },
+    { name = "tba-provider-identity-jose" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "pydantic", specifier = "==2.12.5" },
-    { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-access-token-hash", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-address", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-address-country-code", specifier = "==0.4.0.dev2" },
@@ -2725,12 +2727,13 @@ requires-dist = [
     { name = "tba-concrete-claim-website-uri", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-zoneinfo", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-identity-assurance", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-pairwise-subject-identifier", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-public-subject-identifier", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-claims-local", specifier = "==0.1.0" },
+    { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2738,7 +2741,6 @@ name = "tba-protocol-oidc-relying-party"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-oidc-relying-party" }
 dependencies = [
-    { name = "tba-protocol-oidc" },
     { name = "tba-concrete-claim-audience" },
     { name = "tba-concrete-claim-authentication-context" },
     { name = "tba-concrete-claim-authentication-methods" },
@@ -2750,12 +2752,12 @@ dependencies = [
     { name = "tba-concrete-claim-nonce" },
     { name = "tba-concrete-claim-subject" },
     { name = "tba-contracts-identity" },
+    { name = "tba-protocol-oidc" },
     { name = "tba-provider-security-proof-pkce" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-protocol-oidc", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-audience", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-authentication-context", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-authentication-methods", specifier = "==0.4.0.dev2" },
@@ -2767,6 +2769,7 @@ requires-dist = [
     { name = "tba-concrete-claim-nonce", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-subject", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-oidc", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-security-proof-pkce", specifier = "==0.1.0" },
 ]
 
@@ -2776,23 +2779,23 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-webauthn" }
 dependencies = [
     { name = "cbor2" },
-    { name = "tba-concrete-cose" },
-    { name = "tba-provider-cose-cryptography" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
     { name = "tba-capability-public-key-authentication" },
     { name = "tba-capability-public-key-registration" },
+    { name = "tba-concrete-cose" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
+    { name = "tba-provider-cose-cryptography" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cbor2", specifier = "==6.1.3" },
-    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-public-key-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-public-key-registration", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-cose-cryptography", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2800,18 +2803,18 @@ name = "tba-certification-release"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/60-runtime/tba-certification-release" }
 dependencies = [
-    { name = "tba-contracts-identity" },
-    { name = "tba-runtime-identity" },
     { name = "tba-concrete-machine-identity" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-release" },
+    { name = "tba-runtime-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-machine-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-release", specifier = "==0.1.0" },
+    { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -2828,7 +2831,7 @@ dependencies = [
 requires-dist = [
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2855,7 +2858,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev4" }]
+requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev8" }]
 
 [[package]]
 name = "tba-router-oauth-authorization-server-metadata"
@@ -2869,7 +2872,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2884,7 +2887,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2899,7 +2902,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2907,16 +2910,16 @@ name = "tba-router-oauth-pushed-authorization-request"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/80-routers/tba-router-oauth-pushed-authorization-request" }
 dependencies = [
-    { name = "tba-protocol-oauth" },
     { name = "tba-contracts-identity" },
+    { name = "tba-protocol-oauth" },
     { name = "tigrbl" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2931,7 +2934,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2946,7 +2949,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2961,7 +2964,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2976,7 +2979,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -2988,7 +2991,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev4" }]
+requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev8" }]
 
 [[package]]
 name = "tba-router-oidc-discovery"
@@ -3004,7 +3007,7 @@ dependencies = [
 requires-dist = [
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-oidc", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -3016,7 +3019,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev4" }]
+requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev8" }]
 
 [[package]]
 name = "tba-router-oidc-userinfo"
@@ -3027,7 +3030,7 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev4" }]
+requires-dist = [{ name = "tigrbl", specifier = "==0.4.5.dev8" }]
 
 [[package]]
 name = "tba-router-policy-decision"
@@ -3056,7 +3059,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -3088,7 +3091,7 @@ dependencies = [
 requires-dist = [
     { name = "pydantic", specifier = ">=2.0" },
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -3105,7 +3108,7 @@ dependencies = [
 requires-dist = [
     { name = "pydantic", specifier = ">=2.0" },
     { name = "tba-protocol-webauthn", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -4097,19 +4100,19 @@ requires-dist = [
     { name = "tba-storage-workload-identity", editable = "pkgs/01-storage/tba-storage-workload-identity" },
     { name = "tba-testkit-identity", editable = "pkgs/120-tests/tba-testkit-identity" },
     { name = "tba-testkit-workload-credential-conformance", editable = "pkgs/120-tests/tba-testkit-workload-credential-conformance" },
-    { name = "tigrbl", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F80_facade%2Ftigrbl&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3" },
-    { name = "tigrbl-atoms", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-base", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F80_facade%2Ftigrbl&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" },
+    { name = "tigrbl-atoms", specifier = "==0.4.5.dev6" },
+    { name = "tigrbl-base", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-canon", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-concrete", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-core", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-kernel", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl-concrete", specifier = "==0.4.5.dev8" },
+    { name = "tigrbl-core", specifier = "==0.4.5.dev6" },
+    { name = "tigrbl-kernel", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-migrations", editable = "../tigrbl/pkgs/10_core/tigrbl_migrations" },
     { name = "tigrbl-ops-olap", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-ops-oltp", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-ops-realtime", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3" },
+    { name = "tigrbl-ops-realtime", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" },
     { name = "tigrbl-orm", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-runtime", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl-runtime", specifier = "==0.4.5.dev8" },
     { name = "tigrbl-typing", specifier = "==0.4.5.dev4" },
     { name = "tomli", marker = "python_full_version < '3.11'", specifier = "==2.4.0" },
 ]
@@ -4385,7 +4388,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-storage-authority-graph", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -4426,7 +4429,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-authorization-policy", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -4434,16 +4437,16 @@ name = "tba-concrete-authorization-provenance"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-authorization-provenance" }
 dependencies = [
-    { name = "tba-primitives-identity" },
     { name = "tba-bases-security-provenance" },
     { name = "tba-contracts-security-trust" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-security-provenance", specifier = "==0.1.0" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -4482,14 +4485,14 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/60-runtime/tba-runtime-authorization-policy" }
 dependencies = [
     { name = "tba-capability-access-governance" },
-    { name = "tba-concrete-authority-graph" },
-    { name = "tba-concrete-authorization-policy-rules" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
     { name = "tba-capability-policy-administration" },
     { name = "tba-capability-policy-assurance" },
+    { name = "tba-concrete-authority-graph" },
+    { name = "tba-concrete-authorization-policy-rules" },
     { name = "tba-concrete-policy-decision-engine-default" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-release" },
+    { name = "tba-primitives-identity" },
     { name = "tba-provider-security-authorization-provenance-builder" },
     { name = "tigrbl" },
 ]
@@ -4497,16 +4500,16 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-capability-access-governance", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-authority-graph", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-authorization-policy-rules", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-policy-administration", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-policy-assurance", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-authority-graph", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-authorization-policy-rules", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-policy-decision-engine-default", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-release", specifier = "==0.1.0" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-security-authorization-provenance-builder", specifier = "==0.1.0" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -4572,18 +4575,18 @@ name = "tba-provider-authorization-policy-decision-engine"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-authorization-policy-decision-engine" }
 dependencies = [
+    { name = "tba-concrete-policy-decision-engine-default" },
     { name = "tba-contracts-authorization" },
     { name = "tba-contracts-identity" },
     { name = "tba-primitives-identity" },
-    { name = "tba-concrete-policy-decision-engine-default" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-concrete-policy-decision-engine-default", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-authorization", specifier = "==0.4.0.dev3" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-policy-decision-engine-default", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -4636,26 +4639,26 @@ name = "tba-protocol-oauth-protected-resource"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-oauth-protected-resource" }
 dependencies = [
+    { name = "tba-capability-protected-resource-authorization" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-contracts-security-trust" },
     { name = "tba-protocol-jwt" },
     { name = "tba-protocol-oauth" },
     { name = "tba-provider-authorization-resource-server-verifier" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-capability-protected-resource-authorization" },
     { name = "tba-provider-security-dpop-cnf-binding-validator" },
     { name = "tba-provider-security-mtls-cnf-binding-validator" },
-    { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-capability-protected-resource-authorization", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-protocol-jwt", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-authorization-resource-server-verifier", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-capability-protected-resource-authorization", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-security-dpop-cnf-binding-validator", specifier = "==0.1.0" },
     { name = "tba-provider-security-mtls-cnf-binding-validator", specifier = "==0.1.0" },
-    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -4663,24 +4666,24 @@ name = "tba-provider-authorization-resource-server-verifier"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-authorization-resource-server-verifier" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-resource-server" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-contracts-security-trust" },
     { name = "tba-provider-security-dpop-cnf-binding-validator" },
     { name = "tba-provider-security-mtls-cnf-binding-validator" },
-    { name = "tba-provider-token-introspection" },
     { name = "tba-provider-security-token-jwks-cache" },
-    { name = "tba-contracts-security-trust" },
+    { name = "tba-provider-token-introspection" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-resource-server", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-provider-security-dpop-cnf-binding-validator", specifier = "==0.1.0" },
     { name = "tba-provider-security-mtls-cnf-binding-validator", specifier = "==0.1.0" },
-    { name = "tba-provider-token-introspection", specifier = "==0.1.0" },
     { name = "tba-provider-security-token-jwks-cache", specifier = "==0.1.0" },
-    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
+    { name = "tba-provider-token-introspection", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -5900,16 +5903,16 @@ name = "tba-capability-client-secret-authentication"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-client-secret-authentication" }
 dependencies = [
-    { name = "tba-provider-authenticator-client-secret-local" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
+    { name = "tba-provider-authenticator-client-secret-local" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-provider-authenticator-client-secret-local", specifier = "==0.1.0" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-authenticator-client-secret-local", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -5932,7 +5935,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-consent", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -6133,18 +6136,18 @@ source = { editable = "pkgs/55-profiles/tba-profile-credential-sd-jwt-vc" }
 dependencies = [
     { name = "tba-concrete-claim-credential-status" },
     { name = "tba-concrete-claim-credential-type" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-sd-jwt" },
     { name = "tba-concrete-sd-jwt-vc-credential" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-concrete-claim-credential-status", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-credential-type", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-sd-jwt", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-sd-jwt-vc-credential", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6153,23 +6156,23 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/55-profiles/tba-profile-credential-vc-jose-cose" }
 dependencies = [
     { name = "cbor2" },
-    { name = "tba-primitives-identity" },
-    { name = "tba-contracts-protected-envelope" },
-    { name = "tba-protocol-security-cose" },
-    { name = "tba-protocol-security-jws" },
     { name = "tba-concrete-vc-cose-credential" },
     { name = "tba-concrete-vc-jose-credential" },
+    { name = "tba-contracts-protected-envelope" },
+    { name = "tba-primitives-identity" },
+    { name = "tba-protocol-security-cose" },
+    { name = "tba-protocol-security-jws" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cbor2", specifier = ">=5.6.0" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-security-cose", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-security-jws", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-vc-cose-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-vc-jose-credential", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-security-cose", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-security-jws", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6178,9 +6181,9 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-credential-iso-mdoc" }
 dependencies = [
     { name = "tba-bases-digital-credential" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-mdoc" },
     { name = "tba-concrete-mdoc-credential" },
+    { name = "tba-contracts-identity" },
     { name = "tba-provider-mdoc-issuer" },
     { name = "tba-provider-mdoc-verifier" },
 ]
@@ -6188,9 +6191,9 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mdoc", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mdoc-credential", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-mdoc-issuer", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-mdoc-verifier", specifier = "==0.4.0.dev2" },
 ]
@@ -6241,9 +6244,9 @@ dependencies = [
     { name = "tba-concrete-credential-service-key" },
     { name = "tba-contracts-digital-credential" },
     { name = "tba-contracts-identity" },
+    { name = "tba-contracts-workload-identity" },
     { name = "tba-provider-identity-jose" },
     { name = "tba-provider-secret-hashing-bcrypt" },
-    { name = "tba-contracts-workload-identity" },
 ]
 
 [package.metadata]
@@ -6259,9 +6262,9 @@ requires-dist = [
     { name = "tba-concrete-credential-service-key", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-digital-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-workload-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
-    { name = "tba-contracts-workload-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6280,14 +6283,14 @@ name = "tba-concrete-cwt-svid-extension-credential"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-cwt-svid-extension-credential" }
 dependencies = [
-    { name = "tba-concrete-cwt" },
     { name = "tba-bases-digital-credential" },
+    { name = "tba-concrete-cwt" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-concrete-cwt", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cwt", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6340,7 +6343,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-delegation", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -6464,7 +6467,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-digital-credential", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -6507,7 +6510,10 @@ dependencies = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" }, { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }]
+requires-dist = [
+    { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-provider-digital-credential-trust"
@@ -6525,15 +6531,15 @@ name = "tba-concrete-dpop-confirmation-binding"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-dpop-confirmation-binding" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-proof-of-possession" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-proof-of-possession", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
@@ -6610,14 +6616,14 @@ name = "tba-provider-fido-metadata-service"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-fido-metadata-service" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-public-key-authentication" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-public-key-authentication", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6640,7 +6646,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-gnap", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -6650,52 +6656,52 @@ source = { editable = "pkgs/60-runtime/tba-runtime-identity-administration" }
 dependencies = [
     { name = "tba-capability-adaptive-authentication" },
     { name = "tba-capability-administrative-resource" },
-    { name = "tba-durability-authorization-policy" },
-    { name = "tba-concrete-capability" },
-    { name = "tba-concrete-device-identity" },
-    { name = "tba-provider-authentication-anomaly-detector" },
-    { name = "tba-provider-identity-administration-relationship-graph" },
     { name = "tba-capability-identity-administration" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
-    { name = "tba-durability-identity" },
-    { name = "tba-server-identity" },
-    { name = "tba-concrete-jose" },
-    { name = "tba-concrete-mfa-factor" },
     { name = "tba-capability-operator-administration" },
-    { name = "tba-concrete-passwordless-credential" },
     { name = "tba-capability-realm-administration" },
     { name = "tba-capability-tenant-administration" },
+    { name = "tba-concrete-capability" },
+    { name = "tba-concrete-device-identity" },
+    { name = "tba-concrete-jose" },
+    { name = "tba-concrete-mfa-factor" },
+    { name = "tba-concrete-passwordless-credential" },
     { name = "tba-concrete-trust-federation-graph" },
     { name = "tba-concrete-webauthn-credential" },
-    { name = "tba-durability-webauthn" },
     { name = "tba-concrete-workload-identity" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-durability-authorization-policy" },
+    { name = "tba-durability-identity" },
+    { name = "tba-durability-webauthn" },
+    { name = "tba-primitives-identity" },
+    { name = "tba-provider-authentication-anomaly-detector" },
+    { name = "tba-provider-identity-administration-relationship-graph" },
+    { name = "tba-server-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-capability-adaptive-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-administrative-resource", specifier = "==0.4.0.dev2" },
-    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-device-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-authentication-anomaly-detector", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-identity-administration-relationship-graph", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-identity-administration", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-durability-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-server-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-mfa-factor", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-operator-administration", specifier = "==0.4.0.dev2" },
-    { name = "tba-concrete-passwordless-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-realm-administration", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-tenant-administration", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-device-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-mfa-factor", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-passwordless-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-trust-federation-graph", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-webauthn-credential", specifier = "==0.4.0.dev2" },
-    { name = "tba-durability-webauthn", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-workload-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
+    { name = "tba-durability-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-durability-webauthn", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-authentication-anomaly-detector", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-identity-administration-relationship-graph", specifier = "==0.4.0.dev2" },
+    { name = "tba-server-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6836,21 +6842,21 @@ name = "tba-cli-identity"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/60-runtime/tba-cli-identity" }
 dependencies = [
-    { name = "tba-runtime-identity-authoring" },
-    { name = "tba-runtime-identity" },
-    { name = "tba-runtime-identity-storage" },
     { name = "tba-capability-operator-administration" },
     { name = "tba-provider-secret-hashing-bcrypt" },
+    { name = "tba-runtime-identity" },
+    { name = "tba-runtime-identity-authoring" },
+    { name = "tba-runtime-identity-storage" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-runtime-identity-authoring", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-operator-administration", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
+    { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-runtime-identity-authoring", specifier = "==0.4.0.dev2" },
+    { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
     { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0" },
 ]
 
@@ -6864,13 +6870,13 @@ dependencies = [
     { name = "tba-contracts-did" },
     { name = "tba-contracts-digital-credential" },
     { name = "tba-contracts-identity-assurance" },
-    { name = "tba-primitives-identity" },
     { name = "tba-contracts-public-key-authentication" },
     { name = "tba-contracts-replay" },
     { name = "tba-contracts-security-event" },
     { name = "tba-contracts-security-trust" },
     { name = "tba-contracts-token" },
     { name = "tba-contracts-workload-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
@@ -6880,13 +6886,13 @@ requires-dist = [
     { name = "tba-contracts-did", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-digital-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity-assurance", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-public-key-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-replay", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-event", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-contracts-token", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-workload-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -6968,7 +6974,7 @@ requires-dist = [
     { name = "tba-storage-federation", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-principals", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -6977,24 +6983,24 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-identity-jose" }
 dependencies = [
     { name = "cryptography" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
     { name = "tba-bases-jose" },
     { name = "tba-concrete-jose" },
-    { name = "tba-provider-secret-hashing-bcrypt" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-key-rotation-policy" },
+    { name = "tba-primitives-identity" },
+    { name = "tba-provider-secret-hashing-bcrypt" },
     { name = "tba-provider-security-signing-pqc" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cryptography", specifier = ">=45.0.0" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-key-rotation-policy", specifier = "==0.1.0" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
     { name = "tba-provider-security-signing-pqc", specifier = "==0.1.0" },
 ]
 
@@ -7023,15 +7029,15 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/60-runtime/tba-operator-identity" }
 dependencies = [
     { name = "tba-certification-release" },
-    { name = "tba-runtime-authorization-policy" },
     { name = "tba-cli-identity" },
+    { name = "tba-runtime-authorization-policy" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-certification-release", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-cli-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-runtime-authorization-policy", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -7042,11 +7048,11 @@ dependencies = [
     { name = "tba-concrete-administrator-identity" },
     { name = "tba-concrete-client-identity" },
     { name = "tba-concrete-device-identity" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-machine-identity" },
     { name = "tba-concrete-service-identity" },
     { name = "tba-concrete-user-identity" },
     { name = "tba-concrete-workload-identity" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
@@ -7054,11 +7060,11 @@ requires-dist = [
     { name = "tba-concrete-administrator-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-client-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-device-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-machine-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-service-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-user-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-workload-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -7135,8 +7141,8 @@ requires-dist = [
     { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
     { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-core", specifier = "==0.4.0.dev3" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tba-storage-core", specifier = "==0.4.0.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
     { name = "tigrcorn", marker = "python_full_version >= '3.11' and extra == 'servers'", specifier = "==0.3.8" },
     { name = "tigrcorn", marker = "python_full_version >= '3.11' and extra == 'tigrcorn'", specifier = "==0.3.8" },
     { name = "uvicorn", extras = ["standard"], marker = "extra == 'servers'", specifier = "==0.41.0" },
@@ -7153,34 +7159,34 @@ dependencies = [
     { name = "tba-capability-account-self-service" },
     { name = "tba-capability-api-key-authentication" },
     { name = "tba-capability-artifact-processing" },
-    { name = "tba-protocol-gnap" },
-    { name = "tba-protocol-oauth" },
-    { name = "tba-protocol-oidc" },
-    { name = "tba-certification-release" },
     { name = "tba-capability-authorization-request-staging" },
     { name = "tba-capability-client-registration" },
     { name = "tba-capability-client-secret-authentication" },
     { name = "tba-capability-identity-administration" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-provider-identity-jose" },
-    { name = "tba-runtime-identity" },
-    { name = "tba-storage-audit" },
-    { name = "tba-storage-oauth" },
-    { name = "tba-storage-operator" },
-    { name = "tba-storage-principals" },
-    { name = "tba-runtime-identity-storage" },
-    { name = "tba-storage-tenancy" },
     { name = "tba-capability-password-authentication" },
     { name = "tba-capability-realm-administration" },
-    { name = "tba-provider-replay-memory" },
     { name = "tba-capability-replay-protection" },
-    { name = "tba-provider-secret-hashing-bcrypt" },
     { name = "tba-capability-service-key-authentication" },
     { name = "tba-capability-tenant-administration" },
     { name = "tba-capability-token-exchange" },
     { name = "tba-capability-token-introspection" },
     { name = "tba-capability-token-issuance" },
     { name = "tba-capability-token-revocation" },
+    { name = "tba-certification-release" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-protocol-gnap" },
+    { name = "tba-protocol-oauth" },
+    { name = "tba-protocol-oidc" },
+    { name = "tba-provider-identity-jose" },
+    { name = "tba-provider-replay-memory" },
+    { name = "tba-provider-secret-hashing-bcrypt" },
+    { name = "tba-runtime-identity" },
+    { name = "tba-runtime-identity-storage" },
+    { name = "tba-storage-audit" },
+    { name = "tba-storage-oauth" },
+    { name = "tba-storage-operator" },
+    { name = "tba-storage-principals" },
+    { name = "tba-storage-tenancy" },
     { name = "tigrbl" },
     { name = "tigrbl-core" },
 ]
@@ -7191,41 +7197,41 @@ requires-dist = [
     { name = "tba-capability-account-self-service", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-api-key-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-artifact-processing", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-gnap", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tba-protocol-oidc", specifier = "==0.4.0.dev2" },
-    { name = "tba-certification-release", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-authorization-request-staging", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-client-registration", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-client-secret-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-identity-administration", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-audit", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-operator", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-principals", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-tenancy", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-password-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-realm-administration", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-replay-memory", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-replay-protection", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
     { name = "tba-capability-service-key-authentication", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-tenant-administration", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-token-exchange", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-token-introspection", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-token-issuance", specifier = "==0.4.0.dev2" },
     { name = "tba-capability-token-revocation", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-core", specifier = "==0.4.5.dev4" },
+    { name = "tba-certification-release", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-gnap", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-oauth", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-oidc", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-replay-memory", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-secret-hashing-bcrypt", specifier = "==0.1.0" },
+    { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-runtime-identity-storage", specifier = "==0.4.0.dev2" },
+    { name = "tba-storage-audit", specifier = "==0.4.0.dev2" },
+    { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
+    { name = "tba-storage-operator", specifier = "==0.4.0.dev2" },
+    { name = "tba-storage-principals", specifier = "==0.4.0.dev2" },
+    { name = "tba-storage-tenancy", specifier = "==0.4.0.dev2" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
+    { name = "tigrbl-core", specifier = "==0.4.5.dev6" },
 ]
 
 [[package]]
 name = "tba-storage-core"
-version = "0.4.0.dev3"
+version = "0.4.0.dev4"
 source = { editable = "pkgs/01-storage/tba-storage-core" }
 dependencies = [
     { name = "tba-contracts-security-trust" },
@@ -7299,8 +7305,8 @@ requires-dist = [
     { name = "tba-storage-trust-federation-graph", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-webauthn", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-workload-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-core", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
+    { name = "tigrbl-core", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-migrations", specifier = ">=0.4.5.dev4" },
 ]
 
@@ -7796,15 +7802,15 @@ requires-dist = [
     { name = "tba-provider-security-authorization-provenance-builder", specifier = "==0.1.0" },
     { name = "tba-storage-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-consent", specifier = "==0.4.0.dev2" },
-    { name = "tba-storage-core", specifier = "==0.4.0.dev3" },
+    { name = "tba-storage-core", specifier = "==0.4.0.dev4" },
     { name = "tba-storage-key-material", specifier = "==0.4.0.dev3" },
     { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-operator", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-principals", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-tenancy", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-token", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl-concrete", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F70_concrete%2Ftigrbl_concrete&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3" },
-    { name = "tigrbl-core", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl-concrete", specifier = "==0.4.5.dev8" },
+    { name = "tigrbl-core", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-migrations", specifier = ">=0.4.5.dev4" },
 ]
 
@@ -7941,16 +7947,16 @@ name = "tba-bases-jose"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/05-bases/tba-bases-jose" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-protected-envelope" },
     { name = "tba-bases-token" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-protected-envelope", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-token", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -7958,18 +7964,18 @@ name = "tba-concrete-jose"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-jose" }
 dependencies = [
-    { name = "tba-contracts-identity" },
-    { name = "tba-primitives-identity" },
     { name = "tba-bases-jose" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-key-rotation-policy" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-jose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-key-rotation-policy", specifier = "==0.1.0" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -7978,18 +7984,18 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-jose-cryptography" }
 dependencies = [
     { name = "cryptography" },
+    { name = "tba-bases-protected-envelope" },
     { name = "tba-concrete-jwe" },
     { name = "tba-concrete-jws" },
-    { name = "tba-bases-protected-envelope" },
     { name = "tba-contracts-protected-envelope" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "cryptography", specifier = ">=45.0.0" },
+    { name = "tba-bases-protected-envelope", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-jwe", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-jws", specifier = "==0.4.0.dev2" },
-    { name = "tba-bases-protected-envelope", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
 ]
 
@@ -8072,14 +8078,14 @@ name = "tba-bases-key"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/05-bases/tba-bases-key" }
 dependencies = [
-    { name = "tba-contracts-security-trust" },
     { name = "tba-bases-signing" },
+    { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-bases-signing", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -8096,7 +8102,7 @@ dependencies = [
 requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-storage-key-material", specifier = "==0.4.0.dev3" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -8142,15 +8148,15 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-mdoc-issuer" }
 dependencies = [
     { name = "tba-bases-digital-credential" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-mdoc" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mdoc", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -8159,15 +8165,15 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-mdoc-verifier" }
 dependencies = [
     { name = "tba-bases-digital-credential" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-mdoc" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mdoc", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -8206,16 +8212,16 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-mtls-confirmation-binding" }
 dependencies = [
     { name = "tba-bases-certificate" },
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-proof-of-possession" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-certificate", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-proof-of-possession", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
@@ -8255,7 +8261,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -8289,7 +8295,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-oidc", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -8327,16 +8333,16 @@ name = "tba-capability-password-authentication"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-password-authentication" }
 dependencies = [
-    { name = "tba-provider-authenticator-password-local" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
+    { name = "tba-provider-authenticator-password-local" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-provider-authenticator-password-local", specifier = "==0.1.0" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-authenticator-password-local", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -8385,20 +8391,20 @@ name = "tba-capability-policy-administration"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-policy-administration" }
 dependencies = [
-    { name = "tba-durability-authorization-policy" },
     { name = "tba-concrete-authorization-policy-rules" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
+    { name = "tba-durability-authorization-policy" },
     { name = "tba-primitives-identity" },
     { name = "tba-provider-policy-administration-memory" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-authorization-policy-rules", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-policy-administration-memory", specifier = "==0.4.0.dev2" },
 ]
@@ -8408,16 +8414,16 @@ name = "tba-provider-policy-administration-memory"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/30-storage-runtime/tba-provider-policy-administration-memory" }
 dependencies = [
-    { name = "tba-provider-access-governance-memory" },
     { name = "tba-contracts-identity" },
     { name = "tba-primitives-identity" },
+    { name = "tba-provider-access-governance-memory" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-provider-access-governance-memory", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-access-governance-memory", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -8426,18 +8432,18 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-policy-assurance" }
 dependencies = [
     { name = "tba-concrete-authority-graph" },
-    { name = "tba-durability-authorization-policy" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
+    { name = "tba-durability-authorization-policy" },
     { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-concrete-authority-graph", specifier = "==0.4.0.dev2" },
-    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
@@ -8521,7 +8527,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-presentation", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -8529,15 +8535,15 @@ name = "tba-bases-proof-of-possession"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/05-bases/tba-bases-proof-of-possession" }
 dependencies = [
-    { name = "tba-contracts-proof-of-possession" },
     { name = "tba-bases-protected-artifact" },
+    { name = "tba-contracts-proof-of-possession" },
     { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-proof-of-possession", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-protected-artifact", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-proof-of-possession", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
@@ -8609,8 +8615,8 @@ source = { editable = "pkgs/40-capabilities/tba-capability-protected-resource-au
 dependencies = [
     { name = "tba-concrete-capability" },
     { name = "tba-concrete-dpop-confirmation-binding" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-mtls-confirmation-binding" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
 ]
 
@@ -8618,8 +8624,8 @@ dependencies = [
 requires-dist = [
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-dpop-confirmation-binding", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mtls-confirmation-binding", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
@@ -8752,18 +8758,18 @@ name = "tba-provider-replay-memory"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-replay-memory" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-replay" },
-    { name = "tba-provider-security-proof-pkce" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
+    { name = "tba-provider-security-proof-pkce" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-replay", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-security-proof-pkce", specifier = "==0.1.0" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
+    { name = "tba-provider-security-proof-pkce", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -8801,7 +8807,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-replay-protection", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -9010,7 +9016,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-security-event", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -9018,30 +9024,30 @@ name = "tba-protocol-security-event-set"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-security-event-set" }
 dependencies = [
+    { name = "tba-bases-security-event" },
     { name = "tba-concrete-claim-audience" },
     { name = "tba-concrete-claim-issued-at" },
     { name = "tba-concrete-claim-issuer" },
     { name = "tba-concrete-claim-jwt-id" },
     { name = "tba-concrete-claim-security-events" },
     { name = "tba-concrete-claim-subject" },
-    { name = "tba-contracts-identity" },
-    { name = "tba-bases-security-event" },
     { name = "tba-concrete-set" },
+    { name = "tba-contracts-identity" },
     { name = "tba-provider-set-receiver" },
     { name = "tba-provider-set-transmitter" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-bases-security-event", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-audience", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-issued-at", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-issuer", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-jwt-id", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-security-events", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-claim-subject", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-bases-security-event", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-set", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-set-receiver", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-set-transmitter", specifier = "==0.4.0.dev2" },
 ]
@@ -9067,16 +9073,16 @@ name = "tba-provider-security-oidc-federation"
 version = "0.1.0"
 source = { editable = "pkgs/20-providers/tba-provider-security-oidc-federation" }
 dependencies = [
+    { name = "tba-bases-security-trust-domain" },
     { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
-    { name = "tba-bases-security-trust-domain" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-bases-security-trust-domain", specifier = "==0.1.0" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
-    { name = "tba-bases-security-trust-domain", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -9106,14 +9112,14 @@ name = "tba-protocol-security-cose"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-security-cose" }
 dependencies = [
-    { name = "tba-primitives-identity" },
     { name = "tba-contracts-protected-envelope" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9121,14 +9127,14 @@ name = "tba-protocol-security-jose"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-security-jose" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-jose" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9136,14 +9142,14 @@ name = "tba-protocol-security-jwe"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-security-jwe" }
 dependencies = [
-    { name = "tba-primitives-identity" },
     { name = "tba-contracts-protected-envelope" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9151,14 +9157,14 @@ name = "tba-protocol-security-jws"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-security-jws" }
 dependencies = [
-    { name = "tba-primitives-identity" },
     { name = "tba-contracts-protected-envelope" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-protected-envelope", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9182,15 +9188,15 @@ version = "0.1.0"
 source = { editable = "pkgs/20-providers/tba-provider-security-signing-pqc" }
 dependencies = [
     { name = "pqcrypto" },
-    { name = "tba-contracts-security-trust" },
     { name = "tba-bases-signing" },
+    { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "pqcrypto", specifier = "==0.4.0" },
-    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-bases-signing", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -9199,16 +9205,16 @@ version = "0.1.0"
 source = { editable = "pkgs/20-providers/tba-provider-security-subject-pairwise" }
 dependencies = [
     { name = "tba-bases-identity" },
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-pairwise-subject-identifier" },
+    { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-bases-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-pairwise-subject-identifier", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
@@ -9217,16 +9223,16 @@ name = "tba-provider-token-introspection"
 version = "0.1.0"
 source = { editable = "pkgs/20-providers/tba-provider-token-introspection" }
 dependencies = [
+    { name = "tba-bases-token-introspection" },
     { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
-    { name = "tba-bases-token-introspection" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-bases-token-introspection", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
-    { name = "tba-bases-token-introspection", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9234,16 +9240,16 @@ name = "tba-provider-security-token-jwks-cache"
 version = "0.1.0"
 source = { editable = "pkgs/20-providers/tba-provider-security-token-jwks-cache" }
 dependencies = [
+    { name = "tba-bases-token-introspection" },
     { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
-    { name = "tba-bases-token-introspection" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-bases-token-introspection", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
-    { name = "tba-bases-token-introspection", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9263,15 +9269,15 @@ dependencies = [
     { name = "tba-bases-did" },
     { name = "tba-bases-encryption" },
     { name = "tba-bases-identity" },
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-key" },
     { name = "tba-bases-proof-of-possession" },
     { name = "tba-bases-protected-artifact" },
-    { name = "tba-contracts-security-trust" },
     { name = "tba-bases-signing" },
     { name = "tba-bases-token-introspection" },
     { name = "tba-bases-trust" },
     { name = "tba-bases-workload-identity" },
+    { name = "tba-contracts-identity" },
+    { name = "tba-contracts-security-trust" },
 ]
 
 [package.metadata]
@@ -9283,15 +9289,15 @@ requires-dist = [
     { name = "tba-bases-did", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-encryption", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-key", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-proof-of-possession", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-protected-artifact", specifier = "==0.4.0.dev2" },
-    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-bases-signing", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-token-introspection", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-trust", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-workload-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -9299,16 +9305,16 @@ name = "tba-provider-security-webfinger"
 version = "0.1.0"
 source = { editable = "pkgs/20-providers/tba-provider-security-webfinger" }
 dependencies = [
+    { name = "tba-bases-security-trust-domain" },
     { name = "tba-contracts-identity" },
     { name = "tba-contracts-security-trust" },
-    { name = "tba-bases-security-trust-domain" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-bases-security-trust-domain", specifier = "==0.1.0" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
-    { name = "tba-bases-security-trust-domain", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -9347,17 +9353,17 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-service-key-authentication" }
 dependencies = [
     { name = "tba-capability-api-key-authentication" },
-    { name = "tba-provider-authenticator-service-key-local" },
     { name = "tba-concrete-capability" },
     { name = "tba-contracts-identity" },
+    { name = "tba-provider-authenticator-service-key-local" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-capability-api-key-authentication", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-authenticator-service-key-local", specifier = "==0.1.0" },
     { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-authenticator-service-key-local", specifier = "==0.1.0" },
 ]
 
 [[package]]
@@ -9380,7 +9386,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-oauth", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -9399,16 +9405,16 @@ name = "tba-provider-set-receiver"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-set-receiver" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-security-event" },
     { name = "tba-concrete-set" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-security-event", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-set", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9416,16 +9422,16 @@ name = "tba-provider-set-transmitter"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-set-transmitter" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-bases-security-event" },
     { name = "tba-concrete-set" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-security-event", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-set", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9463,15 +9469,15 @@ name = "tba-provider-spiffe-workload-api"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-spiffe-workload-api" }
 dependencies = [
-    { name = "tba-concrete-svid" },
     { name = "tba-bases-workload-identity" },
+    { name = "tba-concrete-svid" },
     { name = "tba-contracts-workload-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-concrete-svid", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-workload-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-svid", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-workload-identity", specifier = "==0.4.0.dev2" },
 ]
 
@@ -9480,14 +9486,14 @@ name = "tba-concrete-svid"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-svid" }
 dependencies = [
-    { name = "tba-contracts-identity" },
     { name = "tba-concrete-jose" },
+    { name = "tba-contracts-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9547,7 +9553,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-token", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -9666,7 +9672,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "tba-storage-trust-federation-graph", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -9689,14 +9695,14 @@ name = "tba-concrete-vc-cose-credential"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-vc-cose-credential" }
 dependencies = [
-    { name = "tba-concrete-cose" },
     { name = "tba-bases-digital-credential" },
+    { name = "tba-concrete-cose" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
     { name = "tba-bases-digital-credential", specifier = "==0.4.0.dev2" },
+    { name = "tba-concrete-cose", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9782,7 +9788,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-webauthn", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -9838,16 +9844,16 @@ name = "tba-profile-workload-credential-cwt-svid-extension"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/55-profiles/tba-profile-workload-credential-cwt-svid-extension" }
 dependencies = [
-    { name = "tba-protocol-cwt" },
     { name = "tba-contracts-proof-of-possession" },
+    { name = "tba-protocol-cwt" },
     { name = "tba-protocol-security-cose" },
     { name = "tba-protocol-workload-spiffe-svid" },
 ]
 
 [package.metadata]
 requires-dist = [
-    { name = "tba-protocol-cwt", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-proof-of-possession", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-cwt", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-security-cose", specifier = "==0.4.0.dev2" },
     { name = "tba-protocol-workload-spiffe-svid", specifier = "==0.4.0.dev2" },
 ]
@@ -9965,7 +9971,7 @@ requires-dist = [
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-storage-workload-identity", specifier = "==0.4.0.dev2" },
-    { name = "tigrbl", specifier = "==0.4.5.dev4" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
 
 [[package]]
@@ -10022,8 +10028,8 @@ requires-dist = [{ name = "tba-bases-digital-credential", specifier = "==0.4.0.d
 
 [[package]]
 name = "tigrbl"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F80_facade%2Ftigrbl&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev8"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F80_facade%2Ftigrbl&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "aiosqlite" },
     { name = "greenlet" },
@@ -10043,8 +10049,8 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-atoms"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F40_atoms%2Ftigrbl_atoms&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev6"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F40_atoms%2Ftigrbl_atoms&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "jinja2" },
     { name = "sqlalchemy" },
@@ -10059,8 +10065,8 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-base"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F20_base%2Ftigrbl_base&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev6"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F20_base%2Ftigrbl_base&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "pydantic" },
     { name = "sqlalchemy" },
@@ -10071,7 +10077,7 @@ dependencies = [
 [[package]]
 name = "tigrbl-canon"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F99_deprecated%2Ftigrbl_canon&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F99_deprecated%2Ftigrbl_canon&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "tigrbl" },
     { name = "tigrbl-atoms" },
@@ -10084,8 +10090,8 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-concrete"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F70_concrete%2Ftigrbl_concrete&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev8"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F70_concrete%2Ftigrbl_concrete&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "orjson" },
     { name = "pydantic" },
@@ -10104,8 +10110,8 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-core"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F10_core%2Ftigrbl_core&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev6"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F10_core%2Ftigrbl_core&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "pydantic" },
     { name = "pyyaml" },
@@ -10117,8 +10123,8 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-kernel"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F45_kernel%2Ftigrbl_kernel&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev6"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F45_kernel%2Ftigrbl_kernel&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "tigrbl-atoms" },
     { name = "tigrbl-core" },
@@ -10146,12 +10152,12 @@ provides-extras = ["test"]
 [[package]]
 name = "tigrbl-ops-olap"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_olap&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_olap&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 
 [[package]]
 name = "tigrbl-ops-oltp"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_oltp&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_oltp&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "tigrbl-base" },
     { name = "tigrbl-core" },
@@ -10161,25 +10167,25 @@ dependencies = [
 [[package]]
 name = "tigrbl-ops-realtime"
 version = "0.4.5.dev5"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 
 [[package]]
 name = "tigrbl-ops-webtransport"
 version = "0.4.5.dev5"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_webtransport&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_webtransport&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 
 [[package]]
 name = "tigrbl-orm"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F30_orm%2Ftigrbl_orm&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F30_orm%2Ftigrbl_orm&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "sqlalchemy" },
 ]
 
 [[package]]
 name = "tigrbl-runtime"
-version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F50_runtime%2Ftigrbl_runtime&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+version = "0.4.5.dev8"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F50_runtime%2Ftigrbl_runtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "numba" },
     { name = "tigrbl-atoms" },
@@ -10192,7 +10198,7 @@ dependencies = [
 [[package]]
 name = "tigrbl-spec"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F01_spec%2Ftigrbl_spec&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F01_spec%2Ftigrbl_spec&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "jsonschema" },
     { name = "typing-extensions" },
@@ -10201,7 +10207,7 @@ dependencies = [
 [[package]]
 name = "tigrbl-typing"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F00_typing%2Ftigrbl_typing&rev=1368ad888277926e3a5e322081d0306cbbc7ebf3#1368ad888277926e3a5e322081d0306cbbc7ebf3" }
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F00_typing%2Ftigrbl_typing&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "pydantic" },
 ]

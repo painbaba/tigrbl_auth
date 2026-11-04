@@ -18,18 +18,18 @@ classifiers = [
 authors = [{ name = "Jacob Stewart", email = "jacob@swarmauri.com" }]
 keywords = ["oidc", "oauth2", "identity-provider", "jwks", "jwt", "tigrbl", "sdk", "standards", "auth", "authentication"]
 dependencies = [
-    "tigrbl==0.4.5.dev4",
-    "tigrbl-atoms==0.4.5.dev4",
-    "tigrbl-base==0.4.5.dev4",
+    "tigrbl==0.4.5.dev8",
+    "tigrbl-atoms==0.4.5.dev6",
+    "tigrbl-base==0.4.5.dev6",
     "tigrbl-canon==0.4.5.dev4",
-    "tigrbl-concrete==0.4.5.dev4",
-    "tigrbl-core==0.4.5.dev4",
-    "tigrbl-kernel==0.4.5.dev4",
+    "tigrbl-concrete==0.4.5.dev8",
+    "tigrbl-core==0.4.5.dev6",
+    "tigrbl-kernel==0.4.5.dev6",
     "tigrbl-ops-olap==0.4.5.dev4",
     "tigrbl-ops-oltp==0.4.5.dev4",
     "tigrbl-ops-realtime==0.4.5.dev4",
     "tigrbl-orm==0.4.5.dev4",
-    "tigrbl-runtime==0.4.5.dev4",
+    "tigrbl-runtime==0.4.5.dev8",
     "tigrbl-typing==0.4.5.dev4",
     "python-multipart==0.0.27",
     "sqlalchemy[asyncio]==2.0.49",
@@ -429,7 +429,7 @@ dependencies = [
     "tba-operator-identity==0.4.0.dev2",
     "tba-runtime-identity==0.4.0.dev2",
     "tba-server-identity==0.4.0.dev2",
-    "tba-storage-core==0.4.0.dev3",
+    "tba-storage-core==0.4.0.dev4",
     "tigrbl-migrations==0.4.5.dev4",
     "tba-storage-access-governance==0.4.0.dev2",
     "tba-storage-attestation==0.4.0.dev2",
@@ -590,7 +590,7 @@ dev = [
 package = false
 
 [tool.uv.sources]
-tigrbl = { git = "https://github.com/tigrbl/tigrbl.git", rev = "1368ad888277926e3a5e322081d0306cbbc7ebf3", subdirectory = "pkgs/80_facade/tigrbl" }
+tigrbl = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/80_facade/tigrbl" }
 tba-contracts-release = { path = "pkgs/02-contracts/tba-contracts-release", editable = true }
 tba-certification-release = { path = "pkgs/60-runtime/tba-certification-release", editable = true }
 tba-contracts-security-trust = { path = "pkgs/02-contracts/tba-contracts-security-trust", editable = true }
@@ -970,7 +970,7 @@ tba-runtime-identity = { path = "pkgs/60-runtime/tba-runtime-identity", editable
 tba-server-identity = { path = "pkgs/60-runtime/tba-server-identity", editable = true }
 tba-storage-core = { path = "pkgs/01-storage/tba-storage-core", editable = true }
 tigrbl-migrations = { path = "../tigrbl/pkgs/10_core/tigrbl_migrations", editable = true }
-tigrbl-ops-realtime = { git = "https://github.com/tigrbl/tigrbl.git", rev = "1368ad888277926e3a5e322081d0306cbbc7ebf3", subdirectory = "pkgs/60_ops/tigrbl_ops_realtime" }
+tigrbl-ops-realtime = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/60_ops/tigrbl_ops_realtime" }
 tba-storage-access-governance = { path = "pkgs/01-storage/tba-storage-access-governance", editable = true }
 tba-storage-attestation = { path = "pkgs/01-storage/tba-storage-attestation", editable = true }
 tba-storage-audit = { path = "pkgs/01-storage/tba-storage-audit", editable = true }

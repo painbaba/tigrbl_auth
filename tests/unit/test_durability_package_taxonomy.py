@@ -130,6 +130,6 @@ def test_identity_storage_runtime_uses_direct_tba_packages() -> None:
     manifest = (package / "pyproject.toml").read_text(encoding="utf-8")
 
     assert facade_imports == []
-    assert '"tigrbl-concrete @ git+https://github.com/tigrbl/tigrbl.git@4329694c1d20c16a6e07cd49397871bf479c8703#subdirectory=pkgs/70_concrete/tigrbl_concrete"' in manifest
-    assert '"tigrbl-core==0.4.5.dev4"' in manifest
-    assert '"tigrbl==0.4.5.dev4"' not in manifest
+    assert '"tigrbl-concrete==0.4.5.dev8"' in manifest
+    assert '"tigrbl-core==0.4.5.dev6"' in manifest
+    assert '"tigrbl==0.4.5.dev8"' not in manifest

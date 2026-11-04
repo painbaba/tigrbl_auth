@@ -35,10 +35,10 @@ classifiers = [
 ]
 dependencies = [
     "tba-provider-secret-hashing-bcrypt==0.1.0",
-    "tigrbl==0.4.5.dev4",
+    "tigrbl==0.4.5.dev8",
     "tba-contracts-identity==0.4.0.dev2",
     "tba-provider-identity-jose==0.4.0.dev2",
-    "tba-storage-core==0.4.0.dev3",
+    "tba-storage-core==0.4.0.dev4",
     "tba-runtime-identity-storage==0.4.0.dev2",
     "tba-protocol-webauthn==0.4.0.dev2",
     "tba-protocol-cwt==0.4.0.dev2",

@@ -6,7 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
 dependencies = [
-    "tigrbl==0.4.5.dev4",
+    "tigrbl==0.4.5.dev8",
     "tba-protocol-gnap==0.4.0.dev2",
     "tba-protocol-oauth==0.4.0.dev2",
     "tba-plugin-tigrbl==0.4.0.dev2",
@@ -32,7 +32,7 @@ dependencies = [
     "tba-operator-identity==0.4.0.dev2",
     "tba-runtime-identity==0.4.0.dev2",
     "tba-server-identity==0.4.0.dev2",
-    "tba-storage-core==0.4.0.dev3",
+    "tba-storage-core==0.4.0.dev4",
     "tba-storage-oauth==0.4.0.dev2",
     "tba-storage-tenancy==0.4.0.dev2",
     "tba-runtime-identity-storage==0.4.0.dev2",

@@ -5,7 +5,7 @@ description = "HTTP carrier binding for OpenID Connect RP-Initiated Logout."
 readme = "README.md"
 requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
-dependencies = ["tigrbl==0.4.5.dev4"]
+dependencies = ["tigrbl==0.4.5.dev8"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

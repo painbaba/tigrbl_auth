@@ -39,7 +39,7 @@ dependencies = [
     "tba-capability-policy-assurance==0.4.0.dev2",
     "tba-concrete-authorization-policy-rules==0.4.0.dev2",
     "tba-provider-security-authorization-provenance-builder==0.1.0",
-    "tigrbl==0.4.5.dev4",
+    "tigrbl==0.4.5.dev8",
     "tba-primitives-identity==0.4.0.dev2",
     "tba-contracts-identity==0.4.0.dev2",
     "tba-concrete-authority-graph==0.4.0.dev2",
