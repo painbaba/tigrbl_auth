@@ -2090,7 +2090,7 @@ requires-dist = [
     { name = "tba-provider-identity-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-security-authorization-provenance-builder", specifier = "==0.1.0" },
     { name = "tba-provider-security-signing-pqc", specifier = "==0.1.0" },
-    { name = "tba-runtime-authorization-policy", specifier = "==0.4.0.dev2" },
+    { name = "tba-runtime-authorization-policy", specifier = "==0.4.0.dev3" },
     { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-runtime-identity-administration", specifier = "==0.4.0.dev2" },
     { name = "tba-runtime-identity-authoring", specifier = "==0.4.0.dev2" },
@@ -4481,7 +4481,7 @@ requires-dist = [
 
 [[package]]
 name = "tba-runtime-authorization-policy"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/60-runtime/tba-runtime-authorization-policy" }
 dependencies = [
     { name = "tba-capability-access-governance" },
@@ -4493,6 +4493,7 @@ dependencies = [
     { name = "tba-contracts-identity" },
     { name = "tba-contracts-release" },
     { name = "tba-primitives-identity" },
+    { name = "tba-provider-authorization-policy-decision-engine" },
     { name = "tba-provider-security-authorization-provenance-builder" },
     { name = "tigrbl" },
 ]
@@ -4508,6 +4509,7 @@ requires-dist = [
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-release", specifier = "==0.1.0" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-authorization-policy-decision-engine", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-security-authorization-provenance-builder", specifier = "==0.1.0" },
     { name = "tigrbl", specifier = "==0.4.5.dev8" },
 ]
@@ -7037,7 +7039,7 @@ dependencies = [
 requires-dist = [
     { name = "tba-certification-release", specifier = "==0.4.0.dev2" },
     { name = "tba-cli-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-runtime-authorization-policy", specifier = "==0.4.0.dev2" },
+    { name = "tba-runtime-authorization-policy", specifier = "==0.4.0.dev3" },
 ]
 
 [[package]]

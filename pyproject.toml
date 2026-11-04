@@ -347,7 +347,7 @@ dependencies = [
     "tba-capability-possession-proof==0.4.0.dev2",
     "tba-capability-workload-credential-brokering==0.4.0.dev2",
     "tba-router-administration-gate==0.4.0.dev2",
-    "tba-runtime-authorization-policy==0.4.0.dev2",
+    "tba-runtime-authorization-policy==0.4.0.dev3",
     "tba-plugin-tigrbl==0.4.0.dev2",
     "tba-protocol-oauth-protected-resource==0.4.0.dev2",
     "tba-cli-identity==0.4.0.dev2",

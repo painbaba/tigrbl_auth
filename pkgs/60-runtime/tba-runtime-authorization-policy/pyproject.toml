@@ -1,6 +1,6 @@
 [project]
 name = "tba-runtime-authorization-policy"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 description = "Authorization policy, authority, grants, permissions, decisions, and governance implementation package for the TBA package suite."
 readme = "README.md"
 requires-python = ">=3.10,<3.15"
@@ -34,6 +34,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
+    "tba-provider-authorization-policy-decision-engine==0.4.0.dev2",
     "tba-capability-access-governance==0.4.0.dev2",
     "tba-capability-policy-administration==0.4.0.dev2",
     "tba-capability-policy-assurance==0.4.0.dev2",

@@ -34,7 +34,7 @@ classifiers = [
 dependencies = [
     "tba-cli-identity==0.4.0.dev2",
     "tba-certification-release==0.4.0.dev2",
-    "tba-runtime-authorization-policy==0.4.0.dev2",
+    "tba-runtime-authorization-policy==0.4.0.dev3",
 ]
 
 [project.urls]

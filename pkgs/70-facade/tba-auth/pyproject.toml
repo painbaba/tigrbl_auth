@@ -51,7 +51,7 @@ dependencies = [
     "tba-concrete-identity-principals==0.4.0.dev2",
     "tba-operator-identity==0.4.0.dev2",
     "tba-concrete-authority-graph==0.4.0.dev2",
-    "tba-runtime-authorization-policy==0.4.0.dev2",
+    "tba-runtime-authorization-policy==0.4.0.dev3",
     "tba-protocol-oauth-protected-resource==0.4.0.dev2",
     "tba-certification-release==0.4.0.dev2",
     "tba-protocol-oidc-relying-party==0.4.0.dev2",
