@@ -111,7 +111,7 @@ dependencies = [
     "tba-contracts-security-key-rotation-policy==0.1.0",
     "tba-provider-authentication-anomaly-detector==0.4.0.dev2",
     "tba-provider-access-governance-memory==0.4.0.dev2",
-    "tba-provider-policy-administration-memory==0.4.0.dev2",
+    "tba-provider-policy-administration-memory==0.4.0.dev3",
     "tba-capability-account-self-service==0.4.0.dev2",
     "tba-capability-administrative-resource==0.4.0.dev2",
     "tba-capability-identity-administration==0.4.0.dev2",

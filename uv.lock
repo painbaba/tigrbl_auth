@@ -8406,22 +8406,26 @@ requires-dist = [
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
-    { name = "tba-provider-policy-administration-memory", specifier = "==0.4.0.dev2" },
+    { name = "tba-provider-policy-administration-memory", specifier = "==0.4.0.dev3" },
 ]
 
 [[package]]
 name = "tba-provider-policy-administration-memory"
-version = "0.4.0.dev2"
+version = "0.4.0.dev3"
 source = { editable = "pkgs/30-storage-runtime/tba-provider-policy-administration-memory" }
 dependencies = [
+    { name = "tba-concrete-authorization-policy-rules" },
     { name = "tba-contracts-identity" },
+    { name = "tba-durability-authorization-policy" },
     { name = "tba-primitives-identity" },
     { name = "tba-provider-access-governance-memory" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "tba-concrete-authorization-policy-rules", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-durability-authorization-policy", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-access-governance-memory", specifier = "==0.4.0.dev2" },
 ]
@@ -10503,3 +10507,4 @@ requires-dist = [
     { name = "tba-bases-claim", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
+

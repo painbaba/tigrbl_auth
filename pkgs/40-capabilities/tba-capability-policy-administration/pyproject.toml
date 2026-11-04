@@ -5,7 +5,7 @@ description = "Policy administration and simulation capability."
 requires-python = ">=3.10,<3.15"
 license = "Apache-2.0"
 dependencies = [
-    "tba-provider-policy-administration-memory==0.4.0.dev2",
+    "tba-provider-policy-administration-memory==0.4.0.dev3",
     "tba-concrete-capability==0.4.0.dev2",
     "tba-concrete-authorization-policy-rules==0.4.0.dev2",
     "tba-contracts-identity==0.4.0.dev2",
