@@ -3,7 +3,7 @@ name = "tba"
 version = "0.1.0"
 description = "Reserved planning facade for the Tigrbl package suite."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<3.16"
 license = "Apache-2.0"
 authors = [{ name = "Jacob Stewart", email = "jacob@swarmauri.com" }]
 keywords = ["tigrbl", "facade", "planning"]
@@ -13,6 +13,12 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
 ]
 dependencies = []
 

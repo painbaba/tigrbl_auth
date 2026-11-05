@@ -2,7 +2,15 @@
 name = "tba-capability-workload-identity"
 version = "0.4.0.dev2"
 description = "Protocol-neutral workload credential capability composition."
-requires-python = ">=3.10,<3.15"
+requires-python = ">=3.10,<3.16"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+]
 license = "Apache-2.0"
 dependencies = ["tba-concrete-capability==0.4.0.dev2", "tba-contracts-identity==0.4.0.dev2", "tba-contracts-workload-identity==0.4.0.dev2"]
 [build-system]

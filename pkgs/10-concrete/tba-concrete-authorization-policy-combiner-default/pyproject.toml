@@ -3,7 +3,7 @@ name = "tba-concrete-authorization-policy-combiner-default"
 version = "0.4.0.dev2"
 description = "Default concrete authorization policy combiner."
 readme = "README.md"
-requires-python = ">=3.10,<3.15"
+requires-python = ">=3.10,<3.16"
 license = "Apache-2.0"
 keywords = ["tigrbl", "identity", "auth", "security"]
 classifiers = [
@@ -11,15 +11,16 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries :: Python Modules",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: 3.14",
-    "Programming Language :: Python :: 3 :: Only",
-    "Typing :: Typed",
-    "Topic :: Security",
-    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.15",
 ]
 dependencies = [
     "tba-bases-authorization-policy==0.4.0.dev2",

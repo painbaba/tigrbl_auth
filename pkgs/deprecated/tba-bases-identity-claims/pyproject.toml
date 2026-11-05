@@ -1,10 +1,18 @@
 [project]
-classifiers = ["Development Status :: 7 - Inactive"]
+classifiers = [
+    "Development Status :: 7 - Inactive",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+]
 readme = "README.md"
 description = "Deprecated compatibility facade; use tba-bases-claim instead."
 name="tba-bases-identity-claims"
 version = "0.4.0.dev3"
-requires-python=">=3.10,<3.15"
+requires-python=">=3.10,<3.16"
 dependencies=["tba-bases-claim==0.4.0.dev2"]
 [build-system]
 requires=["poetry-core>=1.0.0"]

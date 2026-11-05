@@ -1,7 +1,15 @@
 [project]
 name="tba-protocol-security-event-set"
 version="0.4.0.dev2"
-requires-python=">=3.10,<3.15"
+requires-python=">=3.10,<3.16"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+]
 dependencies=["tba-contracts-identity==0.4.0.dev2","tba-bases-security-event==0.4.0.dev2","tba-concrete-set==0.4.0.dev2","tba-concrete-claim-issuer==0.4.0.dev2","tba-concrete-claim-audience==0.4.0.dev2","tba-concrete-claim-issued-at==0.4.0.dev2","tba-concrete-claim-jwt-id==0.4.0.dev2","tba-concrete-claim-subject==0.4.0.dev2","tba-concrete-claim-security-events==0.4.0.dev2","tba-provider-set-transmitter==0.4.0.dev2","tba-provider-set-receiver==0.4.0.dev2"]
 [build-system]
 requires=["poetry-core>=1.0.0"]

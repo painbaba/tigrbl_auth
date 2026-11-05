@@ -2,7 +2,15 @@
 name = "tigrbl-oauth-scope-matcher"
 version = "0.4.0.dev2"
 description = "Deprecated facade for the neutral scope-set matcher."
-requires-python = ">=3.10,<3.15"
+requires-python = ">=3.10,<3.16"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+]
 dependencies = ["tigrbl-authorization-scope-set-matcher-concrete==0.4.0.dev2"]
 
 [build-system]
