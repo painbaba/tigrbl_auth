@@ -143,7 +143,7 @@ clobbering an existing local listener on `8000`.
 ## CLI device login consumer example
 
 This repo includes a separate sample Python package at
-`pkgs/110-examples/acme-notes-cli/`.
+`pkgs/110-examples/tba-example-oauth-device-authorization-cli/`
 that demonstrates how another CLI can implement a `login` command on top of
 `tba_auth` device authorization. The flow uses issuer discovery plus the
 canonical `POST /device_authorization` and `POST /token` endpoints.
