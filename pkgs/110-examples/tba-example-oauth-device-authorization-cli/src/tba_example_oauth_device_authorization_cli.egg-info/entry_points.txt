@@ -1,2 +1,0 @@
-[console_scripts]
-oauth-device-login = oauth_device_authorization_cli_example.main:main
