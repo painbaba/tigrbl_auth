@@ -95,6 +95,14 @@ Use these boundaries:
 
 ## Installation profiles
 
+### Python support
+
+Three different version ranges apply, and they are not the same thing:
+
+- **Installable range** — `>=3.10,<3.16` in `pyproject.toml`. The package declares it can be *installed* on CPython 3.10 through 3.15.
+- **Tested matrix** — the tox/CI environments cover CPython `3.10`, `3.11`, and `3.12` across the base, `sqlite-uvicorn`, and `postgres-hypercorn` profiles, with the `tigrcorn` runner on `3.11` and `3.12` only. Interpreters outside this set are installable but not exercised by the test matrix.
+- **Certification evidence** — preserved validated-run artifacts exist only for a subset of the tested matrix (see `CERTIFICATION_STATUS.md` and `docs/compliance/certification_state_report.md`; the Tigrcorn `3.11`/`3.12` lanes are pinned but their independent validation artifacts are still absent). A passing CI run on an interpreter therefore does not by itself mean that interpreter/profile combination is certified.
+
 ### Base install
 
 ```bash
