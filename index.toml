@@ -2979,6 +2979,14 @@ local_dependencies = ["tba-concrete-claim-client-id", "tba-concrete-claim-nonce"
 same_layer_dependencies = []
 
 [[packages]]
+name = "tba-protocol-ucan"
+path = "pkgs/50-protocols/tba-protocol-ucan"
+layer = "50-protocols"
+order = "00"
+local_dependencies = ["tba-contracts-replay"]
+same_layer_dependencies = []
+
+[[packages]]
 name = "tba-protocol-webauthn"
 path = "pkgs/50-protocols/tba-protocol-webauthn"
 layer = "50-protocols"

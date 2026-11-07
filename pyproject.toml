@@ -244,6 +244,7 @@ dependencies = [
     "tba-profile-workload-proof-wimse-wpt==0.4.0.dev2",
     "tba-profile-workload-credential-wimse-wit==0.4.0.dev2",
     "tba-protocol-gnap==0.4.0.dev2",
+    "tba-protocol-ucan==0.4.0.dev2",
     "tba-profile-haip==0.4.0.dev2",
     "tba-profile-fido2-server==0.4.0.dev2",
     "tba-protocol-security-event-set==0.4.0.dev2",
@@ -836,6 +837,7 @@ tba-concrete-claim-cwt-issued-at = { path = "pkgs/10-concrete/tba-concrete-claim
 tba-concrete-claim-cwt-id = { path = "pkgs/10-concrete/tba-concrete-claim-cwt-id", editable = true }
 tba-protocol-cwt = { path = "pkgs/50-protocols/tba-protocol-cwt", editable = true }
 tba-protocol-gnap = { path = "pkgs/50-protocols/tba-protocol-gnap", editable = true }
+tba-protocol-ucan = { path = "pkgs/50-protocols/tba-protocol-ucan", editable = true }
 tba-profile-haip = { path = "pkgs/55-profiles/tba-profile-haip", editable = true }
 tba-profile-fido2-server = { path = "pkgs/55-profiles/tba-profile-fido2-server", editable = true }
 tba-protocol-security-event-set = { path = "pkgs/50-protocols/tba-protocol-security-event-set", editable = true }

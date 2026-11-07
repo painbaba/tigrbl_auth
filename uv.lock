@@ -3424,6 +3424,23 @@ requires-dist = [
 ]
 
 [[package]]
+name = "tba-protocol-ucan"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-ucan" }
+dependencies = [
+    { name = "cbor2" },
+    { name = "cryptography" },
+    { name = "tba-contracts-replay" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cbor2", specifier = "==6.1.3" },
+    { name = "cryptography", specifier = ">=45" },
+    { name = "tba-contracts-replay", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
 name = "tba-protocol-webauthn"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-webauthn" }
@@ -4090,6 +4107,7 @@ dependencies = [
     { name = "tba-protocol-security-jose" },
     { name = "tba-protocol-security-jwe" },
     { name = "tba-protocol-security-jws" },
+    { name = "tba-protocol-ucan" },
     { name = "tba-protocol-webauthn" },
     { name = "tba-protocol-workload-spiffe-broker-api" },
     { name = "tba-protocol-workload-spiffe-svid" },
@@ -4620,6 +4638,7 @@ requires-dist = [
     { name = "tba-protocol-security-jose", editable = "pkgs/50-protocols/tba-protocol-security-jose" },
     { name = "tba-protocol-security-jwe", editable = "pkgs/50-protocols/tba-protocol-security-jwe" },
     { name = "tba-protocol-security-jws", editable = "pkgs/50-protocols/tba-protocol-security-jws" },
+    { name = "tba-protocol-ucan", editable = "pkgs/50-protocols/tba-protocol-ucan" },
     { name = "tba-protocol-webauthn", editable = "pkgs/50-protocols/tba-protocol-webauthn" },
     { name = "tba-protocol-workload-spiffe-broker-api", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-broker-api" },
     { name = "tba-protocol-workload-spiffe-svid", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-svid" },
@@ -10789,7 +10808,7 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-migrations"
-version = "0.4.5.dev4"
+version = "0.4.5.dev6"
 source = { editable = "../tigrbl/pkgs/10_core/tigrbl_migrations" }
 dependencies = [
     { name = "packaging" },
