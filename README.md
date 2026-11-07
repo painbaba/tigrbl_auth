@@ -200,3 +200,7 @@ Examples:
 - `tox -e py311-gates`
 
 The Tier 4 peer-execution handoff package for the full supported peer-profile set is emitted under `dist/tier4-external-handoff/`, but preserved independent external bundles are still absent in this checkpoint, so strict independent public claims remain blocked.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the prerequisites, the `uv` setup commands for a fresh clone, and one focused test to run first.
