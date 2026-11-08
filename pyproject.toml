@@ -244,7 +244,12 @@ dependencies = [
     "tba-profile-workload-proof-wimse-wpt==0.4.0.dev2",
     "tba-profile-workload-credential-wimse-wit==0.4.0.dev2",
     "tba-protocol-gnap==0.4.0.dev2",
+    "tba-codec-cid==0.4.0.dev2",
+    "tba-codec-dag-cbor==0.4.0.dev2",
+    "tba-codec-jcs==0.4.0.dev2",
+    "tba-codec-multibase==0.4.0.dev2",
     "tba-protocol-ucan==0.4.0.dev2",
+    "tba-protocol-zcap==0.4.0.dev2",
     "tba-profile-haip==0.4.0.dev2",
     "tba-profile-fido2-server==0.4.0.dev2",
     "tba-protocol-security-event-set==0.4.0.dev2",
@@ -594,6 +599,10 @@ dev = [
 package = false
 
 [tool.uv.sources]
+tba-codec-cid = { path = "pkgs/03-codecs/tba-codec-cid", editable = true }
+tba-codec-dag-cbor = { path = "pkgs/03-codecs/tba-codec-dag-cbor", editable = true }
+tba-codec-jcs = { path = "pkgs/03-codecs/tba-codec-jcs", editable = true }
+tba-codec-multibase = { path = "pkgs/03-codecs/tba-codec-multibase", editable = true }
 tigrbl = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/80_facade/tigrbl" }
 tba-contracts-release = { path = "pkgs/02-contracts/tba-contracts-release", editable = true }
 tba-certification-release = { path = "pkgs/60-runtime/tba-certification-release", editable = true }
@@ -838,6 +847,7 @@ tba-concrete-claim-cwt-id = { path = "pkgs/10-concrete/tba-concrete-claim-cwt-id
 tba-protocol-cwt = { path = "pkgs/50-protocols/tba-protocol-cwt", editable = true }
 tba-protocol-gnap = { path = "pkgs/50-protocols/tba-protocol-gnap", editable = true }
 tba-protocol-ucan = { path = "pkgs/50-protocols/tba-protocol-ucan", editable = true }
+tba-protocol-zcap = { path = "pkgs/50-protocols/tba-protocol-zcap", editable = true }
 tba-profile-haip = { path = "pkgs/55-profiles/tba-profile-haip", editable = true }
 tba-profile-fido2-server = { path = "pkgs/55-profiles/tba-profile-fido2-server", editable = true }
 tba-protocol-security-event-set = { path = "pkgs/50-protocols/tba-protocol-security-event-set", editable = true }

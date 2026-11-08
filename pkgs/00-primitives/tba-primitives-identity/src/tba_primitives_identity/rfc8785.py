@@ -1,6 +1,6 @@
 """Compatibility module for RFC 8785 JSON canonicalization helpers.
 
-Canonical module: tba_primitives_identity.json_canonicalization.
+RFC 8785 implementation: tba_codec_jcs.
 """
 
 from __future__ import annotations
@@ -16,8 +16,8 @@ from .json_canonicalization import (
 )
 
 warnings.warn(
-    "tba_primitives_identity.rfc8785 is deprecated; use "
-    "tba_primitives_identity.json_canonicalization instead.",
+    "tba_primitives_identity.rfc8785 is deprecated. "
+    "Install tba-codec-jcs and import from tba_codec_jcs.",
     DeprecationWarning,
     stacklevel=2,
 )

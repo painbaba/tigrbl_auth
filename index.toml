@@ -403,6 +403,38 @@ local_dependencies = ["tba-contracts-attestation", "tba-contracts-claim", "tba-c
 same_layer_dependencies = ["tba-contracts-attestation", "tba-contracts-claim", "tba-contracts-did", "tba-contracts-digital-credential", "tba-contracts-identity-assurance", "tba-contracts-public-key-authentication", "tba-contracts-replay", "tba-contracts-security-event", "tba-contracts-security-trust", "tba-contracts-token", "tba-contracts-workload-identity"]
 
 [[packages]]
+name = "tba-codec-jcs"
+path = "pkgs/03-codecs/tba-codec-jcs"
+layer = "03-codecs"
+order = "00"
+local_dependencies = []
+same_layer_dependencies = []
+
+[[packages]]
+name = "tba-codec-multibase"
+path = "pkgs/03-codecs/tba-codec-multibase"
+layer = "03-codecs"
+order = "00"
+local_dependencies = []
+same_layer_dependencies = []
+
+[[packages]]
+name = "tba-codec-cid"
+path = "pkgs/03-codecs/tba-codec-cid"
+layer = "03-codecs"
+order = "01"
+local_dependencies = ["tba-codec-multibase"]
+same_layer_dependencies = ["tba-codec-multibase"]
+
+[[packages]]
+name = "tba-codec-dag-cbor"
+path = "pkgs/03-codecs/tba-codec-dag-cbor"
+layer = "03-codecs"
+order = "02"
+local_dependencies = ["tba-codec-cid"]
+same_layer_dependencies = ["tba-codec-cid"]
+
+[[packages]]
 name = "tba-bases-attestation"
 path = "pkgs/05-bases/tba-bases-attestation"
 layer = "05-bases"
@@ -2983,7 +3015,7 @@ name = "tba-protocol-ucan"
 path = "pkgs/50-protocols/tba-protocol-ucan"
 layer = "50-protocols"
 order = "00"
-local_dependencies = ["tba-contracts-replay"]
+local_dependencies = ["tba-codec-cid", "tba-codec-dag-cbor", "tba-codec-multibase", "tba-contracts-replay"]
 same_layer_dependencies = []
 
 [[packages]]
@@ -3129,6 +3161,14 @@ layer = "50-protocols"
 order = "01"
 local_dependencies = ["tba-protocol-oid4vci", "tba-protocol-oid4vp", "tba-contracts-identity"]
 same_layer_dependencies = ["tba-protocol-oid4vci", "tba-protocol-oid4vp"]
+
+[[packages]]
+name = "tba-protocol-zcap"
+path = "pkgs/50-protocols/tba-protocol-zcap"
+layer = "50-protocols"
+order = "00"
+local_dependencies = ["tba-codec-jcs", "tba-codec-multibase", "tba-contracts-replay"]
+same_layer_dependencies = []
 
 [[packages]]
 name = "tba-protocol-oauth"

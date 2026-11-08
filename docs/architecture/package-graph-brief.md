@@ -25,7 +25,8 @@ This brief grounds the architecture image in the live package inventory in this 
 ### Foundation and persistence packages
 
 - `tba-storage-core`: SQLAlchemy tables, ORM models, migrations, persistence helpers, and operator state storage.
-- `tba-primitives-identity`: dependency-light primitives, typed helpers, path safety, and RFC 8785 canonicalization.
+- `tba-primitives-identity` owns shared identity helpers and the deterministic JSON used for existing hashes. Its strict JCS exports are deprecated compatibility entry points.
+- `tba-codec-jcs` owns RFC 8785 canonicalization and its conformance tests. Import `canonicalize` and `canonicalize_json` from `tba_codec_jcs`.
 
 ### Consumer and verification packages
 

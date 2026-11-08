@@ -14,8 +14,10 @@ classifiers = [
 ]
 license = "Apache-2.0"
 dependencies = [
-    "cbor2==6.1.3",
     "cryptography>=45",
+    "tba-codec-cid==0.4.0.dev2",
+    "tba-codec-dag-cbor==0.4.0.dev2",
+    "tba-codec-multibase==0.4.0.dev2",
     "tba-contracts-replay==0.4.0.dev2",
 ]
 

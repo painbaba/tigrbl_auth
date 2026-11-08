@@ -2,21 +2,25 @@
 
 from hashlib import sha256
 
-import cbor2
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives.asymmetric.ed25519 import (
     Ed25519PrivateKey,
     Ed25519PublicKey,
 )
 
+import tba_codec_dag_cbor as dag_cbor
+from tba_codec_cid import Cid
+from tba_codec_dag_cbor import CBORTag
+from tba_codec_multibase import decode_base58btc, encode_base58btc
+
 from .versions import DELEGATION_TAG, INVOCATION_TAG
 
 # Varsig v1, EdDSA, Ed25519 public key, SHA-512, DAG-CBOR.
 VARSIG_HEADER = bytes.fromhex("3401ed01ed011371")
 # CIDv1, dag-cbor, sha2-256, digest length 32.
-_CID_PREFIX = bytes.fromhex("01711220")
+_CID_CODEC = 0x71
+_CID_HASH = 0x12
 _ED25519_PREFIX = bytes.fromhex("ed01")
-_BASE58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 _MAX_BYTES = 64 * 1024
 _MAX_DEPTH = 32
 
@@ -25,38 +29,23 @@ class UcanError(ValueError):
     """Malformed or unauthorized UCAN within the supported profile."""
 
 
-def _base58_encode(data: bytes) -> str:
-    value = int.from_bytes(data, "big")
-    chars = []
-    while value:
-        value, remainder = divmod(value, 58)
-        chars.append(_BASE58[remainder])
-    leading_zeros = len(data) - len(data.lstrip(b"\x00"))
-    return "1" * leading_zeros + "".join(reversed(chars))
-
-
 def _decode_multibase(text: str, prefix: bytes, size: int) -> bytes:
     if not isinstance(text, str) or not text.startswith("z") or len(text) > 60:
         raise UcanError("expected base58btc multibase")
-    value = 0
     try:
-        for char in text[1:]:
-            value = value * 58 + _BASE58.index(char)
+        data = decode_base58btc(text)
     except ValueError as exc:
         raise UcanError("invalid base58btc character") from exc
-    data = value.to_bytes((value.bit_length() + 7) // 8, "big")
-    if (
-        not data.startswith(prefix)
-        or len(data) != size
-        or "z" + _base58_encode(data) != text
-    ):
+    if not data.startswith(prefix) or len(data) != size:
         raise UcanError("unexpected multicodec or key/digest length")
     return data
 
 
 def did_key(public_key: Ed25519PublicKey) -> str:
     """Return the self-certifying DID for an Ed25519 public key."""
-    return "did:key:z" + _base58_encode(_ED25519_PREFIX + public_key.public_bytes_raw())
+    return "did:key:" + encode_base58btc(
+        _ED25519_PREFIX + public_key.public_bytes_raw()
+    )
 
 
 def _public_key(did: str) -> Ed25519PublicKey:
@@ -72,24 +61,36 @@ def validate_did(did: str) -> None:
 
 def content_id(wire: bytes) -> str:
     """Compute the CID of canonical bytes, without verifying their signature."""
-    return "z" + _base58_encode(_CID_PREFIX + sha256(wire).digest())
+    return Cid(1, _CID_CODEC, _CID_HASH, sha256(wire).digest()).to_text()
 
 
-def cid_link(cid: str) -> cbor2.CBORTag:
-    data = _decode_multibase(cid, _CID_PREFIX, 36)
-    return cbor2.CBORTag(42, b"\x00" + data)
+def _validate_cid(cid: Cid) -> Cid:
+    if (cid.version, cid.codec, cid.hash_code, len(cid.digest)) != (
+        1,
+        _CID_CODEC,
+        _CID_HASH,
+        32,
+    ):
+        raise UcanError("expected a UCAN CIDv1 with DAG-CBOR and SHA-256")
+    return cid
+
+
+def cid_link(cid: str) -> CBORTag:
+    if not isinstance(cid, str) or len(cid) > 60:
+        raise UcanError("expected a bounded UCAN CID")
+    try:
+        decoded = Cid.from_text(cid)
+    except ValueError as exc:
+        raise UcanError("invalid UCAN CID") from exc
+    return dag_cbor.cid_link(_validate_cid(decoded))
 
 
 def link_cid(link: object) -> str:
-    if (
-        not isinstance(link, cbor2.CBORTag)
-        or link.tag != 42
-        or type(link.value) is not bytes
-        or len(link.value) != 37
-        or not link.value.startswith(b"\x00" + _CID_PREFIX)
-    ):
-        raise UcanError("expected a DAG-CBOR link to a UCAN CID")
-    return "z" + _base58_encode(link.value[1:])
+    try:
+        cid = dag_cbor.link_cid(link)
+    except ValueError as exc:
+        raise UcanError("expected a DAG-CBOR link to a UCAN CID") from exc
+    return _validate_cid(cid).to_text()
 
 
 def _validate_node(value: object, depth: int = 0) -> None:
@@ -107,7 +108,7 @@ def _validate_node(value: object, depth: int = 0) -> None:
         for item in value.values():
             _validate_node(item, depth + 1)
         return
-    if isinstance(value, cbor2.CBORTag):
+    if isinstance(value, CBORTag):
         link_cid(value)
         return
     raise UcanError("unsupported DAG-CBOR value in the development profile")
@@ -116,8 +117,8 @@ def _validate_node(value: object, depth: int = 0) -> None:
 def canonical_bytes(value: object) -> bytes:
     _validate_node(value)
     try:
-        wire = cbor2.dumps(value, canonical=True)
-    except (cbor2.CBORError, ValueError, TypeError) as exc:
+        wire = dag_cbor.encode(value, max_depth=_MAX_DEPTH)
+    except ValueError as exc:
         raise UcanError("cannot encode DAG-CBOR value") from exc
     if len(wire) > _MAX_BYTES:
         raise UcanError("UCAN byte limit exceeded")
@@ -128,16 +129,10 @@ def _decode(wire: bytes) -> object:
     if type(wire) is not bytes or len(wire) > _MAX_BYTES:
         raise UcanError("expected a bounded UCAN byte string")
     try:
-        value = cbor2.loads(
-            wire,
-            max_depth=_MAX_DEPTH,
-            allow_indefinite=False,
-            allow_duplicate_keys=False,
-        )
-    except (cbor2.CBORError, ValueError, TypeError) as exc:
-        raise UcanError("invalid DAG-CBOR") from exc
-    if canonical_bytes(value) != wire:
-        raise UcanError("noncanonical DAG-CBOR")
+        value = dag_cbor.decode(wire, max_depth=_MAX_DEPTH)
+    except ValueError as exc:
+        raise UcanError(str(exc)) from exc
+    _validate_node(value)
     return value
 
 
