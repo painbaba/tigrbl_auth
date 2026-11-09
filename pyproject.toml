@@ -6,7 +6,6 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.10,<3.16"
 classifiers = [
-    "License :: OSI Approved :: Apache Software License",
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -439,7 +438,7 @@ dependencies = [
     "tba-runtime-identity==0.4.0.dev2",
     "tba-server-identity==0.4.0.dev2",
     "tba-storage-core==0.4.0.dev4",
-    "tigrbl-migrations==0.4.5.dev4",
+    "tigrbl-migrations==0.4.5.dev6",
     "tba-storage-access-governance==0.4.0.dev2",
     "tba-storage-attestation==0.4.0.dev2",
     "tba-storage-audit==0.4.0.dev2",
@@ -517,6 +516,13 @@ test = [
     "ssot-registry==0.2.17",
     "tba-profile-communications-identity-bimi[workflow]==0.4.0.dev2",
     "tba-provider-bimi-mark-certificate==0.4.0.dev2",
+    "tba-contracts-dns==0.4.0.dev2",
+    "tba-codec-x509-logotype==0.4.0.dev2",
+    "tba-provider-certificate-evidence==0.4.0.dev2",
+    "tba-capability-communications-identity==0.4.0.dev2",
+    "tba-protocol-bimi==0.4.0.dev2",
+    "tba-protocol-dmarc==0.4.0.dev2",
+    "tba-provider-dns-txt==0.4.0.dev2",
 ]
 examples = [
     "tba-example-oauth-device-authorization-cli==0.1.0",
@@ -608,6 +614,9 @@ dev = [
     "ssot-registry>=0.2.8",
 ]
 
+[tool.setuptools]
+packages = []
+
 [tool.uv]
 package = false
 
@@ -625,7 +634,6 @@ tba-codec-cid = { path = "pkgs/03-codecs/tba-codec-cid", editable = true }
 tba-codec-dag-cbor = { path = "pkgs/03-codecs/tba-codec-dag-cbor", editable = true }
 tba-codec-jcs = { path = "pkgs/03-codecs/tba-codec-jcs", editable = true }
 tba-codec-multibase = { path = "pkgs/03-codecs/tba-codec-multibase", editable = true }
-tigrbl = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/80_facade/tigrbl" }
 tba-contracts-release = { path = "pkgs/02-contracts/tba-contracts-release", editable = true }
 tba-certification-release = { path = "pkgs/60-runtime/tba-certification-release", editable = true }
 tba-contracts-security-trust = { path = "pkgs/02-contracts/tba-contracts-security-trust", editable = true }
@@ -1006,8 +1014,6 @@ tba-operator-identity = { path = "pkgs/60-runtime/tba-operator-identity", editab
 tba-runtime-identity = { path = "pkgs/60-runtime/tba-runtime-identity", editable = true }
 tba-server-identity = { path = "pkgs/60-runtime/tba-server-identity", editable = true }
 tba-storage-core = { path = "pkgs/01-storage/tba-storage-core", editable = true }
-tigrbl-migrations = { path = "../tigrbl/pkgs/10_core/tigrbl_migrations", editable = true }
-tigrbl-ops-realtime = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/60_ops/tigrbl_ops_realtime" }
 tba-storage-access-governance = { path = "pkgs/01-storage/tba-storage-access-governance", editable = true }
 tba-storage-attestation = { path = "pkgs/01-storage/tba-storage-attestation", editable = true }
 tba-storage-audit = { path = "pkgs/01-storage/tba-storage-audit", editable = true }

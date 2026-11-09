@@ -206,13 +206,29 @@ def materialize_truth_chain(repo_root: Path) -> dict[str, Any]:
     return truth
 
 
-def verify_truth_chain(repo_root: Path, *, mode: str = "all") -> dict[str, Any]:
+def verify_truth_chain(
+    repo_root: Path, *, mode: str = "all", use_recorded_date: bool = False
+) -> dict[str, Any]:
+    if use_recorded_date and mode != "current-state":
+        raise ValueError("The recorded date is only supported for current-state verification.")
     repo_root = repo_root.resolve()
     truth = build_truth_chain_payload(repo_root)
-    repository_payload = build_repository_state_payload(repo_root, truth)
-    final_status_json_path, final_status_md_path = _final_release_status_paths(repo_root)
     failures: list[str] = []
     warnings: list[str] = []
+    if use_recorded_date:
+        recorded_date = _read_json(repo_root / TRUTH_CHAIN_JSON).get("generated_at")
+        try:
+            snapshot_date = date.fromisoformat(recorded_date)
+        except (TypeError, ValueError):
+            failures.append("The recorded truth-chain date is missing or invalid.")
+        else:
+            if snapshot_date.isoformat() != recorded_date or snapshot_date > date.today():
+                failures.append("The recorded truth-chain date is invalid.")
+            else:
+                truth["generated_at"] = recorded_date
+
+    repository_payload = build_repository_state_payload(repo_root, truth)
+    final_status_json_path, final_status_md_path = _final_release_status_paths(repo_root)
 
     expected_files: dict[str, str] = {}
     if mode in {"all", "current-state"}:

@@ -11,7 +11,7 @@ from typing import Any
 
 import yaml
 
-from tba_auth.repo_truth import evaluate_tier4_bundle, package_version
+from tba_operator_identity.repo_truth import evaluate_tier4_bundle, package_version
 
 ROOT = Path(__file__).resolve().parents[1]
 PEER_PROFILE_DIR = ROOT / 'compliance' / 'evidence' / 'peer_profiles'

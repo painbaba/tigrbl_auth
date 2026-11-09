@@ -47,6 +47,9 @@ dependencies = [
     "tba-provider-secret-hashing-bcrypt==0.1.0",
 ]
 
+[project.entry-points."tba_auth.app_factories"]
+default = "tba_app_backend_core.app:build_app"
+
 [project.urls]
 Homepage = "https://github.com/tigrbl/tigrbl_auth"
 Repository = "https://github.com/tigrbl/tigrbl_auth"

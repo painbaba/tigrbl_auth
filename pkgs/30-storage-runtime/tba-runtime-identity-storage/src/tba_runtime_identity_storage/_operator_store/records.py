@@ -11,7 +11,8 @@ from .paths import (
 from .app import operator_store_session
 from tigrbl_concrete.records import (
     create_table_record as _create_table_record,
-    delete_table_record as _delete_table_record,
+    first_table_record as _first_table_record,
+    invoke_table_operation as _invoke_table_operation,
     field as _table_field,
     list_table_records as _list_table_records,
 )
@@ -24,18 +25,22 @@ from tba_storage_operator.tables import OperatorTransaction
 
 
 async def _upsert_operator_metadata(db: Any, key: str, value: Any) -> None:
-    existing = await _list_table_records(OperatorMetadata, db, {"key": key})
-    for row in existing:
-        await _delete_table_record(OperatorMetadata, db, _table_field(row, "key"))
-    await _create_table_record(
-        OperatorMetadata,
-        db,
-        {
-            "key": key,
-            "value_json": json.dumps(value, sort_keys=True),
-            "updated_at": datetime.now(timezone.utc),
-        },
-    )
+    payload = {
+        "value_json": json.dumps(value, sort_keys=True),
+        "updated_at": datetime.now(timezone.utc),
+    }
+    existing = await _first_table_record(OperatorMetadata, db, {"key": key})
+    if existing is None:
+        await _create_table_record(OperatorMetadata, db, {"key": key, **payload})
+    else:
+        await _invoke_table_operation(
+            OperatorMetadata,
+            "update",
+            db=db,
+            payload=payload,
+            # The published CRUD dispatcher reads id even for a named key.
+            path_params={"id": key, "key": key},
+        )
 
 
 def _load_records_from_snapshot(

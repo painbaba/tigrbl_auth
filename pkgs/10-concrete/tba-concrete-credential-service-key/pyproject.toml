@@ -1,6 +1,7 @@
 [project]
 name="tba-concrete-credential-service-key"
 version="0.4.0.dev2"
+description = "Concrete credential service key value types for Tigrbl Auth."
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",
