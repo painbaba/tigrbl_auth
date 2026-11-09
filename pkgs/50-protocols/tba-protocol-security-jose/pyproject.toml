@@ -13,6 +13,7 @@ classifiers = [
 ]
 license = "Apache-2.0"
 dependencies = [
+    "tba-primitives-identity==0.4.0.dev2",
     "tba-contracts-identity==0.4.0.dev2",
     "tba-concrete-jose==0.4.0.dev2",
 ]

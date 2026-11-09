@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-17",
+  "generated_at": "2026-11-09",
   "source_of_truth": [
     ".ssot/registry.json",
     ".ssot/specs/SPEC-1052-ssot-document-authority.yaml",
@@ -71,11 +71,11 @@
     "explicitly_deauthorized_current_adjacent_doc_count": 7
   },
   "artifacts": {
-    "docs/compliance/current_state_report.json": "b62db15ff5c4a195a5d16f5031af0fefa6e709dbccfcfe873ff9474e165c55dd",
+    "docs/compliance/current_state_report.json": "c056bf4743014b6a6ef101679593ec8db2296f52d27d00b3bf78a7ee46876746",
     "docs/compliance/certification_state_report.json": "4a0d8f183620500e81cbc82033e350756411418b3826376346bd8f58b4ec43fa",
     "docs/compliance/release_gate_report.json": "2748344d7282a50874463868e2d55c3b7fa7e8c299bb29467b4ce94cc3e3a3b4",
     "docs/compliance/final_release_gate_report.json": "43526484a5a25b65668c9a42005bef8c3fd25b502e01d8ce8b9b7197d4e09353",
-    "docs/compliance/non_rfc_status_report.json": "fce26f8e9e6dd4b54c6ed6c3428b5b87b48251e2146d4e4a0205f817d21fb9ee"
+    "docs/compliance/non_rfc_status_report.json": "07818eaebee7d82e286098ed417b5881db3ec38ec26dc57b3fae858f1c91c1ee"
   },
   "explicitly_deauthorized_current_adjacent_docs": [
     "docs/compliance/BOUNDARY_FREEZE_DECISION_2026-03-26.md",

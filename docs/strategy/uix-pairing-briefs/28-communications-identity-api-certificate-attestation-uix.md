@@ -42,7 +42,7 @@ Reusable foundations include:
 - principal, tenant, service, workload, client, domain, policy, delegation, and audit concepts;
 - token, proof-of-possession, nonce, replay, and transaction-context capabilities.
 
-The repository does not currently provide dedicated STIR/SHAKEN, BIMI/VMC/CMC, S/MIME, document-signature, or RFC 9421 product implementations. These must be represented as planned until profile-specific protocols, storage, APIs, UIX, conformance tests, operational integrations, and legal/governance dependencies exist.
+The optional BIMI library covers sender DNS/DMARC readiness and verification of supplied VMC/CMC evidence. The Communications Identity API and UIX, certificate enrollment and renewal, and the other channel profiles in this brief remain proposed.
 
 ## 4. Users and Jobs
 
@@ -173,6 +173,10 @@ Attestation level describes the signer’s asserted relationship to the calling 
 Profile support must identify deployment jurisdiction and governance authority. SHAKEN program roles and certificate eligibility are not universally portable.
 
 ## 9. BIMI and Mark Certificate Profile
+
+The first library slice is available through the [BIMI profile](../../../pkgs/55-profiles/tba-profile-communications-identity-bimi/README.md) and the optional `bimi` workspace extra. It checks BIMI TXT and DMARC enforcement, verifies the Mark Certificate against configured roots, CRLs and CT keys, and binds the leaf to the assertion owner and its embedded logo. The requirements below cover the wider product surface.
+
+The profile composes standalone BIMI and DMARC protocol packages, shared DNS contracts, an X.509 subject logotype decoder, and a certificate evidence provider. Its optional workflow adapter uses the shared Communications Identity capability to run and audit an initial domain assessment or a follow-up check.
 
 Required capabilities:
 

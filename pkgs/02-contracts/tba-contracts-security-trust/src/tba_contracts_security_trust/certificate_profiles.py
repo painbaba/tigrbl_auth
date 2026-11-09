@@ -1,4 +1,4 @@
-from enum import StrEnum
+from ._compat import StrEnum
 
 
 class CertificateProfile(StrEnum):
@@ -11,6 +11,7 @@ class CertificateProfile(StrEnum):
     HAIP_VERIFIER = "haip-verifier"
     WALLET_ATTESTATION = "wallet-attestation"
     EAT_ENDORSEMENT = "eat-endorsement"
+    BIMI_MARK = "bimi-mark"
 
 
 __all__ = ["CertificateProfile"]

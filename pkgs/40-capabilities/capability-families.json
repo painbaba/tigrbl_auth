@@ -299,6 +299,32 @@
         "providers": []
       },
       "families": [
+        "communications"
+      ],
+      "implementations": [
+        {
+          "capability_id": "communications.identity",
+          "class": "CommunicationsIdentityCapability",
+          "operations": [
+            "assess_domain_onboarding",
+            "recheck_domain"
+          ],
+          "source": "pkgs/40-capabilities/tba-capability-communications-identity/src/tba_capability_communications_identity/capability.py",
+          "version": "1.0"
+        }
+      ],
+      "package": "tba-capability-communications-identity",
+      "protocol_packages": [],
+      "purpose": "Compose domain assessment and recheck with injected protocol checks and audit writing."
+    },
+    {
+      "compatibility_aggregator": false,
+      "dependencies": {
+        "capabilities": [],
+        "durability": [],
+        "providers": []
+      },
+      "families": [
         "grant"
       ],
       "implementations": [

@@ -1,0 +1,24 @@
+[project]
+name = "tba-profile-communications-identity-bimi"
+version = "0.4.0.dev2"
+description = "Optional BIMI Mark Certificate and DNS readiness profile."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+    "cryptography>=46",
+    "tba-contracts-security-trust==0.1.0",
+    "tba-contracts-dns==0.4.0.dev2",
+    "tba-protocol-bimi==0.4.0.dev2",
+    "tba-protocol-dmarc==0.4.0.dev2",
+]
+
+[project.optional-dependencies]
+workflow = ["tba-capability-communications-identity==0.4.0.dev2"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_profile_communications_identity_bimi", from = "src" }]

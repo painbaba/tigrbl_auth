@@ -1,0 +1,53 @@
+name: reusable contract build
+
+on:
+  workflow_call:
+    inputs:
+      python-version:
+        required: false
+        type: string
+        default: '3.11'
+      artifact-name:
+        required: false
+        type: string
+        default: generated-contracts
+
+permissions:
+  contents: read
+
+jobs:
+  build-contracts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ inputs.python-version }}
+      - name: Install contract toolchain
+        shell: bash
+        run: python -m pip install --upgrade pip uv PyYAML cryptography pydantic pydantic-settings python-dotenv
+      - name: Generate contracts and manifests
+        shell: bash
+        run: uv run python scripts/generate_effective_release_manifests.py
+      - name: Validate OpenAPI contract
+        shell: bash
+        run: uv run python scripts/validate_openapi_contract.py
+      - name: Validate OpenRPC contract
+        shell: bash
+        run: uv run python scripts/validate_openrpc_contract.py
+      - name: Diff executable contracts
+        shell: bash
+        run: uv run python scripts/diff_contracts.py
+      - name: Upload generated contracts
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ inputs.artifact-name }}
+          if-no-files-found: error
+          path: |
+            specs/openapi
+            specs/openrpc
+            specs/discovery
+            compliance/claims/effective-target-claims.*
+            compliance/evidence/effective-release-evidence.*
