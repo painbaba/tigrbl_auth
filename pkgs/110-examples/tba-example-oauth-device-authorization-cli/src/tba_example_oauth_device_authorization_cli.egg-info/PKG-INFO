@@ -2,12 +2,5 @@ Metadata-Version: 2.4
 Name: tba-example-oauth-device-authorization-cli
 Version: 0.1.0
 Summary: Example consumer package showing CLI login against tba_auth device authorization.
-License: Apache-2.0
-Classifier: Programming Language :: Python :: 3.10
-Classifier: Programming Language :: Python :: 3.11
-Classifier: Programming Language :: Python :: 3.12
-Classifier: Programming Language :: Python :: 3.13
-Classifier: Programming Language :: Python :: 3.14
-Classifier: Programming Language :: Python :: 3.15
-Requires-Python: <3.16,>=3.10
+Requires-Python: >=3.10
 Requires-Dist: httpx<0.29,>=0.28
