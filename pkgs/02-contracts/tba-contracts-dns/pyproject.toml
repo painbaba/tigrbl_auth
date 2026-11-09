@@ -1,0 +1,17 @@
+[project]
+name = "tba-contracts-dns"
+version = "0.4.0.dev2"
+description = "DNS TXT lookup contracts and shared TXT record handling."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+    "idna>=3,<4",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_contracts_dns", from = "src" }]

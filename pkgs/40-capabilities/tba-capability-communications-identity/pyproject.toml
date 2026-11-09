@@ -1,0 +1,16 @@
+[project]
+name = "tba-capability-communications-identity"
+version = "0.4.0.dev2"
+description = "Shared domain onboarding and recheck workflows."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_capability_communications_identity", from = "src" }]

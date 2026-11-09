@@ -18,10 +18,13 @@ class CertificatePathValidationRequest:
 
 @dataclass(frozen=True, slots=True)
 class CertificatePathValidationResult:
+    """A path decision. Indeterminate signals missing required trust evidence."""
+
     valid: bool
     profile: str
     trust_anchor_id: str | None = None
     errors: Sequence[str] = ()
+    indeterminate: bool = False
 
 
 __all__ = [
