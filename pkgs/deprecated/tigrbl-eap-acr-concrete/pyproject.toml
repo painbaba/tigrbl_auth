@@ -1,6 +1,7 @@
 [project]
 name = "tigrbl-eap-acr-concrete"
 version = "0.4.0.dev2"
+license = { text = "Apache-2.0" }
 description = "Deprecated facade for OIDC EAP ACR Values profile behavior."
 requires-python = ">=3.10,<3.16"
 classifiers = [

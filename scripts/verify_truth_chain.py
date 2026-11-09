@@ -19,8 +19,15 @@ def main() -> int:
         choices=("all", "current-state", "release-decision", "repository-state"),
         default="all",
     )
+    parser.add_argument(
+        "--use-recorded-date",
+        action="store_true",
+        help="Use the committed snapshot date when comparing the current-state report.",
+    )
     args = parser.parse_args()
-    payload = verify_truth_chain(ROOT, mode=args.mode)
+    if args.use_recorded_date and args.mode != "current-state":
+        parser.error("--use-recorded-date requires --mode current-state")
+    payload = verify_truth_chain(ROOT, mode=args.mode, use_recorded_date=args.use_recorded_date)
     print(json.dumps(payload, indent=2))
     return 0 if payload["passed"] else 1
 

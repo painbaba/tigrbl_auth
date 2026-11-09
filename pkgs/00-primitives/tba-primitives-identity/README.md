@@ -24,11 +24,11 @@ uv add tba-primitives-identity
 ## Usage
 
 ```python
-from tba_primitives_identity.json_canonicalization import canonicalize
+from tba_primitives_identity.json_canonicalization import canonical_json_bytes
 from tba_primitives_identity.typing import uuid_str
 
 subject_id = uuid_str()
-canonical = canonicalize({"sub": str(subject_id), "scope": ["openid", "profile"]})
+canonical = canonical_json_bytes({"sub": str(subject_id), "scope": ["openid", "profile"]})
 ```
 
 ## Package Boundary
@@ -37,7 +37,9 @@ canonical = canonicalize({"sub": str(subject_id), "scope": ["openid", "profile"]
 - UTC clock, datetime parsing, and version comparison helpers
 - UUID and JWT payload typing helpers
 - Path redaction for repo-safe evidence
-- RFC 8785 canonical JSON utilities
+- Deterministic JSON for existing policy hashes and key thumbprints.
+
+For strict RFC 8785 canonicalization, use [tba-codec-jcs](../../03-codecs/tba-codec-jcs/README.md). The legacy `canonicalize` and `canonicalize_json` imports remain available and emit a `DeprecationWarning` when called. The legacy `tba_primitives_identity.rfc8785` module also warns when imported.
 
 ## Related Packages
 

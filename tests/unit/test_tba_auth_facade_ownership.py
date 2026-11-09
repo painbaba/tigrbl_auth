@@ -323,7 +323,7 @@ def test_rfc8785_core_legacy_warns_and_facade_module_is_removed() -> None:
         sys.modules.pop("tba_primitives_identity.rfc8785", None)
         with pytest.warns(
             DeprecationWarning,
-            match="tba_primitives_identity.json_canonicalization",
+            match="tba_codec_jcs",
         ):
             core_legacy = importlib.import_module("tba_primitives_identity.rfc8785")
 
@@ -331,7 +331,16 @@ def test_rfc8785_core_legacy_warns_and_facade_module_is_removed() -> None:
         with pytest.raises(ModuleNotFoundError):
             importlib.import_module("tba_auth.rfc.rfc8785")
 
-        assert core_legacy.canonicalize is canonical.canonicalize
+        identity = importlib.import_module("tba_primitives_identity")
+        assert identity.canonicalize is core_legacy.canonicalize is canonical.canonicalize
+        assert core_legacy.canonicalize_json is canonical.canonicalize_json
+
+        # Preserve the legacy serialization and warn at the call site.
+        with pytest.warns(DeprecationWarning, match="tba_codec_jcs") as warnings:
+            assert identity.canonicalize({"n": 1e-6}) == b'{"n":1e-6}'
+            assert core_legacy.canonicalize_json('{"n": 0.000001}') == b'{"n":1e-6}'
+        assert len(warnings) == 2
+        assert all(warning.filename == __file__ for warning in warnings)
 
 
 def test_installable_tba_auth_facade_does_not_advertise_root_only_rfc_symbols() -> None:

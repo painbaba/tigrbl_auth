@@ -76,6 +76,9 @@ CAPABILITY_COMPATIBILITY_AGGREGATORS = frozenset({})
 # Layer 40 is intentionally sparse and opt-in.  Each entry names the complete
 # use case that would disappear if the orchestration package were removed.
 CAPABILITY_PURPOSES = {
+    "tba-capability-communications-identity": (
+        "Compose domain assessment and recheck with injected protocol checks and audit writing."
+    ),
     "tba-capability-adaptive-authentication": (
         "coordinate a normalized adaptive-authentication decision"
     ),

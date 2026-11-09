@@ -1,4 +1,4 @@
-"""JSON Canonicalization Scheme helpers."""
+"""Deterministic JSON helpers and legacy JCS compatibility exports."""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ import json
 import math
 import re
 import hashlib
+import warnings
 from collections.abc import Iterable, Mapping, Sequence
 from decimal import Decimal
 from typing import Any
@@ -19,19 +20,29 @@ class JCSCanonicalizationError(ValueError):
     """Raised when input cannot be represented as RFC 8785 JCS JSON."""
 
 
-def canonicalize(value: Any) -> bytes:
-    """Return RFC 8785 JCS canonical JSON encoded as UTF-8 bytes."""
+def _warn_legacy_jcs() -> None:
+    warnings.warn(
+        "JCS exports in tba_primitives_identity are deprecated. "
+        "Install tba-codec-jcs and import from tba_codec_jcs.",
+        DeprecationWarning,
+        stacklevel=3,
+    )
 
+
+def canonicalize(value: Any) -> bytes:
+    """Return legacy canonical JSON bytes. Use tba_codec_jcs for RFC 8785."""
+    _warn_legacy_jcs()
     return _serialize(value).encode("utf-8")
 
 
 def canonicalize_json(document: str | bytes | bytearray) -> bytes:
-    """Parse JSON text with duplicate-name rejection and return JCS bytes."""
+    """Parse and serialize with the legacy JCS implementation."""
+    _warn_legacy_jcs()
 
     if isinstance(document, (bytes, bytearray)):
         document = bytes(document).decode("utf-8")
     value = json.loads(document, object_pairs_hook=_reject_duplicate_pairs)
-    return canonicalize(value)
+    return _serialize(value).encode("utf-8")
 
 
 def _normalize_canonical_json_value(value: Any) -> Any:

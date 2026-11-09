@@ -67,7 +67,13 @@ def _display_path(path: Path, repo_root: Path) -> str:
 
 
 def _repo_root(arg: str | None) -> Path:
-    return Path(arg).resolve() if arg else Path(__file__).resolve().parents[2]
+    if arg:
+        return Path(arg).resolve()
+    cwd = Path.cwd()
+    for parent in (cwd, *cwd.parents, *Path(__file__).resolve().parents):
+        if (parent / "pkgs" / "layers.toml").is_file() and (parent / "pyproject.toml").is_file():
+            return parent
+    return cwd
 
 
 def _resolved_from_args(args: Any):
