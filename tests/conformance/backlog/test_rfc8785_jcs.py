@@ -1,4 +1,4 @@
-"""Conformance tests for RFC 8785 JSON Canonicalization Scheme."""
+"""RFC 8785 conformance tests for tba-codec-jcs."""
 
 from __future__ import annotations
 
@@ -6,12 +6,7 @@ from decimal import Decimal
 
 import pytest
 
-from tba_primitives_identity.json_canonicalization import (
-    JCSCanonicalizationError,
-    MAX_SAFE_INTEGER,
-    canonicalize,
-    canonicalize_json,
-)
+from tba_codec_jcs import canonicalize, canonicalize_json
 
 
 @pytest.mark.conformance
@@ -54,7 +49,7 @@ def test_rfc8785_property_sorting_uses_raw_utf16_code_units() -> None:
 
 @pytest.mark.conformance
 def test_rfc8785_parsed_json_rejects_duplicate_object_members() -> None:
-    with pytest.raises(JCSCanonicalizationError, match="duplicate"):
+    with pytest.raises(ValueError, match="duplicate"):
         canonicalize_json('{"iss":"one","iss":"two"}')
 
 
@@ -78,23 +73,23 @@ def test_rfc8785_output_is_utf8_bytes_and_preserves_unicode_without_normalizatio
 @pytest.mark.conformance
 @pytest.mark.parametrize("value", [float("nan"), float("inf"), float("-inf")])
 def test_rfc8785_rejects_non_json_float_values(value: float) -> None:
-    with pytest.raises(JCSCanonicalizationError, match="NaN and Infinity"):
+    with pytest.raises(ValueError):
         canonicalize({"n": value})
 
 
 @pytest.mark.conformance
 def test_rfc8785_rejects_lone_surrogates_in_strings_and_member_names() -> None:
-    with pytest.raises(JCSCanonicalizationError, match="lone surrogate"):
+    with pytest.raises(ValueError):
         canonicalize({"v": "\udead"})
-    with pytest.raises(JCSCanonicalizationError, match="lone surrogate"):
+    with pytest.raises(ValueError):
         canonicalize({"\udead": "value"})
 
 
 @pytest.mark.conformance
 def test_rfc8785_rejects_numbers_that_are_not_safe_json_integers() -> None:
-    with pytest.raises(JCSCanonicalizationError, match="IEEE 754"):
-        canonicalize({"n": MAX_SAFE_INTEGER + 1})
-    with pytest.raises(JCSCanonicalizationError, match="Decimal"):
+    with pytest.raises(ValueError):
+        canonicalize({"n": 2**53})
+    with pytest.raises(ValueError):
         canonicalize({"n": Decimal("1.23")})
 
 

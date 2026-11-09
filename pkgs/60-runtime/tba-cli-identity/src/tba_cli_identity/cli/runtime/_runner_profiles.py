@@ -217,7 +217,11 @@ def probe_runner_serve_check(
 
 def probe_application_factory(*, deployment: Any, settings_obj: object | None = None) -> tuple[ApplicationProbeResult, Any | None]:
     try:
-        app = build_app(settings_obj, deployment=deployment)
+        factories = entry_points(group="tba_auth.app_factories", name="default")
+        if len(factories) != 1:
+            raise RuntimeError("Install tba-app-backend-core to provide one default app factory.")
+        factory = next(iter(factories))
+        app = factory.load()(settings_obj, deployment=deployment)
     except Exception as exc:  # pragma: no cover - exercised via checkpoint environment and monkeypatched tests
         return (
             ApplicationProbeResult(
@@ -233,7 +237,7 @@ def probe_application_factory(*, deployment: Any, settings_obj: object | None = 
     return (
         ApplicationProbeResult(
             passed=True,
-            app_factory="unbound",
+            app_factory=factory.value.replace(":", "."),
             message=f"Application factory materialized successfully with {active_routes} active routes and {active_targets} active targets.",
             error_type=None,
         ),

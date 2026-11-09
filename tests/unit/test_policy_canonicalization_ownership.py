@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+from hashlib import sha256
 from pathlib import Path
 
 from tba_runtime_authorization_policy import assurance, provenance
@@ -18,6 +19,9 @@ def test_policy_canonicalization_helpers_are_owned_by_identity_core() -> None:
     assert canonical_json({"b": 2, "a": 1}) == '{"a":1,"b":2}'
     assert canonical_json({"values": ("z", "a")}) == '{"values":["z","a"]}'
     assert canonical_json({"values": {"z", "a"}}) == '{"values":["a","z"]}'
+    expected = sha256(br'{"amount":1e-06,"label":"\u00e9"}').hexdigest()
+    payload = {"amount": 1e-6, "label": "é"}
+    assert provenance.canonical_hash(payload) == assurance.canonical_hash(payload) == expected
 
 
 def test_policy_provenance_builders_are_concrete_backed() -> None:

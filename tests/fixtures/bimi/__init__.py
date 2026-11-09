@@ -1,0 +1,1 @@
+"""Synthetic BIMI test evidence."""

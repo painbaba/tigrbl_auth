@@ -1,6 +1,8 @@
 [project]
 name="tba-concrete-claim-confirmation"
 version="0.4.0.dev2"
+description = "Owns the JOSE cnf claim value and its supported jwk, jkt, and x5t#S256 methods."
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

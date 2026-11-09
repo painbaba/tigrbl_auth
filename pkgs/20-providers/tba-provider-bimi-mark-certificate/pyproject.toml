@@ -1,0 +1,19 @@
+[project]
+name = "tba-provider-bimi-mark-certificate"
+version = "0.4.0.dev2"
+description = "BIMI Mark Certificate path and evidence verification."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+    "cryptography>=46",
+    "tba-contracts-security-trust==0.1.0",
+    "tba-provider-certificate-evidence==0.4.0.dev2",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_provider_bimi_mark_certificate", from = "src" }]

@@ -1,7 +1,7 @@
 """Versioned JOSE artifact carrier descriptors."""
 
 from dataclasses import dataclass
-from enum import StrEnum
+from tba_primitives_identity.enum_compat import StrEnum
 
 from .errors import UnsupportedJoseMediaTypeError
 

@@ -1,0 +1,17 @@
+[project]
+name = "tba-codec-x509-logotype"
+version = "0.4.0.dev2"
+description = "DER decoder for the subject logotype in X.509 certificates."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+    "asn1crypto==1.5.1",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_codec_x509_logotype", from = "src" }]
