@@ -495,6 +495,17 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+bimi = [
+    "tba-contracts-dns==0.4.0.dev2",
+    "tba-codec-x509-logotype==0.4.0.dev2",
+    "tba-provider-certificate-evidence==0.4.0.dev2",
+    "tba-capability-communications-identity==0.4.0.dev2",
+    "tba-protocol-bimi==0.4.0.dev2",
+    "tba-protocol-dmarc==0.4.0.dev2",
+    "tba-profile-communications-identity-bimi[workflow]==0.4.0.dev2",
+    "tba-provider-bimi-mark-certificate==0.4.0.dev2",
+    "tba-provider-dns-txt==0.4.0.dev2",
+]
 test = [
     "pytest==9.0.3",
     "pytest-xdist==3.6.1",
@@ -504,6 +515,8 @@ test = [
     "pytest-asyncio==1.3.0",
     "requests==2.33.1",
     "ssot-registry==0.2.17",
+    "tba-profile-communications-identity-bimi[workflow]==0.4.0.dev2",
+    "tba-provider-bimi-mark-certificate==0.4.0.dev2",
 ]
 examples = [
     "tba-example-oauth-device-authorization-cli==0.1.0",
@@ -599,6 +612,15 @@ dev = [
 package = false
 
 [tool.uv.sources]
+tba-contracts-dns = { path = "pkgs/02-contracts/tba-contracts-dns", editable = true }
+tba-codec-x509-logotype = { path = "pkgs/03-codecs/tba-codec-x509-logotype", editable = true }
+tba-provider-certificate-evidence = { path = "pkgs/20-providers/tba-provider-certificate-evidence", editable = true }
+tba-capability-communications-identity = { path = "pkgs/40-capabilities/tba-capability-communications-identity", editable = true }
+tba-protocol-bimi = { path = "pkgs/50-protocols/tba-protocol-bimi", editable = true }
+tba-protocol-dmarc = { path = "pkgs/50-protocols/tba-protocol-dmarc", editable = true }
+tba-profile-communications-identity-bimi = { path = "pkgs/55-profiles/tba-profile-communications-identity-bimi", editable = true }
+tba-provider-bimi-mark-certificate = { path = "pkgs/20-providers/tba-provider-bimi-mark-certificate", editable = true }
+tba-provider-dns-txt = { path = "pkgs/20-providers/tba-provider-dns-txt", editable = true }
 tba-codec-cid = { path = "pkgs/03-codecs/tba-codec-cid", editable = true }
 tba-codec-dag-cbor = { path = "pkgs/03-codecs/tba-codec-dag-cbor", editable = true }
 tba-codec-jcs = { path = "pkgs/03-codecs/tba-codec-jcs", editable = true }
