@@ -7,12 +7,10 @@ requires-python = ">=3.10,<3.16"
 license = "Apache-2.0"
 dependencies = [
     "cryptography>=46",
-    "defusedxml==0.7.1",
     "tba-contracts-security-trust==0.1.0",
     "tba-contracts-dns==0.4.0.dev2",
     "tba-protocol-bimi==0.4.0.dev2",
     "tba-protocol-dmarc==0.4.0.dev2",
-    "tba-codec-x509-logotype==0.4.0.dev2",
 ]
 
 [project.optional-dependencies]

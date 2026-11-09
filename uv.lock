@@ -2337,6 +2337,16 @@ requires-dist = [
 name = "tba-capability-communications-identity"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-communications-identity" }
+dependencies = [
+    { name = "tba-concrete-capability" },
+    { name = "tba-contracts-identity" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-codec-x509-logotype"
@@ -2366,8 +2376,6 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/55-profiles/tba-profile-communications-identity-bimi" }
 dependencies = [
     { name = "cryptography" },
-    { name = "defusedxml" },
-    { name = "tba-codec-x509-logotype" },
     { name = "tba-contracts-dns" },
     { name = "tba-contracts-security-trust" },
     { name = "tba-protocol-bimi" },
@@ -2382,9 +2390,7 @@ workflow = [
 [package.metadata]
 requires-dist = [
     { name = "cryptography", specifier = ">=46" },
-    { name = "defusedxml", specifier = "==0.7.1" },
     { name = "tba-capability-communications-identity", marker = "extra == 'workflow'", specifier = "==0.4.0.dev2" },
-    { name = "tba-codec-x509-logotype", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-protocol-bimi", specifier = "==0.4.0.dev2" },
@@ -2397,11 +2403,17 @@ name = "tba-protocol-bimi"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-bimi" }
 dependencies = [
+    { name = "defusedxml" },
+    { name = "tba-codec-x509-logotype" },
     { name = "tba-contracts-dns" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tba-contracts-dns", specifier = "==0.4.0.dev2" }]
+requires-dist = [
+    { name = "defusedxml", specifier = "==0.7.1" },
+    { name = "tba-codec-x509-logotype", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-protocol-dmarc"
