@@ -6,7 +6,6 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.10,<3.16"
 classifiers = [
-    "License :: OSI Approved :: Apache Software License",
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -607,6 +606,9 @@ dev = [
     "tox>=4.23.2",
     "ssot-registry>=0.2.8",
 ]
+
+[tool.setuptools]
+packages = []
 
 [tool.uv]
 package = false
