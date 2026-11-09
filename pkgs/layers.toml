@@ -16,6 +16,12 @@ order = 2
 category = "production"
 
 [[layers]]
+id = "03-codecs"
+order = 3
+category = "production"
+distribution_prefix = "tba-codec-"
+
+[[layers]]
 id = "05-bases"
 order = 5
 category = "production"
@@ -131,6 +137,10 @@ consumer_layer = "02-contracts"
 allowed_target_layers = ["00-primitives","02-contracts"]
 
 [[dependency_rules]]
+consumer_layer = "03-codecs"
+allowed_target_layers = ["00-primitives","03-codecs"]
+
+[[dependency_rules]]
 consumer_layer = "05-bases"
 allowed_target_layers = ["00-primitives","02-contracts","05-bases"]
 
@@ -152,7 +162,7 @@ allowed_target_layers = ["00-primitives","02-contracts","10-concrete","20-provid
 
 [[dependency_rules]]
 consumer_layer = "50-protocols"
-allowed_target_layers = ["00-primitives","02-contracts","05-bases","10-concrete","20-providers","40-capabilities","50-protocols"]
+allowed_target_layers = ["00-primitives","02-contracts","03-codecs","05-bases","10-concrete","20-providers","40-capabilities","50-protocols"]
 
 [[dependency_rules]]
 consumer_layer = "55-profiles"

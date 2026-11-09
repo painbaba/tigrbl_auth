@@ -1,6 +1,7 @@
 [project]
 name="tigrbl-vcdm-concrete"
 version="0.4.0.dev2"
+description = "Concrete Verifiable Credentials Data Model value types."
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

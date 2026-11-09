@@ -1,6 +1,8 @@
 [project]
 name="tba-protocol-workload-spiffe-workload-api"
 version="0.4.0.dev2"
+description = "SPIFFE Workload API service contract and carrier-neutral bindings."
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

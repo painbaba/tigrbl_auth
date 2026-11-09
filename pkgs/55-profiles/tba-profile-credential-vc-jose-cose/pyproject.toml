@@ -1,6 +1,8 @@
 [project]
 name="tba-profile-credential-vc-jose-cose"
 version="0.4.0.dev2"
+description = "Versioned W3C VC-JOSE-COSE Recommendation ownership for secured Verifiable Credentials and Presentations."
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

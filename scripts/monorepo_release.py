@@ -20,6 +20,7 @@ TAG_RE = re.compile(r"^(?P<name>[A-Za-z0-9_.-]+)==(?P<version>\d+\.\d+\.\d+(?:\.
 REQ_NAME_RE = re.compile(r"^\s*([A-Za-z0-9_.-]+)")
 SUPPORTED_PYTHON_VERSIONS = ("3.10", "3.11", "3.12", "3.13", "3.14")
 TESTKIT_PACKAGE_NAME = "tba-testkit-identity"
+TESTKIT_ROOT_EXTRAS = ("test", "sqlite", "postgres", "servers")
 SWARMAURI_PYTHON_CEILING = (3, 13)
 TIGRBL_PYTHON_CEILING = (3, 14)
 
@@ -181,14 +182,21 @@ def _dependency_name(requirement: str) -> str | None:
     return _normalize_dist_name(match.group(1))
 
 
-def _project_dependencies(package: Package) -> list[str]:
-    data = _load_pyproject(ROOT / package.path / "pyproject.toml")
-    dependencies = data.get("project", {}).get("dependencies", [])
+def _project_dependencies(
+    package: Package, *, extras: tuple[str, ...] = ()
+) -> list[str]:
+    project = _load_pyproject(ROOT / package.path / "pyproject.toml").get("project", {})
+    dependencies = list(project.get("dependencies", ()))
+    optional = project.get("optional-dependencies", {})
+    for extra in extras:
+        dependencies.extend(optional.get(extra, ()))
     return [str(item) for item in dependencies]
 
 
-def _local_dependency_closure(package: Package) -> list[Package]:
-    packages = discover_packages()
+def _local_dependency_closure(
+    package: Package, *, extras: tuple[str, ...] = ()
+) -> list[Package]:
+    packages = discover_packages(include_deprecated=True)
     by_name = {_normalize_dist_name(item.name): item for item in packages}
     root_name = _normalize_dist_name(package.name)
     pending = [package]
@@ -197,7 +205,10 @@ def _local_dependency_closure(package: Package) -> list[Package]:
 
     while pending:
         current = pending.pop()
-        for requirement in _project_dependencies(current):
+        requirements = _project_dependencies(
+            current, extras=extras if current is package else ()
+        )
+        for requirement in requirements:
             dep_name = _dependency_name(requirement)
             if dep_name is None or dep_name == root_name or dep_name in seen:
                 continue
@@ -355,8 +366,10 @@ def _built_local_wheel_path(package: Package, wheelhouse: Path) -> Path:
     return candidates[-1]
 
 
-def _build_local_dependency_wheels(package: Package, wheelhouse: Path) -> list[Path]:
-    dependencies = _local_dependency_closure(package)
+def _build_local_dependency_wheels(
+    package: Package, wheelhouse: Path, *, extras: tuple[str, ...] = ()
+) -> list[Path]:
+    dependencies = _local_dependency_closure(package, extras=extras)
     wheelhouse.mkdir(parents=True, exist_ok=True)
     wheels: list[Path] = []
     for dependency in dependencies:
@@ -382,7 +395,9 @@ def _root_project_package() -> Package:
 
 
 def _build_testkit_root_dependency_wheels(wheelhouse: Path) -> list[Path]:
-    return _build_local_dependency_wheels(_root_project_package(), wheelhouse)
+    return _build_local_dependency_wheels(
+        _root_project_package(), wheelhouse, extras=TESTKIT_ROOT_EXTRAS
+    )
 
 
 def _materialize_testkit_interop_artifacts(python: Path) -> None:
@@ -505,7 +520,7 @@ print(json.dumps({"package": dist_name, "import_root": import_root, "version": v
                     "--find-links",
                     str(wheelhouse),
                     "-e",
-                    ".[test,sqlite,postgres,servers]",
+                    f".[{','.join(TESTKIT_ROOT_EXTRAS)}]",
                 ],
                 cwd=ROOT,
                 check=True,

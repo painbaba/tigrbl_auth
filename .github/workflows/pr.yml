@@ -25,12 +25,9 @@ jobs:
       run-codeql: true
 
   contracts:
-    uses: ./.github/workflows/_contracts.yml
+    uses: ./.github/workflows/_contract-build.yml
     permissions:
-      attestations: write
       contents: read
-      id-token: write
     with:
       python-version: '3.11'
       artifact-name: generated-contracts
-      attest: false

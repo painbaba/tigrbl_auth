@@ -1,7 +1,7 @@
 """RFC 9711 claim-family composition and decoded claim-set schema."""
 
 from dataclasses import dataclass
-from enum import StrEnum
+from tba_primitives_identity.enum_compat import StrEnum
 from typing import Mapping
 
 from tba_concrete_claim_eat_nonce import EatNonceClaim

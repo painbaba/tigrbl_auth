@@ -1,6 +1,7 @@
 [project]
 name = "tigrbl-claim-access-token-hash-oidc-concrete"
 version = "0.4.0.dev2"
+license = { text = "Apache-2.0" }
 description = "Deprecated compatibility facade for the standalone at_hash claim."
 requires-python = ">=3.10,<3.16"
 classifiers = [

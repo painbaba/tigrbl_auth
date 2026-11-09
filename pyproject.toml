@@ -6,7 +6,6 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.10,<3.16"
 classifiers = [
-    "License :: OSI Approved :: Apache Software License",
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
@@ -244,6 +243,12 @@ dependencies = [
     "tba-profile-workload-proof-wimse-wpt==0.4.0.dev2",
     "tba-profile-workload-credential-wimse-wit==0.4.0.dev2",
     "tba-protocol-gnap==0.4.0.dev2",
+    "tba-codec-cid==0.4.0.dev2",
+    "tba-codec-dag-cbor==0.4.0.dev2",
+    "tba-codec-jcs==0.4.0.dev2",
+    "tba-codec-multibase==0.4.0.dev2",
+    "tba-protocol-ucan==0.4.0.dev2",
+    "tba-protocol-zcap==0.4.0.dev2",
     "tba-profile-haip==0.4.0.dev2",
     "tba-profile-fido2-server==0.4.0.dev2",
     "tba-protocol-security-event-set==0.4.0.dev2",
@@ -433,7 +438,7 @@ dependencies = [
     "tba-runtime-identity==0.4.0.dev2",
     "tba-server-identity==0.4.0.dev2",
     "tba-storage-core==0.4.0.dev4",
-    "tigrbl-migrations==0.4.5.dev4",
+    "tigrbl-migrations==0.4.5.dev6",
     "tba-storage-access-governance==0.4.0.dev2",
     "tba-storage-attestation==0.4.0.dev2",
     "tba-storage-audit==0.4.0.dev2",
@@ -489,6 +494,17 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+bimi = [
+    "tba-contracts-dns==0.4.0.dev2",
+    "tba-codec-x509-logotype==0.4.0.dev2",
+    "tba-provider-certificate-evidence==0.4.0.dev2",
+    "tba-capability-communications-identity==0.4.0.dev2",
+    "tba-protocol-bimi==0.4.0.dev2",
+    "tba-protocol-dmarc==0.4.0.dev2",
+    "tba-profile-communications-identity-bimi[workflow]==0.4.0.dev2",
+    "tba-provider-bimi-mark-certificate==0.4.0.dev2",
+    "tba-provider-dns-txt==0.4.0.dev2",
+]
 test = [
     "pytest==9.0.3",
     "pytest-xdist==3.6.1",
@@ -498,6 +514,15 @@ test = [
     "pytest-asyncio==1.3.0",
     "requests==2.33.1",
     "ssot-registry==0.2.17",
+    "tba-profile-communications-identity-bimi[workflow]==0.4.0.dev2",
+    "tba-provider-bimi-mark-certificate==0.4.0.dev2",
+    "tba-contracts-dns==0.4.0.dev2",
+    "tba-codec-x509-logotype==0.4.0.dev2",
+    "tba-provider-certificate-evidence==0.4.0.dev2",
+    "tba-capability-communications-identity==0.4.0.dev2",
+    "tba-protocol-bimi==0.4.0.dev2",
+    "tba-protocol-dmarc==0.4.0.dev2",
+    "tba-provider-dns-txt==0.4.0.dev2",
 ]
 examples = [
     "tba-example-oauth-device-authorization-cli==0.1.0",
@@ -589,11 +614,26 @@ dev = [
     "ssot-registry>=0.2.8",
 ]
 
+[tool.setuptools]
+packages = []
+
 [tool.uv]
 package = false
 
 [tool.uv.sources]
-tigrbl = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/80_facade/tigrbl" }
+tba-contracts-dns = { path = "pkgs/02-contracts/tba-contracts-dns", editable = true }
+tba-codec-x509-logotype = { path = "pkgs/03-codecs/tba-codec-x509-logotype", editable = true }
+tba-provider-certificate-evidence = { path = "pkgs/20-providers/tba-provider-certificate-evidence", editable = true }
+tba-capability-communications-identity = { path = "pkgs/40-capabilities/tba-capability-communications-identity", editable = true }
+tba-protocol-bimi = { path = "pkgs/50-protocols/tba-protocol-bimi", editable = true }
+tba-protocol-dmarc = { path = "pkgs/50-protocols/tba-protocol-dmarc", editable = true }
+tba-profile-communications-identity-bimi = { path = "pkgs/55-profiles/tba-profile-communications-identity-bimi", editable = true }
+tba-provider-bimi-mark-certificate = { path = "pkgs/20-providers/tba-provider-bimi-mark-certificate", editable = true }
+tba-provider-dns-txt = { path = "pkgs/20-providers/tba-provider-dns-txt", editable = true }
+tba-codec-cid = { path = "pkgs/03-codecs/tba-codec-cid", editable = true }
+tba-codec-dag-cbor = { path = "pkgs/03-codecs/tba-codec-dag-cbor", editable = true }
+tba-codec-jcs = { path = "pkgs/03-codecs/tba-codec-jcs", editable = true }
+tba-codec-multibase = { path = "pkgs/03-codecs/tba-codec-multibase", editable = true }
 tba-contracts-release = { path = "pkgs/02-contracts/tba-contracts-release", editable = true }
 tba-certification-release = { path = "pkgs/60-runtime/tba-certification-release", editable = true }
 tba-contracts-security-trust = { path = "pkgs/02-contracts/tba-contracts-security-trust", editable = true }
@@ -836,6 +876,8 @@ tba-concrete-claim-cwt-issued-at = { path = "pkgs/10-concrete/tba-concrete-claim
 tba-concrete-claim-cwt-id = { path = "pkgs/10-concrete/tba-concrete-claim-cwt-id", editable = true }
 tba-protocol-cwt = { path = "pkgs/50-protocols/tba-protocol-cwt", editable = true }
 tba-protocol-gnap = { path = "pkgs/50-protocols/tba-protocol-gnap", editable = true }
+tba-protocol-ucan = { path = "pkgs/50-protocols/tba-protocol-ucan", editable = true }
+tba-protocol-zcap = { path = "pkgs/50-protocols/tba-protocol-zcap", editable = true }
 tba-profile-haip = { path = "pkgs/55-profiles/tba-profile-haip", editable = true }
 tba-profile-fido2-server = { path = "pkgs/55-profiles/tba-profile-fido2-server", editable = true }
 tba-protocol-security-event-set = { path = "pkgs/50-protocols/tba-protocol-security-event-set", editable = true }
@@ -972,8 +1014,6 @@ tba-operator-identity = { path = "pkgs/60-runtime/tba-operator-identity", editab
 tba-runtime-identity = { path = "pkgs/60-runtime/tba-runtime-identity", editable = true }
 tba-server-identity = { path = "pkgs/60-runtime/tba-server-identity", editable = true }
 tba-storage-core = { path = "pkgs/01-storage/tba-storage-core", editable = true }
-tigrbl-migrations = { path = "../tigrbl/pkgs/10_core/tigrbl_migrations", editable = true }
-tigrbl-ops-realtime = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/60_ops/tigrbl_ops_realtime" }
 tba-storage-access-governance = { path = "pkgs/01-storage/tba-storage-access-governance", editable = true }
 tba-storage-attestation = { path = "pkgs/01-storage/tba-storage-attestation", editable = true }
 tba-storage-audit = { path = "pkgs/01-storage/tba-storage-audit", editable = true }
