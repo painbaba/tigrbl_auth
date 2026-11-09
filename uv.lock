@@ -2303,6 +2303,25 @@ requires-dist = [
 ]
 
 [[package]]
+name = "tba-protocol-zcap"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-zcap" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "tba-codec-jcs" },
+    { name = "tba-codec-multibase" },
+    { name = "tba-contracts-replay" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", specifier = ">=45" },
+    { name = "tba-codec-jcs", specifier = "==0.4.0.dev2" },
+    { name = "tba-codec-multibase", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-replay", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
 name = "tba-provider-access-governance-memory"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/20-providers/tba-provider-access-governance-memory" }
@@ -3424,6 +3443,27 @@ requires-dist = [
 ]
 
 [[package]]
+name = "tba-protocol-ucan"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-ucan" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "tba-codec-cid" },
+    { name = "tba-codec-dag-cbor" },
+    { name = "tba-codec-multibase" },
+    { name = "tba-contracts-replay" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", specifier = ">=45" },
+    { name = "tba-codec-cid", specifier = "==0.4.0.dev2" },
+    { name = "tba-codec-dag-cbor", specifier = "==0.4.0.dev2" },
+    { name = "tba-codec-multibase", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-replay", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
 name = "tba-protocol-webauthn"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-webauthn" }
@@ -3868,6 +3908,10 @@ dependencies = [
     { name = "tba-client-authorization-administration" },
     { name = "tba-client-policy-decision" },
     { name = "tba-client-relying-party-session" },
+    { name = "tba-codec-cid" },
+    { name = "tba-codec-dag-cbor" },
+    { name = "tba-codec-jcs" },
+    { name = "tba-codec-multibase" },
     { name = "tba-concrete-acr-evaluator-basic" },
     { name = "tba-concrete-administrator-identity" },
     { name = "tba-concrete-amr-evaluator-basic" },
@@ -4090,10 +4134,12 @@ dependencies = [
     { name = "tba-protocol-security-jose" },
     { name = "tba-protocol-security-jwe" },
     { name = "tba-protocol-security-jws" },
+    { name = "tba-protocol-ucan" },
     { name = "tba-protocol-webauthn" },
     { name = "tba-protocol-workload-spiffe-broker-api" },
     { name = "tba-protocol-workload-spiffe-svid" },
     { name = "tba-protocol-workload-spiffe-workload-api" },
+    { name = "tba-protocol-zcap" },
     { name = "tba-provider-access-governance-memory" },
     { name = "tba-provider-attestation-appraiser" },
     { name = "tba-provider-attestation-packed" },
@@ -4397,6 +4443,10 @@ requires-dist = [
     { name = "tba-client-authorization-administration", editable = "pkgs/75-clients/tba-client-authorization-administration" },
     { name = "tba-client-policy-decision", editable = "pkgs/75-clients/tba-client-policy-decision" },
     { name = "tba-client-relying-party-session", editable = "pkgs/75-clients/tba-client-relying-party-session" },
+    { name = "tba-codec-cid", editable = "pkgs/03-codecs/tba-codec-cid" },
+    { name = "tba-codec-dag-cbor", editable = "pkgs/03-codecs/tba-codec-dag-cbor" },
+    { name = "tba-codec-jcs", editable = "pkgs/03-codecs/tba-codec-jcs" },
+    { name = "tba-codec-multibase", editable = "pkgs/03-codecs/tba-codec-multibase" },
     { name = "tba-concrete-acr-evaluator-basic", editable = "pkgs/10-concrete/tba-concrete-acr-evaluator-basic" },
     { name = "tba-concrete-administrator-identity", editable = "pkgs/10-concrete/tba-concrete-administrator-identity" },
     { name = "tba-concrete-amr-evaluator-basic", editable = "pkgs/10-concrete/tba-concrete-amr-evaluator-basic" },
@@ -4620,10 +4670,12 @@ requires-dist = [
     { name = "tba-protocol-security-jose", editable = "pkgs/50-protocols/tba-protocol-security-jose" },
     { name = "tba-protocol-security-jwe", editable = "pkgs/50-protocols/tba-protocol-security-jwe" },
     { name = "tba-protocol-security-jws", editable = "pkgs/50-protocols/tba-protocol-security-jws" },
+    { name = "tba-protocol-ucan", editable = "pkgs/50-protocols/tba-protocol-ucan" },
     { name = "tba-protocol-webauthn", editable = "pkgs/50-protocols/tba-protocol-webauthn" },
     { name = "tba-protocol-workload-spiffe-broker-api", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-broker-api" },
     { name = "tba-protocol-workload-spiffe-svid", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-svid" },
     { name = "tba-protocol-workload-spiffe-workload-api", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-workload-api" },
+    { name = "tba-protocol-zcap", editable = "pkgs/50-protocols/tba-protocol-zcap" },
     { name = "tba-provider-access-governance-memory", editable = "pkgs/20-providers/tba-provider-access-governance-memory" },
     { name = "tba-provider-attestation-appraiser", editable = "pkgs/20-providers/tba-provider-attestation-appraiser" },
     { name = "tba-provider-attestation-packed", editable = "pkgs/20-providers/tba-provider-attestation-packed" },
@@ -4757,7 +4809,7 @@ requires-dist = [
     { name = "tigrbl-concrete", specifier = "==0.4.5.dev8" },
     { name = "tigrbl-core", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-kernel", specifier = "==0.4.5.dev6" },
-    { name = "tigrbl-migrations", editable = "../tigrbl/pkgs/10_core/tigrbl_migrations" },
+    { name = "tigrbl-migrations", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F10_core%2Ftigrbl_migrations&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" },
     { name = "tigrbl-ops-olap", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-ops-oltp", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-ops-realtime", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" },
@@ -5337,6 +5389,48 @@ requires-dist = [
     { name = "tba-provider-security-token-jwks-cache", specifier = "==0.1.0" },
     { name = "tba-provider-token-introspection", specifier = "==0.1.0" },
 ]
+
+[[package]]
+name = "tba-codec-cid"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-cid" }
+dependencies = [
+    { name = "tba-codec-multibase" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-codec-multibase", specifier = "==0.4.0.dev2" }]
+
+[[package]]
+name = "tba-codec-dag-cbor"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-dag-cbor" }
+dependencies = [
+    { name = "cbor2" },
+    { name = "tba-codec-cid" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cbor2", specifier = "==6.1.3" },
+    { name = "tba-codec-cid", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-codec-jcs"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-jcs" }
+dependencies = [
+    { name = "rfc8785" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "rfc8785", specifier = ">=0.1.4,<0.2" }]
+
+[[package]]
+name = "tba-codec-multibase"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-multibase" }
 
 [[package]]
 name = "tba-concrete-capability"
@@ -10789,21 +10883,12 @@ dependencies = [
 
 [[package]]
 name = "tigrbl-migrations"
-version = "0.4.5.dev4"
-source = { editable = "../tigrbl/pkgs/10_core/tigrbl_migrations" }
+version = "0.4.5.dev6"
+source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F10_core%2Ftigrbl_migrations&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
 dependencies = [
     { name = "packaging" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "hypothesis", marker = "extra == 'test'", specifier = ">=6" },
-    { name = "packaging", specifier = ">=24" },
-    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
-    { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0" },
-]
-provides-extras = ["test"]
 
 [[package]]
 name = "tigrbl-ops-olap"
@@ -11263,6 +11348,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/c7/79/12135bdf8b9c9367b
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a4/f5/10b68b7b1544245097b2a1b8238f66f2fc6dcaeb24ba5d917f52bd2eed4f/wsproto-1.3.2-py3-none-any.whl", hash = "sha256:61eea322cdf56e8cc904bd3ad7573359a242ba65688716b0710a5eb12beab584", size = 24405, upload-time = "2025-11-20T18:18:00.454Z" },
 ]
+
 [[package]]
 name = "tba-concrete-claim-authorization-context"
 version = "0.4.0.dev2"
@@ -11278,3 +11364,11 @@ requires-dist = [
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
+[[package]]
+name = "rfc8785"
+version = "0.1.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ef/2f/fa1d2e740c490191b572d33dbca5daa180cb423c24396b856f5886371d8b/rfc8785-0.1.4.tar.gz", hash = "sha256:e545841329fe0eee4f6a3b44e7034343100c12b4ec566dc06ca9735681deb4da", size = 14321, upload-time = "2024-09-27T16:33:31.206Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4d/78/119878110660b2ad709888c8a1614fce7e2fab39080ab960656dc8605bf6/rfc8785-0.1.4-py3-none-any.whl", hash = "sha256:520d690b448ecf0703691c76e1a34a24ddcd4fc5bc41d589cb7c58ec651bcd48", size = 9240, upload-time = "2024-09-27T16:33:29.683Z" },
+]
