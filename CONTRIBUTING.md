@@ -26,7 +26,7 @@ uv sync --locked --python 3.12
 ```
 
 This creates `.venv/` and installs the workspace packages in editable mode.
-uv fetches the pinned Tigrbl dependencies from Git.
+uv installs the published Tigrbl dependencies pinned in the lockfile.
 
 ## Run a focused check
 
