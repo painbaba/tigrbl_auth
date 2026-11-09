@@ -2337,6 +2337,16 @@ requires-dist = [
 name = "tba-capability-communications-identity"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/40-capabilities/tba-capability-communications-identity" }
+dependencies = [
+    { name = "tba-concrete-capability" },
+    { name = "tba-contracts-identity" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-codec-x509-logotype"
@@ -2366,8 +2376,6 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/55-profiles/tba-profile-communications-identity-bimi" }
 dependencies = [
     { name = "cryptography" },
-    { name = "defusedxml" },
-    { name = "tba-codec-x509-logotype" },
     { name = "tba-contracts-dns" },
     { name = "tba-contracts-security-trust" },
     { name = "tba-protocol-bimi" },
@@ -2382,9 +2390,7 @@ workflow = [
 [package.metadata]
 requires-dist = [
     { name = "cryptography", specifier = ">=46" },
-    { name = "defusedxml", specifier = "==0.7.1" },
     { name = "tba-capability-communications-identity", marker = "extra == 'workflow'", specifier = "==0.4.0.dev2" },
-    { name = "tba-codec-x509-logotype", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
     { name = "tba-protocol-bimi", specifier = "==0.4.0.dev2" },
@@ -2397,11 +2403,17 @@ name = "tba-protocol-bimi"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-bimi" }
 dependencies = [
+    { name = "defusedxml" },
+    { name = "tba-codec-x509-logotype" },
     { name = "tba-contracts-dns" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "tba-contracts-dns", specifier = "==0.4.0.dev2" }]
+requires-dist = [
+    { name = "defusedxml", specifier = "==0.7.1" },
+    { name = "tba-codec-x509-logotype", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-protocol-dmarc"
@@ -3237,6 +3249,7 @@ dependencies = [
     { name = "tba-concrete-claim-subject" },
     { name = "tba-concrete-cwt" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
@@ -3253,6 +3266,7 @@ requires-dist = [
     { name = "tba-concrete-claim-subject", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-cwt", specifier = "==0.4.0.dev3" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -4477,8 +4491,15 @@ test = [
     { name = "pytest-xdist" },
     { name = "requests" },
     { name = "ssot-registry" },
+    { name = "tba-capability-communications-identity" },
+    { name = "tba-codec-x509-logotype" },
+    { name = "tba-contracts-dns" },
     { name = "tba-profile-communications-identity-bimi", extra = ["workflow"] },
+    { name = "tba-protocol-bimi" },
+    { name = "tba-protocol-dmarc" },
     { name = "tba-provider-bimi-mark-certificate" },
+    { name = "tba-provider-certificate-evidence" },
+    { name = "tba-provider-dns-txt" },
 ]
 tigrcorn = [
     { name = "tba-runtime-identity", extra = ["tigrcorn"] },
@@ -4584,6 +4605,7 @@ requires-dist = [
     { name = "tba-capability-client-registration", editable = "pkgs/40-capabilities/tba-capability-client-registration" },
     { name = "tba-capability-client-secret-authentication", editable = "pkgs/40-capabilities/tba-capability-client-secret-authentication" },
     { name = "tba-capability-communications-identity", marker = "extra == 'bimi'", editable = "pkgs/40-capabilities/tba-capability-communications-identity" },
+    { name = "tba-capability-communications-identity", marker = "extra == 'test'", editable = "pkgs/40-capabilities/tba-capability-communications-identity" },
     { name = "tba-capability-delegated-access-negotiation", editable = "pkgs/40-capabilities/tba-capability-delegated-access-negotiation" },
     { name = "tba-capability-digital-credential-issuance", editable = "pkgs/40-capabilities/tba-capability-digital-credential-issuance" },
     { name = "tba-capability-digital-credential-presentation", editable = "pkgs/40-capabilities/tba-capability-digital-credential-presentation" },
@@ -4623,6 +4645,7 @@ requires-dist = [
     { name = "tba-codec-jcs", editable = "pkgs/03-codecs/tba-codec-jcs" },
     { name = "tba-codec-multibase", editable = "pkgs/03-codecs/tba-codec-multibase" },
     { name = "tba-codec-x509-logotype", marker = "extra == 'bimi'", editable = "pkgs/03-codecs/tba-codec-x509-logotype" },
+    { name = "tba-codec-x509-logotype", marker = "extra == 'test'", editable = "pkgs/03-codecs/tba-codec-x509-logotype" },
     { name = "tba-concrete-acr-evaluator-basic", editable = "pkgs/10-concrete/tba-concrete-acr-evaluator-basic" },
     { name = "tba-concrete-administrator-identity", editable = "pkgs/10-concrete/tba-concrete-administrator-identity" },
     { name = "tba-concrete-amr-evaluator-basic", editable = "pkgs/10-concrete/tba-concrete-amr-evaluator-basic" },
@@ -4776,6 +4799,7 @@ requires-dist = [
     { name = "tba-contracts-did", editable = "pkgs/02-contracts/tba-contracts-did" },
     { name = "tba-contracts-digital-credential", editable = "pkgs/02-contracts/tba-contracts-digital-credential" },
     { name = "tba-contracts-dns", marker = "extra == 'bimi'", editable = "pkgs/02-contracts/tba-contracts-dns" },
+    { name = "tba-contracts-dns", marker = "extra == 'test'", editable = "pkgs/02-contracts/tba-contracts-dns" },
     { name = "tba-contracts-identity", editable = "pkgs/02-contracts/tba-contracts-identity" },
     { name = "tba-contracts-identity-assurance", editable = "pkgs/02-contracts/tba-contracts-identity-assurance" },
     { name = "tba-contracts-identity-document", editable = "pkgs/02-contracts/tba-contracts-identity-document" },
@@ -4833,10 +4857,12 @@ requires-dist = [
     { name = "tba-protocol-attestation-eat", editable = "pkgs/50-protocols/tba-protocol-attestation-eat" },
     { name = "tba-protocol-authzen", editable = "pkgs/50-protocols/tba-protocol-authzen" },
     { name = "tba-protocol-bimi", marker = "extra == 'bimi'", editable = "pkgs/50-protocols/tba-protocol-bimi" },
+    { name = "tba-protocol-bimi", marker = "extra == 'test'", editable = "pkgs/50-protocols/tba-protocol-bimi" },
     { name = "tba-protocol-credential-iso-mdoc", editable = "pkgs/50-protocols/tba-protocol-credential-iso-mdoc" },
     { name = "tba-protocol-credential-w3c-vcdm", editable = "pkgs/50-protocols/tba-protocol-credential-w3c-vcdm" },
     { name = "tba-protocol-cwt", editable = "pkgs/50-protocols/tba-protocol-cwt" },
     { name = "tba-protocol-dmarc", marker = "extra == 'bimi'", editable = "pkgs/50-protocols/tba-protocol-dmarc" },
+    { name = "tba-protocol-dmarc", marker = "extra == 'test'", editable = "pkgs/50-protocols/tba-protocol-dmarc" },
     { name = "tba-protocol-gnap", editable = "pkgs/50-protocols/tba-protocol-gnap" },
     { name = "tba-protocol-identity-did-core", editable = "pkgs/50-protocols/tba-protocol-identity-did-core" },
     { name = "tba-protocol-jwt", editable = "pkgs/50-protocols/tba-protocol-jwt" },
@@ -4882,6 +4908,7 @@ requires-dist = [
     { name = "tba-provider-bimi-mark-certificate", marker = "extra == 'bimi'", editable = "pkgs/20-providers/tba-provider-bimi-mark-certificate" },
     { name = "tba-provider-bimi-mark-certificate", marker = "extra == 'test'", editable = "pkgs/20-providers/tba-provider-bimi-mark-certificate" },
     { name = "tba-provider-certificate-evidence", marker = "extra == 'bimi'", editable = "pkgs/20-providers/tba-provider-certificate-evidence" },
+    { name = "tba-provider-certificate-evidence", marker = "extra == 'test'", editable = "pkgs/20-providers/tba-provider-certificate-evidence" },
     { name = "tba-provider-certificate-path-validator", editable = "pkgs/20-providers/tba-provider-certificate-path-validator" },
     { name = "tba-provider-certificate-status", editable = "pkgs/20-providers/tba-provider-certificate-status" },
     { name = "tba-provider-claims-local", editable = "pkgs/20-providers/tba-provider-claims-local" },
@@ -4892,6 +4919,7 @@ requires-dist = [
     { name = "tba-provider-digital-credential-status", editable = "pkgs/20-providers/tba-provider-digital-credential-status" },
     { name = "tba-provider-digital-credential-trust", editable = "pkgs/20-providers/tba-provider-digital-credential-trust" },
     { name = "tba-provider-dns-txt", marker = "extra == 'bimi'", editable = "pkgs/20-providers/tba-provider-dns-txt" },
+    { name = "tba-provider-dns-txt", marker = "extra == 'test'", editable = "pkgs/20-providers/tba-provider-dns-txt" },
     { name = "tba-provider-eat-verifier", editable = "pkgs/20-providers/tba-provider-eat-verifier" },
     { name = "tba-provider-fido-metadata-service", editable = "pkgs/20-providers/tba-provider-fido-metadata-service" },
     { name = "tba-provider-identity-administration-relationship-graph", editable = "pkgs/20-providers/tba-provider-identity-administration-relationship-graph" },
@@ -6918,10 +6946,14 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-cose" }
 dependencies = [
     { name = "cbor2" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "cbor2", specifier = "==6.1.3" }]
+requires-dist = [
+    { name = "cbor2", specifier = "==6.1.3" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-provider-cose-cryptography"
@@ -7115,6 +7147,7 @@ dependencies = [
     { name = "tba-concrete-mdoc" },
     { name = "tba-concrete-mdoc-credential" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
     { name = "tba-provider-mdoc-issuer" },
     { name = "tba-provider-mdoc-verifier" },
 ]
@@ -7125,6 +7158,7 @@ requires-dist = [
     { name = "tba-concrete-mdoc", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mdoc-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-mdoc-issuer", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-mdoc-verifier", specifier = "==0.4.0.dev2" },
 ]
@@ -7136,12 +7170,14 @@ source = { editable = "pkgs/50-protocols/tba-protocol-credential-w3c-vcdm" }
 dependencies = [
     { name = "tba-concrete-verifiable-credential" },
     { name = "tba-concrete-verifiable-presentation" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-concrete-verifiable-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-verifiable-presentation", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -7318,6 +7354,12 @@ requires-dist = [{ name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }
 name = "tba-contracts-did"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/02-contracts/tba-contracts-did" }
+dependencies = [
+    { name = "tba-primitives-identity" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-primitives-identity", specifier = "==0.4.0.dev2" }]
 
 [[package]]
 name = "tba-provider-did-controller"
@@ -7486,6 +7528,7 @@ dependencies = [
     { name = "tba-concrete-claim-ueid" },
     { name = "tba-concrete-eat-evidence" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
@@ -7497,6 +7540,7 @@ requires-dist = [
     { name = "tba-concrete-claim-ueid", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-eat-evidence", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -10064,12 +10108,14 @@ source = { editable = "pkgs/50-protocols/tba-protocol-security-jose" }
 dependencies = [
     { name = "tba-concrete-jose" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -10191,6 +10237,12 @@ requires-dist = [
 name = "tba-contracts-security-trust"
 version = "0.1.0"
 source = { editable = "pkgs/02-contracts/tba-contracts-security-trust" }
+dependencies = [
+    { name = "tba-primitives-identity" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-primitives-identity", specifier = "==0.4.0.dev2" }]
 
 [[package]]
 name = "tba-bases-security-trust-domain"

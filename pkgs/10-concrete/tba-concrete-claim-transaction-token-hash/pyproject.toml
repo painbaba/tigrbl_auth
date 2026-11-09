@@ -1,6 +1,7 @@
 [project]
 name = "tba-concrete-claim-transaction-token-hash"
 version = "0.4.0.dev2"
+license = { text = "Apache-2.0" }
 description = "Standalone WIMSE tth claim implementation."
 requires-python = ">=3.10,<3.16"
 classifiers = [

@@ -1,6 +1,8 @@
 [project]
 name="tba-concrete-claim-sd-hash"
 version="0.4.0.dev2"
+description = "Owns SdHashClaim as protocol-neutral layer-10 value semantics."
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

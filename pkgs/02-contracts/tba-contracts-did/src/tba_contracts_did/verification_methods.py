@@ -1,7 +1,7 @@
 """Canonical DID verification-method contracts."""
 
 from dataclasses import dataclass
-from enum import StrEnum
+from tba_primitives_identity.enum_compat import StrEnum
 from typing import Mapping
 
 from .identifiers import Did

@@ -8,7 +8,7 @@ from pathlib import Path
 
 import yaml
 
-from tba_auth.repo_truth import (
+from tba_operator_identity.repo_truth import (
     evaluate_tier4_bundle,
     has_install_matrix_workflow,
     has_release_gate_workflow,

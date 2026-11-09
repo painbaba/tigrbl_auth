@@ -1,6 +1,8 @@
 [project]
 name="tba-concrete-identity-assurance"
 version="0.4.0.dev2"
+description = "Concrete identity assurance value types for Tigrbl Auth."
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

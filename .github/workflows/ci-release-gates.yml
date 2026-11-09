@@ -29,13 +29,12 @@ env:
 
 jobs:
   contracts:
-    uses: ./.github/workflows/_contracts.yml
+    uses: ./.github/workflows/_contract-build.yml
     permissions:
       contents: read
     with:
       python-version: '3.11'
       artifact-name: generated-contracts
-      attest: false
 
   certification-matrix:
     uses: ./.github/workflows/_certification-matrix.yml

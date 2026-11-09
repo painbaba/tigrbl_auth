@@ -15,6 +15,7 @@ except ModuleNotFoundError:  # pragma: no cover - Python 3.10 fallback
     import tomli as tomllib
 from contextlib import suppress
 from datetime import datetime, timezone
+from importlib.metadata import entry_points
 from pathlib import Path
 from typing import Any
 

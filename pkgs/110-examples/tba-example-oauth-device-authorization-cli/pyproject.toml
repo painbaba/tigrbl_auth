@@ -1,6 +1,7 @@
 [project]
 name = "tba-example-oauth-device-authorization-cli"
 version = "0.1.0"
+license = { text = "Apache-2.0" }
 description = "Example consumer package showing CLI login against tba_auth device authorization."
 requires-python = ">=3.10,<3.16"
 classifiers = [

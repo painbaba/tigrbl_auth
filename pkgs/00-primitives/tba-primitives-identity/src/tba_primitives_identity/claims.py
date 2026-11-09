@@ -1,7 +1,7 @@
 """Primitive claim taxonomy shared across token and credential families."""
 
 from dataclasses import dataclass
-from enum import StrEnum
+from .enum_compat import StrEnum
 from typing import TypeAlias
 
 
