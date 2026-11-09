@@ -128,7 +128,14 @@ jobs:
     name: Python ${{ matrix.python }} / Batch ${{ matrix.batch }}
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
+      - id: setup-python
+        uses: actions/setup-python@v6
+        continue-on-error: true
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Retry Python setup
+        if: steps.setup-python.outcome == 'failure'
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
       - name: Install package test toolchain
