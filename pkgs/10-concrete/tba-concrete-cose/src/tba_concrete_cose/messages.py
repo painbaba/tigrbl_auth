@@ -1,7 +1,7 @@
 """Deterministic RFC 9052 COSE structure decoding."""
 
 from dataclasses import dataclass
-from enum import StrEnum
+from tba_primitives_identity.enum_compat import StrEnum
 from typing import Mapping
 
 import cbor2

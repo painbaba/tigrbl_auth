@@ -516,6 +516,13 @@ test = [
     "ssot-registry==0.2.17",
     "tba-profile-communications-identity-bimi[workflow]==0.4.0.dev2",
     "tba-provider-bimi-mark-certificate==0.4.0.dev2",
+    "tba-contracts-dns==0.4.0.dev2",
+    "tba-codec-x509-logotype==0.4.0.dev2",
+    "tba-provider-certificate-evidence==0.4.0.dev2",
+    "tba-capability-communications-identity==0.4.0.dev2",
+    "tba-protocol-bimi==0.4.0.dev2",
+    "tba-protocol-dmarc==0.4.0.dev2",
+    "tba-provider-dns-txt==0.4.0.dev2",
 ]
 examples = [
     "tba-example-oauth-device-authorization-cli==0.1.0",

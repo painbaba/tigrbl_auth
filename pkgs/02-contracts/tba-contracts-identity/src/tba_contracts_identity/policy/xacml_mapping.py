@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from enum import StrEnum
+from tba_primitives_identity.enum_compat import StrEnum
 from typing import Mapping, Sequence
 
 
