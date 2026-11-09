@@ -2,7 +2,7 @@
 
 This manifest is a generated checkpoint projection derived from the SSOT authority policy.
 
-- generated_at: `2026-07-17`
+- generated_at: `2026-11-09`
 - final_release_ready: `False`
 - checkpoint_only: `True`
 - release_gates_passed: `True`

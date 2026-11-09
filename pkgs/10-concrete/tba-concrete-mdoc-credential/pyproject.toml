@@ -1,6 +1,7 @@
 [project]
 name="tba-concrete-mdoc-credential"
 version="0.4.0.dev2"
+description = "Owns the protocol-neutral concrete mdoc digital credential object."
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

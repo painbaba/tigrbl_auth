@@ -12,6 +12,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.monorepo_release import (
+    TESTKIT_ROOT_EXTRAS,
     _local_dependency_closure,
     _materialize_testkit_interop_artifacts,
     _root_project_package,
@@ -301,3 +302,16 @@ def test_monorepo_release_materializes_testkit_interop_templates_with_isolated_p
     assert "materialize_external_handoff_templates" in args[2]
     assert cwd == ROOT
     assert check is True
+
+
+
+def test_testkit_wheel_closure_includes_local_compatibility_packages_and_extras() -> None:
+    names = {
+        package.name
+        for package in _local_dependency_closure(
+            _root_project_package(), extras=TESTKIT_ROOT_EXTRAS
+        )
+    }
+    assert "tba-provider-security-cose" in names
+    assert "tba-contracts-dns" in names
+    assert "tba-profile-communications-identity-bimi" in names
