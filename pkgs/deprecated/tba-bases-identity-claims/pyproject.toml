@@ -12,6 +12,7 @@ readme = "README.md"
 description = "Deprecated compatibility facade; use tba-bases-claim instead."
 name="tba-bases-identity-claims"
 version = "0.4.0.dev3"
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 dependencies=["tba-bases-claim==0.4.0.dev2"]
 [build-system]
