@@ -634,7 +634,6 @@ tba-codec-cid = { path = "pkgs/03-codecs/tba-codec-cid", editable = true }
 tba-codec-dag-cbor = { path = "pkgs/03-codecs/tba-codec-dag-cbor", editable = true }
 tba-codec-jcs = { path = "pkgs/03-codecs/tba-codec-jcs", editable = true }
 tba-codec-multibase = { path = "pkgs/03-codecs/tba-codec-multibase", editable = true }
-tigrbl = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/80_facade/tigrbl" }
 tba-contracts-release = { path = "pkgs/02-contracts/tba-contracts-release", editable = true }
 tba-certification-release = { path = "pkgs/60-runtime/tba-certification-release", editable = true }
 tba-contracts-security-trust = { path = "pkgs/02-contracts/tba-contracts-security-trust", editable = true }
@@ -1015,8 +1014,6 @@ tba-operator-identity = { path = "pkgs/60-runtime/tba-operator-identity", editab
 tba-runtime-identity = { path = "pkgs/60-runtime/tba-runtime-identity", editable = true }
 tba-server-identity = { path = "pkgs/60-runtime/tba-server-identity", editable = true }
 tba-storage-core = { path = "pkgs/01-storage/tba-storage-core", editable = true }
-tigrbl-migrations = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/10_core/tigrbl_migrations" }
-tigrbl-ops-realtime = { git = "https://github.com/tigrbl/tigrbl.git", rev = "a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421", subdirectory = "pkgs/60_ops/tigrbl_ops_realtime" }
 tba-storage-access-governance = { path = "pkgs/01-storage/tba-storage-access-governance", editable = true }
 tba-storage-attestation = { path = "pkgs/01-storage/tba-storage-attestation", editable = true }
 tba-storage-audit = { path = "pkgs/01-storage/tba-storage-audit", editable = true }
