@@ -1,0 +1,29 @@
+[project]
+name = "tba-protocol-ucan"
+version = "0.4.0.dev2"
+description = "UCAN delegation and invocation verification for the TBA Ed25519 development profile."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+]
+license = "Apache-2.0"
+dependencies = [
+    "cryptography>=45",
+    "tba-codec-cid==0.4.0.dev2",
+    "tba-codec-dag-cbor==0.4.0.dev2",
+    "tba-codec-multibase==0.4.0.dev2",
+    "tba-contracts-replay==0.4.0.dev2",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_protocol_ucan", from = "src" }]

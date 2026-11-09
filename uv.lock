@@ -39,6 +39,15 @@ wheels = [
 ]
 
 [[package]]
+name = "asn1crypto"
+version = "1.5.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/de/cf/d547feed25b5244fcb9392e288ff9fdc3280b10260362fc45d37a798a6ee/asn1crypto-1.5.1.tar.gz", hash = "sha256:13ae38502be632115abf8a24cbe5f4da52e3b5231990aff31123c805306ccb9c", size = 121080, upload-time = "2022-03-15T14:46:52.889Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c9/7f/09065fd9e27da0eda08b4d6897f1c13535066174cc023af248fc2a8d5e5a/asn1crypto-1.5.1-py2.py3-none-any.whl", hash = "sha256:db4e40728b728508912cbb3d44f19ce188f218e9eba635821bb4b68564f8fd67", size = 105045, upload-time = "2022-03-15T14:46:51.055Z" },
+]
+
+[[package]]
 name = "async-timeout"
 version = "5.0.1"
 source = { registry = "https://pypi.org/simple" }
@@ -534,6 +543,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/f3/6d/73557ed0ef7d73d04d9aba745d2c8e95218213687ee5e76b7d236a5030fc/cryptography-46.0.6-pp311-pypy311_pp73-manylinux_2_34_aarch64.whl", hash = "sha256:50575a76e2951fe7dbd1f56d181f8c5ceeeb075e9ff88e7ad997d2f42af06e7b", size = 4217595, upload-time = "2026-03-25T23:34:44.205Z" },
     { url = "https://files.pythonhosted.org/packages/9e/c5/e1594c4eec66a567c3ac4400008108a415808be2ce13dcb9a9045c92f1a0/cryptography-46.0.6-pp311-pypy311_pp73-manylinux_2_34_x86_64.whl", hash = "sha256:90e5f0a7b3be5f40c3a0a0eafb32c681d8d2c181fc2a1bdabe9b3f611d9f6b1a", size = 4380912, upload-time = "2026-03-25T23:34:46.328Z" },
     { url = "https://files.pythonhosted.org/packages/1a/89/843b53614b47f97fe1abc13f9a86efa5ec9e275292c457af1d4a60dc80e0/cryptography-46.0.6-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:6728c49e3b2c180ef26f8e9f0a883a2c585638db64cf265b49c9ba10652d430e", size = 3409955, upload-time = "2026-03-25T23:34:48.465Z" },
+]
+
+[[package]]
+name = "defusedxml"
+version = "0.7.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69", size = 75520, upload-time = "2021-03-08T10:59:26.269Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61", size = 25604, upload-time = "2021-03-08T10:59:24.45Z" },
 ]
 
 [[package]]
@@ -1599,6 +1617,19 @@ wheels = [
 ]
 
 [[package]]
+name = "pyopenssl"
+version = "25.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "typing-extensions", marker = "python_full_version < '3.13'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/80/be/97b83a464498a79103036bc74d1038df4a7ef0e402cfaf4d5e113fb14759/pyopenssl-25.3.0.tar.gz", hash = "sha256:c981cb0a3fd84e8602d7afc209522773b94c1c2446a3c710a75b06fe1beae329", size = 184073, upload-time = "2025-09-17T00:32:21.037Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d1/81/ef2b1dfd1862567d573a4fdbc9f969067621764fbb74338496840a1d2977/pyopenssl-25.3.0-py3-none-any.whl", hash = "sha256:1fda6fc034d5e3d179d39e59c1895c9faeaf40a79de5fc4cbbfbe0d36f4a77b6", size = 57268, upload-time = "2025-09-17T00:32:19.474Z" },
+]
+
+[[package]]
 name = "pyproject-api"
 version = "1.10.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2300,6 +2331,118 @@ requires-dist = [
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-access-governance-memory", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-capability-communications-identity"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/40-capabilities/tba-capability-communications-identity" }
+dependencies = [
+    { name = "tba-concrete-capability" },
+    { name = "tba-contracts-identity" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "tba-concrete-capability", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-codec-x509-logotype"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-x509-logotype" }
+dependencies = [
+    { name = "asn1crypto" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "asn1crypto", specifier = "==1.5.1" }]
+
+[[package]]
+name = "tba-contracts-dns"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/02-contracts/tba-contracts-dns" }
+dependencies = [
+    { name = "idna" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "idna", specifier = ">=3,<4" }]
+
+[[package]]
+name = "tba-profile-communications-identity-bimi"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/55-profiles/tba-profile-communications-identity-bimi" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "tba-contracts-dns" },
+    { name = "tba-contracts-security-trust" },
+    { name = "tba-protocol-bimi" },
+    { name = "tba-protocol-dmarc" },
+]
+
+[package.optional-dependencies]
+workflow = [
+    { name = "tba-capability-communications-identity" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", specifier = ">=46" },
+    { name = "tba-capability-communications-identity", marker = "extra == 'workflow'", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
+    { name = "tba-protocol-bimi", specifier = "==0.4.0.dev2" },
+    { name = "tba-protocol-dmarc", specifier = "==0.4.0.dev2" },
+]
+provides-extras = ["workflow"]
+
+[[package]]
+name = "tba-protocol-bimi"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-bimi" }
+dependencies = [
+    { name = "defusedxml" },
+    { name = "tba-codec-x509-logotype" },
+    { name = "tba-contracts-dns" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "defusedxml", specifier = "==0.7.1" },
+    { name = "tba-codec-x509-logotype", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-protocol-dmarc"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-dmarc" }
+dependencies = [
+    { name = "tba-contracts-dns" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-contracts-dns", specifier = "==0.4.0.dev2" }]
+
+[[package]]
+name = "tba-protocol-zcap"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-zcap" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "tba-codec-jcs" },
+    { name = "tba-codec-multibase" },
+    { name = "tba-contracts-replay" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", specifier = ">=45" },
+    { name = "tba-codec-jcs", specifier = "==0.4.0.dev2" },
+    { name = "tba-codec-multibase", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-replay", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -3106,6 +3249,7 @@ dependencies = [
     { name = "tba-concrete-claim-subject" },
     { name = "tba-concrete-cwt" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
@@ -3122,6 +3266,7 @@ requires-dist = [
     { name = "tba-concrete-claim-subject", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-cwt", specifier = "==0.4.0.dev3" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -3424,6 +3569,27 @@ requires-dist = [
 ]
 
 [[package]]
+name = "tba-protocol-ucan"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/50-protocols/tba-protocol-ucan" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "tba-codec-cid" },
+    { name = "tba-codec-dag-cbor" },
+    { name = "tba-codec-multibase" },
+    { name = "tba-contracts-replay" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", specifier = ">=45" },
+    { name = "tba-codec-cid", specifier = "==0.4.0.dev2" },
+    { name = "tba-codec-dag-cbor", specifier = "==0.4.0.dev2" },
+    { name = "tba-codec-multibase", specifier = "==0.4.0.dev2" },
+    { name = "tba-contracts-replay", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
 name = "tba-protocol-webauthn"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/50-protocols/tba-protocol-webauthn" }
@@ -3465,6 +3631,55 @@ requires-dist = [
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-release", specifier = "==0.1.0" },
     { name = "tba-runtime-identity", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-provider-bimi-mark-certificate"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/20-providers/tba-provider-bimi-mark-certificate" }
+dependencies = [
+    { name = "cryptography" },
+    { name = "tba-contracts-security-trust" },
+    { name = "tba-provider-certificate-evidence" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cryptography", specifier = ">=46" },
+    { name = "tba-contracts-security-trust", specifier = "==0.1.0" },
+    { name = "tba-provider-certificate-evidence", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-provider-certificate-evidence"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/20-providers/tba-provider-certificate-evidence" }
+dependencies = [
+    { name = "asn1crypto" },
+    { name = "cryptography" },
+    { name = "pyopenssl" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "asn1crypto", specifier = "==1.5.1" },
+    { name = "cryptography", specifier = ">=46" },
+    { name = "pyopenssl", specifier = ">=25.3,<26" },
+]
+
+[[package]]
+name = "tba-provider-dns-txt"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/20-providers/tba-provider-dns-txt" }
+dependencies = [
+    { name = "dnspython" },
+    { name = "tba-contracts-dns" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "dnspython", specifier = ">=2.7,<3" },
+    { name = "tba-contracts-dns", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -3868,6 +4083,10 @@ dependencies = [
     { name = "tba-client-authorization-administration" },
     { name = "tba-client-policy-decision" },
     { name = "tba-client-relying-party-session" },
+    { name = "tba-codec-cid" },
+    { name = "tba-codec-dag-cbor" },
+    { name = "tba-codec-jcs" },
+    { name = "tba-codec-multibase" },
     { name = "tba-concrete-acr-evaluator-basic" },
     { name = "tba-concrete-administrator-identity" },
     { name = "tba-concrete-amr-evaluator-basic" },
@@ -4090,10 +4309,12 @@ dependencies = [
     { name = "tba-protocol-security-jose" },
     { name = "tba-protocol-security-jwe" },
     { name = "tba-protocol-security-jws" },
+    { name = "tba-protocol-ucan" },
     { name = "tba-protocol-webauthn" },
     { name = "tba-protocol-workload-spiffe-broker-api" },
     { name = "tba-protocol-workload-spiffe-svid" },
     { name = "tba-protocol-workload-spiffe-workload-api" },
+    { name = "tba-protocol-zcap" },
     { name = "tba-provider-access-governance-memory" },
     { name = "tba-provider-attestation-appraiser" },
     { name = "tba-provider-attestation-packed" },
@@ -4234,6 +4455,17 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
+bimi = [
+    { name = "tba-capability-communications-identity" },
+    { name = "tba-codec-x509-logotype" },
+    { name = "tba-contracts-dns" },
+    { name = "tba-profile-communications-identity-bimi", extra = ["workflow"] },
+    { name = "tba-protocol-bimi" },
+    { name = "tba-protocol-dmarc" },
+    { name = "tba-provider-bimi-mark-certificate" },
+    { name = "tba-provider-certificate-evidence" },
+    { name = "tba-provider-dns-txt" },
+]
 examples = [
     { name = "tba-example-oauth-device-authorization-cli" },
 ]
@@ -4259,6 +4491,15 @@ test = [
     { name = "pytest-xdist" },
     { name = "requests" },
     { name = "ssot-registry" },
+    { name = "tba-capability-communications-identity" },
+    { name = "tba-codec-x509-logotype" },
+    { name = "tba-contracts-dns" },
+    { name = "tba-profile-communications-identity-bimi", extra = ["workflow"] },
+    { name = "tba-protocol-bimi" },
+    { name = "tba-protocol-dmarc" },
+    { name = "tba-provider-bimi-mark-certificate" },
+    { name = "tba-provider-certificate-evidence" },
+    { name = "tba-provider-dns-txt" },
 ]
 tigrcorn = [
     { name = "tba-runtime-identity", extra = ["tigrcorn"] },
@@ -4363,6 +4604,8 @@ requires-dist = [
     { name = "tba-capability-authorization-request-staging", editable = "pkgs/40-capabilities/tba-capability-authorization-request-staging" },
     { name = "tba-capability-client-registration", editable = "pkgs/40-capabilities/tba-capability-client-registration" },
     { name = "tba-capability-client-secret-authentication", editable = "pkgs/40-capabilities/tba-capability-client-secret-authentication" },
+    { name = "tba-capability-communications-identity", marker = "extra == 'bimi'", editable = "pkgs/40-capabilities/tba-capability-communications-identity" },
+    { name = "tba-capability-communications-identity", marker = "extra == 'test'", editable = "pkgs/40-capabilities/tba-capability-communications-identity" },
     { name = "tba-capability-delegated-access-negotiation", editable = "pkgs/40-capabilities/tba-capability-delegated-access-negotiation" },
     { name = "tba-capability-digital-credential-issuance", editable = "pkgs/40-capabilities/tba-capability-digital-credential-issuance" },
     { name = "tba-capability-digital-credential-presentation", editable = "pkgs/40-capabilities/tba-capability-digital-credential-presentation" },
@@ -4397,6 +4640,12 @@ requires-dist = [
     { name = "tba-client-authorization-administration", editable = "pkgs/75-clients/tba-client-authorization-administration" },
     { name = "tba-client-policy-decision", editable = "pkgs/75-clients/tba-client-policy-decision" },
     { name = "tba-client-relying-party-session", editable = "pkgs/75-clients/tba-client-relying-party-session" },
+    { name = "tba-codec-cid", editable = "pkgs/03-codecs/tba-codec-cid" },
+    { name = "tba-codec-dag-cbor", editable = "pkgs/03-codecs/tba-codec-dag-cbor" },
+    { name = "tba-codec-jcs", editable = "pkgs/03-codecs/tba-codec-jcs" },
+    { name = "tba-codec-multibase", editable = "pkgs/03-codecs/tba-codec-multibase" },
+    { name = "tba-codec-x509-logotype", marker = "extra == 'bimi'", editable = "pkgs/03-codecs/tba-codec-x509-logotype" },
+    { name = "tba-codec-x509-logotype", marker = "extra == 'test'", editable = "pkgs/03-codecs/tba-codec-x509-logotype" },
     { name = "tba-concrete-acr-evaluator-basic", editable = "pkgs/10-concrete/tba-concrete-acr-evaluator-basic" },
     { name = "tba-concrete-administrator-identity", editable = "pkgs/10-concrete/tba-concrete-administrator-identity" },
     { name = "tba-concrete-amr-evaluator-basic", editable = "pkgs/10-concrete/tba-concrete-amr-evaluator-basic" },
@@ -4549,6 +4798,8 @@ requires-dist = [
     { name = "tba-contracts-claim", editable = "pkgs/02-contracts/tba-contracts-claim" },
     { name = "tba-contracts-did", editable = "pkgs/02-contracts/tba-contracts-did" },
     { name = "tba-contracts-digital-credential", editable = "pkgs/02-contracts/tba-contracts-digital-credential" },
+    { name = "tba-contracts-dns", marker = "extra == 'bimi'", editable = "pkgs/02-contracts/tba-contracts-dns" },
+    { name = "tba-contracts-dns", marker = "extra == 'test'", editable = "pkgs/02-contracts/tba-contracts-dns" },
     { name = "tba-contracts-identity", editable = "pkgs/02-contracts/tba-contracts-identity" },
     { name = "tba-contracts-identity-assurance", editable = "pkgs/02-contracts/tba-contracts-identity-assurance" },
     { name = "tba-contracts-identity-document", editable = "pkgs/02-contracts/tba-contracts-identity-document" },
@@ -4591,6 +4842,8 @@ requires-dist = [
     { name = "tba-operator-identity", editable = "pkgs/60-runtime/tba-operator-identity" },
     { name = "tba-plugin-tigrbl", editable = "pkgs/60-runtime/tba-plugin-tigrbl" },
     { name = "tba-primitives-identity", editable = "pkgs/00-primitives/tba-primitives-identity" },
+    { name = "tba-profile-communications-identity-bimi", extras = ["workflow"], marker = "extra == 'bimi'", editable = "pkgs/55-profiles/tba-profile-communications-identity-bimi" },
+    { name = "tba-profile-communications-identity-bimi", extras = ["workflow"], marker = "extra == 'test'", editable = "pkgs/55-profiles/tba-profile-communications-identity-bimi" },
     { name = "tba-profile-credential-sd-jwt-vc", editable = "pkgs/55-profiles/tba-profile-credential-sd-jwt-vc" },
     { name = "tba-profile-credential-vc-jose-cose", editable = "pkgs/55-profiles/tba-profile-credential-vc-jose-cose" },
     { name = "tba-profile-fido2-server", editable = "pkgs/55-profiles/tba-profile-fido2-server" },
@@ -4603,9 +4856,13 @@ requires-dist = [
     { name = "tba-protocol-attestation-corim", editable = "pkgs/50-protocols/tba-protocol-attestation-corim" },
     { name = "tba-protocol-attestation-eat", editable = "pkgs/50-protocols/tba-protocol-attestation-eat" },
     { name = "tba-protocol-authzen", editable = "pkgs/50-protocols/tba-protocol-authzen" },
+    { name = "tba-protocol-bimi", marker = "extra == 'bimi'", editable = "pkgs/50-protocols/tba-protocol-bimi" },
+    { name = "tba-protocol-bimi", marker = "extra == 'test'", editable = "pkgs/50-protocols/tba-protocol-bimi" },
     { name = "tba-protocol-credential-iso-mdoc", editable = "pkgs/50-protocols/tba-protocol-credential-iso-mdoc" },
     { name = "tba-protocol-credential-w3c-vcdm", editable = "pkgs/50-protocols/tba-protocol-credential-w3c-vcdm" },
     { name = "tba-protocol-cwt", editable = "pkgs/50-protocols/tba-protocol-cwt" },
+    { name = "tba-protocol-dmarc", marker = "extra == 'bimi'", editable = "pkgs/50-protocols/tba-protocol-dmarc" },
+    { name = "tba-protocol-dmarc", marker = "extra == 'test'", editable = "pkgs/50-protocols/tba-protocol-dmarc" },
     { name = "tba-protocol-gnap", editable = "pkgs/50-protocols/tba-protocol-gnap" },
     { name = "tba-protocol-identity-did-core", editable = "pkgs/50-protocols/tba-protocol-identity-did-core" },
     { name = "tba-protocol-jwt", editable = "pkgs/50-protocols/tba-protocol-jwt" },
@@ -4620,10 +4877,12 @@ requires-dist = [
     { name = "tba-protocol-security-jose", editable = "pkgs/50-protocols/tba-protocol-security-jose" },
     { name = "tba-protocol-security-jwe", editable = "pkgs/50-protocols/tba-protocol-security-jwe" },
     { name = "tba-protocol-security-jws", editable = "pkgs/50-protocols/tba-protocol-security-jws" },
+    { name = "tba-protocol-ucan", editable = "pkgs/50-protocols/tba-protocol-ucan" },
     { name = "tba-protocol-webauthn", editable = "pkgs/50-protocols/tba-protocol-webauthn" },
     { name = "tba-protocol-workload-spiffe-broker-api", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-broker-api" },
     { name = "tba-protocol-workload-spiffe-svid", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-svid" },
     { name = "tba-protocol-workload-spiffe-workload-api", editable = "pkgs/50-protocols/tba-protocol-workload-spiffe-workload-api" },
+    { name = "tba-protocol-zcap", editable = "pkgs/50-protocols/tba-protocol-zcap" },
     { name = "tba-provider-access-governance-memory", editable = "pkgs/20-providers/tba-provider-access-governance-memory" },
     { name = "tba-provider-attestation-appraiser", editable = "pkgs/20-providers/tba-provider-attestation-appraiser" },
     { name = "tba-provider-attestation-packed", editable = "pkgs/20-providers/tba-provider-attestation-packed" },
@@ -4646,6 +4905,10 @@ requires-dist = [
     { name = "tba-provider-authenticator-session-local", editable = "pkgs/20-providers/tba-provider-authenticator-session-local" },
     { name = "tba-provider-authorization-policy-decision-engine", editable = "pkgs/20-providers/tba-provider-authorization-policy-decision-engine" },
     { name = "tba-provider-authorization-resource-server-verifier", editable = "pkgs/20-providers/tba-provider-authorization-resource-server-verifier" },
+    { name = "tba-provider-bimi-mark-certificate", marker = "extra == 'bimi'", editable = "pkgs/20-providers/tba-provider-bimi-mark-certificate" },
+    { name = "tba-provider-bimi-mark-certificate", marker = "extra == 'test'", editable = "pkgs/20-providers/tba-provider-bimi-mark-certificate" },
+    { name = "tba-provider-certificate-evidence", marker = "extra == 'bimi'", editable = "pkgs/20-providers/tba-provider-certificate-evidence" },
+    { name = "tba-provider-certificate-evidence", marker = "extra == 'test'", editable = "pkgs/20-providers/tba-provider-certificate-evidence" },
     { name = "tba-provider-certificate-path-validator", editable = "pkgs/20-providers/tba-provider-certificate-path-validator" },
     { name = "tba-provider-certificate-status", editable = "pkgs/20-providers/tba-provider-certificate-status" },
     { name = "tba-provider-claims-local", editable = "pkgs/20-providers/tba-provider-claims-local" },
@@ -4655,6 +4918,8 @@ requires-dist = [
     { name = "tba-provider-did-resolver", editable = "pkgs/20-providers/tba-provider-did-resolver" },
     { name = "tba-provider-digital-credential-status", editable = "pkgs/20-providers/tba-provider-digital-credential-status" },
     { name = "tba-provider-digital-credential-trust", editable = "pkgs/20-providers/tba-provider-digital-credential-trust" },
+    { name = "tba-provider-dns-txt", marker = "extra == 'bimi'", editable = "pkgs/20-providers/tba-provider-dns-txt" },
+    { name = "tba-provider-dns-txt", marker = "extra == 'test'", editable = "pkgs/20-providers/tba-provider-dns-txt" },
     { name = "tba-provider-eat-verifier", editable = "pkgs/20-providers/tba-provider-eat-verifier" },
     { name = "tba-provider-fido-metadata-service", editable = "pkgs/20-providers/tba-provider-fido-metadata-service" },
     { name = "tba-provider-identity-administration-relationship-graph", editable = "pkgs/20-providers/tba-provider-identity-administration-relationship-graph" },
@@ -4750,23 +5015,23 @@ requires-dist = [
     { name = "tba-storage-workload-identity", editable = "pkgs/01-storage/tba-storage-workload-identity" },
     { name = "tba-testkit-identity", editable = "pkgs/120-tests/tba-testkit-identity" },
     { name = "tba-testkit-workload-credential-conformance", editable = "pkgs/120-tests/tba-testkit-workload-credential-conformance" },
-    { name = "tigrbl", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F80_facade%2Ftigrbl&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" },
+    { name = "tigrbl", specifier = "==0.4.5.dev8" },
     { name = "tigrbl-atoms", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-base", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-canon", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-concrete", specifier = "==0.4.5.dev8" },
     { name = "tigrbl-core", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-kernel", specifier = "==0.4.5.dev6" },
-    { name = "tigrbl-migrations", editable = "../tigrbl/pkgs/10_core/tigrbl_migrations" },
+    { name = "tigrbl-migrations", specifier = "==0.4.5.dev6" },
     { name = "tigrbl-ops-olap", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-ops-oltp", specifier = "==0.4.5.dev4" },
-    { name = "tigrbl-ops-realtime", git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" },
+    { name = "tigrbl-ops-realtime", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-orm", specifier = "==0.4.5.dev4" },
     { name = "tigrbl-runtime", specifier = "==0.4.5.dev8" },
     { name = "tigrbl-typing", specifier = "==0.4.5.dev4" },
     { name = "tomli", marker = "python_full_version < '3.11'", specifier = "==2.4.0" },
 ]
-provides-extras = ["test", "examples", "postgres", "sqlite", "uvicorn", "hypercorn", "tigrcorn", "servers"]
+provides-extras = ["bimi", "test", "examples", "postgres", "sqlite", "uvicorn", "hypercorn", "tigrcorn", "servers"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -5337,6 +5602,48 @@ requires-dist = [
     { name = "tba-provider-security-token-jwks-cache", specifier = "==0.1.0" },
     { name = "tba-provider-token-introspection", specifier = "==0.1.0" },
 ]
+
+[[package]]
+name = "tba-codec-cid"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-cid" }
+dependencies = [
+    { name = "tba-codec-multibase" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-codec-multibase", specifier = "==0.4.0.dev2" }]
+
+[[package]]
+name = "tba-codec-dag-cbor"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-dag-cbor" }
+dependencies = [
+    { name = "cbor2" },
+    { name = "tba-codec-cid" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cbor2", specifier = "==6.1.3" },
+    { name = "tba-codec-cid", specifier = "==0.4.0.dev2" },
+]
+
+[[package]]
+name = "tba-codec-jcs"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-jcs" }
+dependencies = [
+    { name = "rfc8785" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "rfc8785", specifier = ">=0.1.4,<0.2" }]
+
+[[package]]
+name = "tba-codec-multibase"
+version = "0.4.0.dev2"
+source = { editable = "pkgs/03-codecs/tba-codec-multibase" }
 
 [[package]]
 name = "tba-concrete-capability"
@@ -6639,10 +6946,14 @@ version = "0.4.0.dev2"
 source = { editable = "pkgs/10-concrete/tba-concrete-cose" }
 dependencies = [
     { name = "cbor2" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "cbor2", specifier = "==6.1.3" }]
+requires-dist = [
+    { name = "cbor2", specifier = "==6.1.3" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
+]
 
 [[package]]
 name = "tba-provider-cose-cryptography"
@@ -6836,6 +7147,7 @@ dependencies = [
     { name = "tba-concrete-mdoc" },
     { name = "tba-concrete-mdoc-credential" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
     { name = "tba-provider-mdoc-issuer" },
     { name = "tba-provider-mdoc-verifier" },
 ]
@@ -6846,6 +7158,7 @@ requires-dist = [
     { name = "tba-concrete-mdoc", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-mdoc-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-mdoc-issuer", specifier = "==0.4.0.dev2" },
     { name = "tba-provider-mdoc-verifier", specifier = "==0.4.0.dev2" },
 ]
@@ -6857,12 +7170,14 @@ source = { editable = "pkgs/50-protocols/tba-protocol-credential-w3c-vcdm" }
 dependencies = [
     { name = "tba-concrete-verifiable-credential" },
     { name = "tba-concrete-verifiable-presentation" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-concrete-verifiable-credential", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-verifiable-presentation", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -7039,6 +7354,12 @@ requires-dist = [{ name = "tba-contracts-identity", specifier = "==0.4.0.dev2" }
 name = "tba-contracts-did"
 version = "0.4.0.dev2"
 source = { editable = "pkgs/02-contracts/tba-contracts-did" }
+dependencies = [
+    { name = "tba-primitives-identity" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-primitives-identity", specifier = "==0.4.0.dev2" }]
 
 [[package]]
 name = "tba-provider-did-controller"
@@ -7207,6 +7528,7 @@ dependencies = [
     { name = "tba-concrete-claim-ueid" },
     { name = "tba-concrete-eat-evidence" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
@@ -7218,6 +7540,7 @@ requires-dist = [
     { name = "tba-concrete-claim-ueid", specifier = "==0.4.0.dev2" },
     { name = "tba-concrete-eat-evidence", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9785,12 +10108,14 @@ source = { editable = "pkgs/50-protocols/tba-protocol-security-jose" }
 dependencies = [
     { name = "tba-concrete-jose" },
     { name = "tba-contracts-identity" },
+    { name = "tba-primitives-identity" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "tba-concrete-jose", specifier = "==0.4.0.dev2" },
     { name = "tba-contracts-identity", specifier = "==0.4.0.dev2" },
+    { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
 [[package]]
@@ -9912,6 +10237,12 @@ requires-dist = [
 name = "tba-contracts-security-trust"
 version = "0.1.0"
 source = { editable = "pkgs/02-contracts/tba-contracts-security-trust" }
+dependencies = [
+    { name = "tba-primitives-identity" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "tba-primitives-identity", specifier = "==0.4.0.dev2" }]
 
 [[package]]
 name = "tba-bases-security-trust-domain"
@@ -10685,7 +11016,7 @@ requires-dist = [{ name = "tba-bases-digital-credential", specifier = "==0.4.0.d
 [[package]]
 name = "tigrbl"
 version = "0.4.5.dev8"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F80_facade%2Ftigrbl&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiosqlite" },
     { name = "greenlet" },
@@ -10702,11 +11033,15 @@ dependencies = [
     { name = "tigrbl-orm" },
     { name = "tigrbl-runtime" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/b7/c8/091ea4e5e30d918571a92125dbabbfb9ebb481a795ce70677f8d9c5d0208/tigrbl-0.4.5.dev8.tar.gz", hash = "sha256:8a8812d768d7d34156f775b6012424651b9d8bdb1dae45ac76123fbd4ac1d3b2", size = 64050, upload-time = "2026-11-04T06:43:29.656Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/64/93/76a6b26f4b879afccbfcc3100f604103d06b91a8650ae14f5e5309cf9eb9/tigrbl-0.4.5.dev8-py3-none-any.whl", hash = "sha256:d014bdda38dd2b72a9b584d9341e8c320bbbffdaab779f9565a66d9df3abc55a", size = 80156, upload-time = "2026-11-04T06:43:28.596Z" },
+]
 
 [[package]]
 name = "tigrbl-atoms"
 version = "0.4.5.dev6"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F40_atoms%2Ftigrbl_atoms&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jinja2" },
     { name = "sqlalchemy" },
@@ -10718,22 +11053,30 @@ dependencies = [
     { name = "tigrbl-typing" },
     { name = "typing-extensions" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/ae/9e/b1bc9a2d0daffb7a274d60d93e57a6d3b172ee91169a8dfc5dced3034615/tigrbl_atoms-0.4.5.dev6.tar.gz", hash = "sha256:096d3b53a698c862c4c54789d87a0d6f07ee7691c17bdb2f65009e9de0fe935f", size = 127611, upload-time = "2026-11-04T06:43:28.296Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0d/99/0aa4e07c48afcb6613853139458ab1f7662c951fe82c5373bfe19f9244ec/tigrbl_atoms-0.4.5.dev6-py3-none-any.whl", hash = "sha256:ca341dee346dc8b14c354c254dde6f617fd3ee297eca4baf2e542d9512ca829f", size = 206181, upload-time = "2026-11-04T06:43:27.065Z" },
+]
 
 [[package]]
 name = "tigrbl-base"
 version = "0.4.5.dev6"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F20_base%2Ftigrbl_base&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "sqlalchemy" },
     { name = "tigrbl-atoms" },
     { name = "tigrbl-core" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/45/a7/bf5416bae1f8091bea18cb06f8c5df253237ccca589b205f059db9938392/tigrbl_base-0.4.5.dev6.tar.gz", hash = "sha256:7f344e2dee522ee7587975526d8c8cdd65dd98ef894e1cd6f96a7666d0c8fded", size = 42503, upload-time = "2026-11-03T23:13:35.317Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/46/4e/7725869c6988b0d8e6d32d843c999f1e5619e220fc844bd2eb480ea03129/tigrbl_base-0.4.5.dev6-py3-none-any.whl", hash = "sha256:add3203852973c5b9a68270c2591692c9ab83babf2a2080c659bc10d6e23c8d7", size = 51190, upload-time = "2026-11-03T23:13:34.282Z" },
+]
 
 [[package]]
 name = "tigrbl-canon"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F99_deprecated%2Ftigrbl_canon&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tigrbl" },
     { name = "tigrbl-atoms" },
@@ -10743,11 +11086,15 @@ dependencies = [
     { name = "tigrbl-ops-oltp" },
     { name = "tigrbl-runtime" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/68/e3/388d683906d1ab3c86c2748155b51cefddcd238e84d509f7d6d7490e4a94/tigrbl_canon-0.4.5.dev4.tar.gz", hash = "sha256:7e5d6618771ef12466e110554af0e5c9df76c3eeba242b37c2caa5a96e8d9020", size = 64883, upload-time = "2026-06-27T11:07:45.816Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/37/fc/0154fa087c342f6f4cba8905bb121ba5513e7492eab53c8786bc7afc32b3/tigrbl_canon-0.4.5.dev4-py3-none-any.whl", hash = "sha256:0f81118d5e3af934f474bd12be8b16a23741f7e78b1b1cd586aef30dc9076343", size = 90595, upload-time = "2026-06-27T11:07:44.887Z" },
+]
 
 [[package]]
 name = "tigrbl-concrete"
 version = "0.4.5.dev8"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F70_concrete%2Ftigrbl_concrete&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "orjson" },
     { name = "pydantic" },
@@ -10763,11 +11110,15 @@ dependencies = [
     { name = "tigrbl-typing" },
     { name = "uvicorn" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/10/29/e4b0951accb131a7646908be64f81c35d4e367684d63c096df76abc64214/tigrbl_concrete-0.4.5.dev8.tar.gz", hash = "sha256:0e0aad45d9a1694ddcc102325d70dadc670be007e8f295fba2294fb1d084fd4f", size = 145559, upload-time = "2026-11-04T06:43:30.006Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/3c/bebcf6739cf2a3cbc385cb45d6abd671340ef44d4ea0f23cab5f5c9722e7/tigrbl_concrete-0.4.5.dev8-py3-none-any.whl", hash = "sha256:253554db3c27fafd9ff49f13a55404b0cb1df3071fa798f8098c7c6d10b83a63", size = 200727, upload-time = "2026-11-04T06:43:28.378Z" },
+]
 
 [[package]]
 name = "tigrbl-core"
 version = "0.4.5.dev6"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F10_core%2Ftigrbl_core&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
     { name = "pyyaml" },
@@ -10776,72 +11127,86 @@ dependencies = [
     { name = "tomli", marker = "python_full_version < '3.11'" },
     { name = "tomli-w" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/ca/e3/086d4d39da7b8b0cc8551b8e1f086f433d654425adf9c49f8948ba8d3635/tigrbl_core-0.4.5.dev6.tar.gz", hash = "sha256:01724980a862e791239301ebece166d6e83b9ac7ba45f5022bacbb39f35e73e3", size = 96396, upload-time = "2026-11-03T23:13:39.524Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/47/fc/f93c59db28443a8f1c93e87a6b507c023cacf344c834d89ee7aa7b093513/tigrbl_core-0.4.5.dev6-py3-none-any.whl", hash = "sha256:2f1f8fbce94fd542c48cc4bb89f21350b7975561ec3dabca76f9fc4e150249a6", size = 118131, upload-time = "2026-11-03T23:13:38.404Z" },
+]
 
 [[package]]
 name = "tigrbl-kernel"
 version = "0.4.5.dev6"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F45_kernel%2Ftigrbl_kernel&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tigrbl-atoms" },
     { name = "tigrbl-core" },
     { name = "tigrbl-typing" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/2c/c7/7123b87ca004687bd9115a4249106cf8c8ddee6f6fd9a311ab5ef7517f52/tigrbl_kernel-0.4.5.dev6.tar.gz", hash = "sha256:a20a71a45066aa5b20c86bdecd2f459a4425bcf5971b83c1d76d3d3480fc31a9", size = 98611, upload-time = "2026-11-04T06:43:33.093Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f8/10/0cbf9df7a14f7641a6469dce544dc1e50c0cab3889f54829a512d0cdcb47/tigrbl_kernel-0.4.5.dev6-py3-none-any.whl", hash = "sha256:b84526340847abd93fdc00f257bbe492f095ee55b1c0de8ff7b5dcd4c89d6612", size = 117299, upload-time = "2026-11-04T06:43:31.636Z" },
+]
 
 [[package]]
 name = "tigrbl-migrations"
-version = "0.4.5.dev4"
-source = { editable = "../tigrbl/pkgs/10_core/tigrbl_migrations" }
+version = "0.4.5.dev6"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "packaging" },
     { name = "tomli", marker = "python_full_version < '3.11'" },
 ]
-
-[package.metadata]
-requires-dist = [
-    { name = "hypothesis", marker = "extra == 'test'", specifier = ">=6" },
-    { name = "packaging", specifier = ">=24" },
-    { name = "pytest", marker = "extra == 'test'", specifier = ">=8" },
-    { name = "tomli", marker = "python_full_version < '3.11'", specifier = ">=2.0" },
+sdist = { url = "https://files.pythonhosted.org/packages/0d/5d/c36b21638078d41e0bba0b5c985e9c2b3d6aea1b07c99a8cbe7668d7ffb3/tigrbl_migrations-0.4.5.dev6.tar.gz", hash = "sha256:c6dc500bcf572200dea6fa0d1d9f739fe5d3182ddfa1b9e00bf0baa0840adc64", size = 17138, upload-time = "2026-10-29T22:07:36.655Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/39/66/b2cd7035dd676997bb914a6e6bd557c49c1b740ffc273d49b51f4f2f8692/tigrbl_migrations-0.4.5.dev6-py3-none-any.whl", hash = "sha256:951bb59bf96f73fb08faa521d865175a472f29a07fe014250d309c35ebd9f5ed", size = 21730, upload-time = "2026-10-29T22:07:35.439Z" },
 ]
-provides-extras = ["test"]
 
 [[package]]
 name = "tigrbl-ops-olap"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_olap&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/18/cf/5726324fd2df310013ebed3a531420ac965aa27c0c49f9518d1d3f1faf58/tigrbl_ops_olap-0.4.5.dev4.tar.gz", hash = "sha256:e2f5e8fcc7b382133f570c2912a768bb664bf4313a2984de5aa7efd4c6d7005e", size = 9577, upload-time = "2026-06-27T11:07:24.088Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3a/af/7ae3c20aebfd8772ecd1cbb1f8d9c40a58c57feb9b3de310dd08b2b604d7/tigrbl_ops_olap-0.4.5.dev4-py3-none-any.whl", hash = "sha256:f5bccd98154a6740e7c56f7610e4ba7b0d839c2c85e557996b84502372f4f189", size = 13544, upload-time = "2026-06-27T11:07:23.026Z" },
+]
 
 [[package]]
 name = "tigrbl-ops-oltp"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_oltp&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tigrbl-base" },
     { name = "tigrbl-core" },
     { name = "tigrbl-orm" },
 ]
-
-[[package]]
-name = "tigrbl-ops-realtime"
-version = "0.4.5.dev5"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_realtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+sdist = { url = "https://files.pythonhosted.org/packages/bf/d3/23c951116a92d366ba6bfd4c7188a3676505f479a8a15c32ca6b3489e23d/tigrbl_ops_oltp-0.4.5.dev4.tar.gz", hash = "sha256:e77b8f1f80e6a0de17c975f77f084588a769a72781f82eb33ef4ae3b31749ec5", size = 23632, upload-time = "2026-06-27T11:07:32.862Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/25/d3/5b881bef8cac7b2e074ebd963cd54b58b7067a7cce44a83291211ac2db15/tigrbl_ops_oltp-0.4.5.dev4-py3-none-any.whl", hash = "sha256:425767c3cc04e4b6fb526cb301a34b30ad5f6e7d253d921a27598f42e2c9186c", size = 26327, upload-time = "2026-06-27T11:07:31.959Z" },
+]
 
 [[package]]
 name = "tigrbl-ops-webtransport"
 version = "0.4.5.dev5"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F60_ops%2Ftigrbl_ops_webtransport&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/a1/9ed3ffff8eadacb6db940c7969d235c14eec494a73d7d99a63dbdc24434f/tigrbl_ops_webtransport-0.4.5.dev5.tar.gz", hash = "sha256:9a7e6373769ed9531bc3d724ee51934dd91ed055426c00854c17347af176d06f", size = 9377, upload-time = "2026-06-27T11:07:40.847Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/45/c5/43ca6341d610242ede3763ba3bb7f7be311a566cbbdf6e4ad7aca39532fe/tigrbl_ops_webtransport-0.4.5.dev5-py3-none-any.whl", hash = "sha256:0e4b3812a572ee8c1d363d2c97e590e0cd0daf5bb7c7a997c35537c4077bc3e1", size = 13522, upload-time = "2026-06-27T11:07:40.07Z" },
+]
 
 [[package]]
 name = "tigrbl-orm"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F30_orm%2Ftigrbl_orm&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "sqlalchemy" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/83/1d/a1bb889bdaf891bb3bf93446b491aef2ec5b50a71576e1101f2224e6180f/tigrbl_orm-0.4.5.dev4.tar.gz", hash = "sha256:59a4ab710321aa1796e8620556a06acc1a561e31089bbc44dd28e715e4427af6", size = 28639, upload-time = "2026-06-27T11:07:26.178Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/eb/5a/5299fdbe441d7289b155519faadcbd0dfe36356353cbedc5adb73b4f101c/tigrbl_orm-0.4.5.dev4-py3-none-any.whl", hash = "sha256:773ec447fa5b9e473c1fe5a261551fb7490369ca7c445051a48c04eda3b06ced", size = 38655, upload-time = "2026-06-27T11:07:25.246Z" },
 ]
 
 [[package]]
 name = "tigrbl-runtime"
 version = "0.4.5.dev8"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F50_runtime%2Ftigrbl_runtime&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "numba" },
     { name = "tigrbl-atoms" },
@@ -10850,22 +11215,34 @@ dependencies = [
     { name = "tigrbl-kernel" },
     { name = "tigrbl-typing" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/33/1f/4049f5c2fafed833bcc40e27608d44c1dde0568f1ca2dcae2185644de82a/tigrbl_runtime-0.4.5.dev8.tar.gz", hash = "sha256:26574e964b9a5fea15ea208540c0d2245598c14b821a032c6fb1c04e1b768082", size = 65622, upload-time = "2026-11-04T06:43:29.582Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/79/76/f69ce309b1375bef9f5ef33444d651edbb8b754f08dabea8f8e95df12d8d/tigrbl_runtime-0.4.5.dev8-py3-none-any.whl", hash = "sha256:0f41ee7a1242e9aec86d3a4d90f05f650acfc1702f6d749d201edd76e25ae6c7", size = 88590, upload-time = "2026-11-04T06:43:28.315Z" },
+]
 
 [[package]]
 name = "tigrbl-spec"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F01_spec%2Ftigrbl_spec&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jsonschema" },
     { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6b/ed/82c782d30f3e6ae5640c02e6cfdfed05e318ad0bf21d7ce6a949d7137553/tigrbl_spec-0.4.5.dev4.tar.gz", hash = "sha256:181ceb8a9e3d4273b4381dd8b2fee50ef6516202e27191fa2a608e0670ea9757", size = 29143, upload-time = "2026-06-27T11:07:25.411Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3c/dd/263e35e7dcdcddb3cde981e926d650d27bb0b9378ac5cab9a2ffc043e566/tigrbl_spec-0.4.5.dev4-py3-none-any.whl", hash = "sha256:c633edb9fecd40fd2308e36fa9c9806c79798b14bb1880800b1a093cd15d2868", size = 48421, upload-time = "2026-06-27T11:07:24.303Z" },
 ]
 
 [[package]]
 name = "tigrbl-typing"
 version = "0.4.5.dev4"
-source = { git = "https://github.com/tigrbl/tigrbl.git?subdirectory=pkgs%2F00_typing%2Ftigrbl_typing&rev=a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421#a2fb7b54042f94a131ac4b1e0092c1e9bdfe0421" }
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/25/f5/f3ed45cbdbd48a5d416d24390bb193a13c946bff47a9272858b385a7ca66/tigrbl_typing-0.4.5.dev4.tar.gz", hash = "sha256:f591d276001053e839f3adb5571a0d7acce6d19cc9b9aa2fcc7ef2585a065866", size = 23611, upload-time = "2026-06-27T11:07:24.344Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ad/1d/d7c261d973b4b0d98db958b5e1634a8a690d42e10a4bcd915225d2928e51/tigrbl_typing-0.4.5.dev4-py3-none-any.whl", hash = "sha256:87cf4d71644437e6272a78b5ed637e98d7aeb835d2b7990c5e6354c4f8f0a21e", size = 28092, upload-time = "2026-06-27T11:07:23.242Z" },
 ]
 
 [[package]]
@@ -11263,6 +11640,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/c7/79/12135bdf8b9c9367b
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a4/f5/10b68b7b1544245097b2a1b8238f66f2fc6dcaeb24ba5d917f52bd2eed4f/wsproto-1.3.2-py3-none-any.whl", hash = "sha256:61eea322cdf56e8cc904bd3ad7573359a242ba65688716b0710a5eb12beab584", size = 24405, upload-time = "2025-11-20T18:18:00.454Z" },
 ]
+
 [[package]]
 name = "tba-concrete-claim-authorization-context"
 version = "0.4.0.dev2"
@@ -11278,3 +11656,20 @@ requires-dist = [
     { name = "tba-primitives-identity", specifier = "==0.4.0.dev2" },
 ]
 
+[[package]]
+name = "rfc8785"
+version = "0.1.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/ef/2f/fa1d2e740c490191b572d33dbca5daa180cb423c24396b856f5886371d8b/rfc8785-0.1.4.tar.gz", hash = "sha256:e545841329fe0eee4f6a3b44e7034343100c12b4ec566dc06ca9735681deb4da", size = 14321, upload-time = "2024-09-27T16:33:31.206Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4d/78/119878110660b2ad709888c8a1614fce7e2fab39080ab960656dc8605bf6/rfc8785-0.1.4-py3-none-any.whl", hash = "sha256:520d690b448ecf0703691c76e1a34a24ddcd4fc5bc41d589cb7c58ec651bcd48", size = 9240, upload-time = "2024-09-27T16:33:29.683Z" },
+]
+
+[[package]]
+name = "tigrbl-ops-realtime"
+version = "0.4.5.dev4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/e6/dd/60a51b3f4782ba271673b6ec65c9205a8a2aa71a92fd47608b9aa6b7e0a3/tigrbl_ops_realtime-0.4.5.dev4.tar.gz", hash = "sha256:001cb1cb2bb0bb365c45cd0d7ad59c9e5b61922783a54426e98f39f71df115c8", size = 9237, upload-time = "2026-06-27T11:07:24.219Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fb/e9/a7b5570509ed70344b62adf40c1e5bfad766e5d305bec5e64d1971d51b7f/tigrbl_ops_realtime-0.4.5.dev4-py3-none-any.whl", hash = "sha256:51435b1616d130a88c4497b50378b03c8e6fe4fb5d14b1a2c969bd8c8b143c29", size = 13305, upload-time = "2026-06-27T11:07:23.162Z" },
+]
