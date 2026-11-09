@@ -1,0 +1,19 @@
+[project]
+name = "tba-provider-certificate-evidence"
+version = "0.4.0.dev2"
+description = "X.509 path, CRL, and RFC 6962 SCT verification."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+    "asn1crypto==1.5.1",
+    "cryptography>=46",
+    "pyOpenSSL>=25.3,<26",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_provider_certificate_evidence", from = "src" }]
