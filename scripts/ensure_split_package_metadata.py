@@ -8,6 +8,7 @@ LAYER_OWNERSHIP = {
     "00-primitives": "dependency-light primitive vocabulary",
     "01-storage": "durable table and migration truth",
     "02-contracts": "protocol-neutral contracts and ports",
+    "03-codecs": "reusable wire encoding and decoding",
     "05-bases": "reusable implementation bases",
     "10-concrete": "deterministic concrete value semantics",
     "20-providers": "environment-backed provider integration",

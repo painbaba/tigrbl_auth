@@ -1,6 +1,8 @@
 [project]
 name="tba-profile-workload-credential-spiffe-wit-svid"
 version="0.4.0.dev2"
+description = "Incubating SPIFFE WIT-SVID profile pinned to the SPIFFE v1.15.1 publication."
+license = { text = "Apache-2.0" }
 requires-python=">=3.10,<3.16"
 classifiers = [
     "Programming Language :: Python :: 3.10",

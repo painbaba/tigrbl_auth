@@ -1,0 +1,18 @@
+[project]
+name = "tba-provider-dns-txt"
+version = "0.4.0.dev2"
+description = "Typed DNS TXT lookup provider."
+readme = "README.md"
+requires-python = ">=3.10,<3.16"
+license = "Apache-2.0"
+dependencies = [
+    "dnspython>=2.7,<3",
+    "tba-contracts-dns==0.4.0.dev2",
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+packages = [{ include = "tba_provider_dns_txt", from = "src" }]
